@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome Fei's documentation, for a demo python/django project!
+Welcome to Fei's documentation, a demo python/django project
 ==================================================
 
 Contents:
