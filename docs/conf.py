@@ -18,6 +18,7 @@ from django.utils import timezone
 import django
 django.setup()
 
+autodoc_mock_imports = ['_tkinter']
 
 def get_version():
     """Return package version from setup.cfg."""
