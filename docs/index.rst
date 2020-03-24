@@ -13,8 +13,6 @@ Contents:
    :glob:
 
    *
-   charpter1.md
-
 
 
 Indices and tables
