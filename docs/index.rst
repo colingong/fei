@@ -12,9 +12,8 @@ Contents:
    :maxdepth: 2
    :glob:
 
-   index.md
-   charpter1.md
    *
+   charpter1.md
 
 
 
