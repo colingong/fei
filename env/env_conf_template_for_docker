@@ -1,0 +1,8 @@
+# environment variabls template
+# for docker container
+
+env_db_host=ip_or_host.com
+env_db_port=3306 <or other port>
+env_db_user=username_for_this_project
+env_db_password=password_for_the_user
+env_db_database=database_for_this_project

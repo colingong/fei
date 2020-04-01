@@ -1,0 +1,20 @@
+Fei: a demo python/django project
+==================================================
+
+Contents:
+
+.. toctree::
+   :maxdepth: 4
+   :glob:
+
+.. automodule:: fei
+
+   intro.md
+   api/*
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

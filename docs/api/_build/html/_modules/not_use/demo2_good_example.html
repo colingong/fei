@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>not_use.demo2_good_example &mdash; Fei Django Demo v0.01 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Fei Django Demo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents/欢迎阅读:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mydocs/intro.html">Fei’s django app demo INTRO / 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">fei</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Fei Django Demo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">模块代码</a> &raquo;</li>
+        
+      <li>not_use.demo2_good_example</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>not_use.demo2_good_example 源代码</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;A rest good example</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<div class="viewcode-block" id="SimpleBleDevice"><a class="viewcode-back" href="../../api/not_use.html#not_use.demo2_good_example.SimpleBleDevice">[文档]</a><span class="k">class</span> <span class="nc">SimpleBleDevice</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is a conceptual class representation of a simple BLE device (GATT Server). It is essentially an extended combination of the :class:`bluepy.btle.Peripheral` and :class:`bluepy.btle.ScanEntry` classes</span>
+
+<span class="sd">    :param client: A handle to the :class:`simpleble.SimpleBleClient` client object that detected the device</span>
+<span class="sd">    :type client: class:`simpleble.SimpleBleClient`</span>
+<span class="sd">    :param addr: Device MAC address, defaults to None</span>
+<span class="sd">    :type addr: str, optional</span>
+<span class="sd">    :param addrType: Device address type - one of ADDR_TYPE_PUBLIC or ADDR_TYPE_RANDOM, defaults to ADDR_TYPE_PUBLIC</span>
+<span class="sd">    :type addrType: str, optional</span>
+<span class="sd">    :param iface: Bluetooth interface number (0 = /dev/hci0) used for the connection, defaults to 0</span>
+<span class="sd">    :type iface: int, optional</span>
+<span class="sd">    :param data: A list of tuples (adtype, description, value) containing the AD type code, human-readable description and value for all available advertising data items, defaults to None</span>
+<span class="sd">    :type data: list, optional</span>
+<span class="sd">    :param rssi: Received Signal Strength Indication for the last received broadcast from the device. This is an integer value measured in dB, where 0 dB is the maximum (theoretical) signal strength, and more negative numbers indicate a weaker signal, defaults to 0</span>
+<span class="sd">    :type rssi: int, optional</span>
+<span class="sd">    :param connectable: `True` if the device supports connections, and `False` otherwise (typically used for advertising ‘beacons’)., defaults to `False`</span>
+<span class="sd">    :type connectable: bool, optional</span>
+<span class="sd">    :param updateCount: Integer count of the number of advertising packets received from the device so far, defaults to 0</span>
+<span class="sd">    :type updateCount: int, optional</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SimpleBleDevice.__init__"><a class="viewcode-back" href="../../api/not_use.html#not_use.demo2_good_example.SimpleBleDevice.__init__">[文档]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">addrType</span><span class="o">=</span><span class="s1">&#39;aad&#39;</span><span class="p">,</span> <span class="n">iface</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rssi</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">connectable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">updateCount</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Constructor method</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addr</span> <span class="o">=</span> <span class="n">addr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addrType</span> <span class="o">=</span> <span class="n">addrType</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iface</span> <span class="o">=</span> <span class="n">iface</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rssi</span> <span class="o">=</span> <span class="n">rssi</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connectable</span> <span class="o">=</span> <span class="n">connectable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updateCount</span> <span class="o">=</span> <span class="n">updateCount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_connected</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_services</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_characteristics</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">client</span></div>
+
+<div class="viewcode-block" id="SimpleBleDevice.getServices"><a class="viewcode-back" href="../../api/not_use.html#not_use.demo2_good_example.SimpleBleDevice.getServices">[文档]</a>    <span class="k">def</span> <span class="nf">getServices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uuids</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list of :class:`bluepy.blte.Service` objects representing the services offered by the device. This will perform Bluetooth service discovery if this has not already been done; otherwise it will return a cached list of services immediately..</span>
+
+<span class="sd">        :param uuids: A list of string service UUIDs to be discovered, defaults to None</span>
+<span class="sd">        :type uuids: list, optional</span>
+<span class="sd">        :return: A list of the discovered :class:`bluepy.blte.Service` objects, which match the provided ``uuids``</span>
+<span class="sd">        :rtype: list On Python 3.x, this returns a dictionary view object, not a list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_services</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">uuids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_services</span></div>
+
+<div class="viewcode-block" id="SimpleBleDevice.setNotificationCallback"><a class="viewcode-back" href="../../api/not_use.html#not_use.demo2_good_example.SimpleBleDevice.setNotificationCallback">[文档]</a>    <span class="k">def</span> <span class="nf">setNotificationCallback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the callback function to be executed when the device sends a notification to the client.</span>
+
+<span class="sd">        :param callback: A function handle of the form ``callback(client, characteristic, data)``, where ``client`` is a handle to the :class:`simpleble.SimpleBleClient` that invoked the callback, ``characteristic`` is the notified :class:`bluepy.blte.Characteristic` object and data is a `bytearray` containing the updated value. Defaults to None</span>
+<span class="sd">        :type callback: function, optional</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="SimpleBleDevice.getCharacteristics"><a class="viewcode-back" href="../../api/not_use.html#not_use.demo2_good_example.SimpleBleDevice.getCharacteristics">[文档]</a>    <span class="k">def</span> <span class="nf">getCharacteristics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">startHnd</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">endHnd</span><span class="o">=</span><span class="mh">0xFFFF</span><span class="p">,</span> <span class="n">uuids</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list containing :class:`bluepy.btle.Characteristic` objects for the peripheral. If no arguments are given, will return all characteristics. If startHnd and/or endHnd are given, the list is restricted to characteristics whose handles are within the given range.</span>
+
+<span class="sd">        :param startHnd: Start index, defaults to 1</span>
+<span class="sd">        :type startHnd: int, optional</span>
+<span class="sd">        :param endHnd: End index, defaults to 0xFFFF</span>
+<span class="sd">        :type endHnd: int, optional</span>
+<span class="sd">        :param uuids: a list of UUID strings, defaults to None</span>
+<span class="sd">        :type uuids: list, optional</span>
+<span class="sd">        :return: List of returned :class:`bluepy.btle.Characteristic` objects</span>
+<span class="sd">        :rtype: list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_characteristics</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_characteristics</span></div>
+
+<div class="viewcode-block" id="SimpleBleDevice.connect"><a class="viewcode-back" href="../../api/not_use.html#not_use.demo2_good_example.SimpleBleDevice.connect">[文档]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Attempts to initiate a connection with the device.</span>
+
+<span class="sd">        :return: `True` if connection was successful, `False` otherwise</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="SimpleBleDevice.disconnect"><a class="viewcode-back" href="../../api/not_use.html#not_use.demo2_good_example.SimpleBleDevice.disconnect">[文档]</a>    <span class="k">def</span> <span class="nf">disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Drops existing connection to device</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_connected</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="SimpleBleDevice.isConnected"><a class="viewcode-back" href="../../api/not_use.html#not_use.demo2_good_example.SimpleBleDevice.isConnected">[文档]</a>    <span class="k">def</span> <span class="nf">isConnected</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Checks to see if device is connected</span>
+
+<span class="sd">        :return: `True` if connected, `False` otherwise</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connected</span></div>
+
+<div class="viewcode-block" id="SimpleBleDevice.printInfo"><a class="viewcode-back" href="../../api/not_use.html#not_use.demo2_good_example.SimpleBleDevice.printInfo">[文档]</a>    <span class="k">def</span> <span class="nf">printInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Print info about device</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Device </span><span class="si">%s</span><span class="s2"> (</span><span class="si">%s</span><span class="s2">), RSSI=</span><span class="si">%d</span><span class="s2"> dB&quot;</span> <span class="o">%</span>
+            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">addr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">addrType</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rssi</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Fei
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

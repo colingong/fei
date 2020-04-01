@@ -1,0 +1,1 @@
+export DJANGO_SETTINGS_MODULE=fei.main_settings.setttings
