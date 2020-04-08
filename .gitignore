@@ -1,4 +1,6 @@
 .vscode/
 *.code-workspace
 *.pyc
-**/migrations/
+# **/migrations/
+
+not_use/
