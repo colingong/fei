@@ -10,5 +10,9 @@ from django.db import models
 # A custom user model, extended from Abstractuser
 # Just use django default User model
 # from .models_customuser import CustomUser
+# CustomerUser NOT used , just a practice
 
+from django.contrib.auth.models import User
 from .models_extra_user import UserExtra
+from .models_product import Warehouse, Category,  Product
+from .models_order import UserOrder, SubUserOrder, OrderDetail
