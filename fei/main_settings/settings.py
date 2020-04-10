@@ -80,14 +80,14 @@ WSGI_APPLICATION = 'main_settings.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-from share.config_mysql import DATABASES_MYSQL
-DATABASES = DATABASES_MYSQL
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+# from share.config_mysql import DATABASES_MYSQL
+# DATABASES = DATABASES_MYSQL
 
 # 不使用AbstractUser来扩展用户模型
 # AUTH_USER_MODEL = 'app_models.CustomUser'
