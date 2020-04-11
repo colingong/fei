@@ -24,12 +24,12 @@ from rest_framework import serializers
 ### 上面的的因为是 DRF的ViewSet，所以可以用router注册
 ### 以下因为是APIView，需要在本地的urls中，用FeiView.as_view()来显示响应，不能用router注册
 
-class FeiUserSerializer(serializers.Serializer):
+class FeiUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'first_name', 'last_name', 'email', 'is_staff', 'is_active', 'objects']
+        fields = ['username', 'first_name', 'last_name', 'email', 'is_staff', 'is_active', 'objects']
 
-class FeiUserExtraSerializer(serializers.Serializer):
+class FeiUserExtraSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserExtra
         fields = ['weixin_openid', 'qq']
@@ -40,11 +40,12 @@ class FeiView(rest_views.APIView):
 
     def get(self, request, pk, format=None, **kwargs):
         user = User.objects.get(id=pk)
-        user_serializer = FeiUserSerializer(user)
+        user_serializer = FeiUserSerializer(instance=user)
         userextra = UserExtra.objects.get(id=pk)
-        userextra_serializer = FeiUserExtraSerializer(userextra)
+        userextra_serializer = FeiUserExtraSerializer(instance=userextra)
         print(f'===> {user.__dict__} / {userextra.__dict__}')
         print(f'---> {user_serializer.data} / {userextra_serializer.data}')
+        print(f'--- {user_serializer.__dict__}')
         
         return Response({
             'user': user_serializer.data,
