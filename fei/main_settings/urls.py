@@ -21,11 +21,24 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
+from rest_framework import routers
+from app_drf import views
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'userextras', views.UserExtraViewSet)
+# router.register(r'feiview', views.FeiView, basename='feiview')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('demo1/', include('app_demo1.urls')),
     path('models/', include('app_models.urls')),
     # some global views
-    path('favicon.ico', views.favicon, name='favicon'),
+    # path('favicon.ico', views.favicon, name='favicon'),
+
+    # app_drf
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('app_drf/', include('app_drf.urls')),
     ]
 
