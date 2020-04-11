@@ -45,6 +45,7 @@ class FeiView(rest_views.APIView):
         userextra_serializer = FeiUserExtraSerializer(userextra)
         print(f'===> {user.__dict__} / {userextra.__dict__}')
         print(f'---> {user_serializer.data} / {userextra_serializer.data}')
+        
         return Response({
             'user': user_serializer.data,
             'userextra': userextra_serializer.data})
