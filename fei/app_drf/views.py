@@ -20,6 +20,10 @@ class UserExtraViewSet(viewsets.ModelViewSet):
 
 from rest_framework import serializers
 
+
+### 上面的的因为是 DRF的ViewSet，所以可以用router注册
+### 以下因为是APIView，需要在本地的urls中，用FeiView.as_view()来显示响应，不能用router注册
+
 class FeiUserSerializer(serializers.Serializer):
     class Meta:
         model = User
@@ -46,45 +50,3 @@ class FeiView(rest_views.APIView):
             'userextra': userextra_serializer.data})
 
 
-
-#############
-class UserUserExtraViewSerializer(serializers.Serializer):
-    user = UserSerializer()
-    userextra = UserExtraSerializer()
-
-
-class UserUserExtraView(rest_views.APIView):
-
-    def get(self, request, pk):
-        u = User.objects.get(id=pk)
-        ue = UserExtra.objects.get(id=pk)
-        u_serializer = UserSerializer(u)
-        ue_serializer = UserExtraSerializer(ue)
-        # u_serializer = UserSerializer(u, context={'request': request})
-        # ue_serializer = UserExtraSerializer(ue, context={'request': request})
-        serializer = UserUserExtraViewSerializer(data={
-            'user': u_serializer.data,
-            'userextra': ue_serializer.data
-        })
-        if serializer.is_valid():
-            return Response(serializer.validated_data)
-
-
-# def user_userextra(request, pk):
-#     u = User.objects.get(id=pk)
-#     ue = UserExtra.objects.get(id=pk)
-#     # u_serializer = UserSerializer(data=u)
-#     # ue_serializer = UserExtraSerializer(data=ue)
-#     u_serializer = UserSerializer(u, context={'request': request})
-#     ue_serializer = UserExtraSerializer(ue, context={'request': request})
-#     serializer = UserUserExtraViewSerializer(data={
-#         'user': u_serializer.data,
-#         'userextra': ue_serializer.data
-#     })
-#     # return Response(serializers.validated_data)
-#     if serializer.is_valid():
-#         return Response(serializer.validated_data)
-#         # return Response(serializers.data)
-#     # else:
-#     #     # return Response(serializers.validated_data)
-#     #     return HttpResponse('ok')
