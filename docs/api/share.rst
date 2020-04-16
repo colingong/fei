@@ -12,6 +12,14 @@ share.config\_mysql module
    :undoc-members:
    :show-inheritance:
 
+share.custom\_auth module
+-------------------------
+
+.. automodule:: share.custom_auth
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------
