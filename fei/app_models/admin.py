@@ -34,6 +34,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    """管理Product模型
+    
+    """
     list_display = (
         'category',
         'warehouse',
@@ -96,13 +99,41 @@ class UserAssetAdmin(admin.ModelAdmin):
 from django.contrib.auth.models import User
 
 class FullUserInfo(User):
+    """这是一个django built-in User的代理模型
+
+    作用：
+        用这个代理模型，定制一个User管理
+        让这个可以管理到关连的UserExtra和UserAsset
+
+    为什么需要这个代理模型：
+        实现一个用户自定义的User模型管理
+        由于User已经默认被admin.register注册过，就不能再次注册了
+        所以实现一个代理模型，用这个代理模型再来注册
+    
+    """
     class Meta:
         proxy = True
     
 class UserExtraInline(admin.StackedInline):
+    """UserExtra模型作为StackedInline
+
+    模型关系:
+        UserExtra和User是One to One
+        因此每个User有一条（且仅有一条）UserExtra记录
+        作为StackedInline，现在管理每个User的时候，也可一起管理UserExtra
+    
+    """
     model = UserExtra
 
 class UserAssetInline(admin.StackedInline):
+    """UserAsset StackedInline
+
+    模型关系：
+        UserAsset和User也是One to One
+        同样每个User都会有一条（且仅有一条）UserAsset记录
+        作为StackedInline，管理User的时候也可管理UserAsset
+    
+    """
     model = UserAsset
 
 @admin.register(FullUserInfo)
