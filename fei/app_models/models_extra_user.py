@@ -15,3 +15,6 @@ class UserExtra(models.Model):
     phone = models.CharField(max_length=11, unique=True, null=True)
     qq = models.CharField(max_length=50, unique=True, null=True)
     pay_password = models.CharField(max_length=50, blank=True)
+
+    def __str__(self):
+        return f'extra_user {self.user.username}'

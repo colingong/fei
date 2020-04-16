@@ -4,3 +4,4 @@
 # **/migrations/
 
 not_use/
+*.passwd

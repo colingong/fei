@@ -22,12 +22,15 @@ from django.urls import path, include
 from . import views
 
 from rest_framework import routers
-from app_drf import views
+from app_drf import views as app_drf_views
+from app_drf import views_apiview_to_router
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'userextras', views.UserExtraViewSet)
+router.register(r'users', app_drf_views.UserViewSet)
+router.register(r'userextras', app_drf_views.UserExtraViewSet)
+router.register(r'feiviewset', app_drf_views.FeiViewSet, basename='feiviewset')
 # router.register(r'feiview', views.FeiView, basename='feiview')
+router.register(r'user_and_extra', views_apiview_to_router.UserAndExtra, basename='custome_api')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

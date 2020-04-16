@@ -13,6 +13,8 @@ class Supplier(models.Model):
     supplier_name = models.CharField(max_length=100)
     supplier_code = models.CharField(max_length=50)
     supplier_type = models.CharField(max_length=50)
+    def __str__(self):
+        return f' {self.supplier_code} {self.supplier_name}'
 
 class Warehouse(models.Model):
     """仓库信息配置
@@ -22,6 +24,9 @@ class Warehouse(models.Model):
     warehouse_type_name = models.CharField(max_length=100, unique=True)
     warehouse_code = models.CharField(max_length=50, unique=True)
     warehouse_address = models.CharField(max_length=250)
+    
+    def __str__(self):
+        return f'{self.warehouse_type_code} {self.warehouse_type_name}'
 
 class Category(models.Model):
     """类目的模型
@@ -30,6 +35,8 @@ class Category(models.Model):
     """
     category_type_name = models.CharField(max_length=100)
     category_type_code = models.CharField(max_length=50)
+    def __str__(self):
+        return f'{self.category_type_code} {self.category_type_name}'
 
 class Product(models.Model):
     """产品列表，包含了所有的产品
@@ -44,3 +51,6 @@ class Product(models.Model):
     product_price = models.DecimalField(max_digits=18, decimal_places=2)
     product_stock = models.IntegerField(default=0)
     for_sale = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f'{self.product_name}'

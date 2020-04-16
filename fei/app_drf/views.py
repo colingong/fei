@@ -51,4 +51,21 @@ class FeiView(rest_views.APIView):
             'user': user_serializer.data,
             'userextra': userextra_serializer.data})
 
+from rest_framework.decorators import api_view
 
+@api_view()
+def send_json(request):
+    return Response({"key1": "value1"})
+
+# Use ViewSet instead of APIView (FeiView)
+class FeiViewSet(viewsets.ViewSet):
+    def list(self, request, format=None, **kwargs):
+        user = User.objects.all().order_by('id')
+        userextra = UserExtra.objects.order_by('id')
+
+        user_serializer = FeiUserSerializer(user, many=True)
+        userextra_serializer = FeiUserExtraSerializer(userextra, many=True)
+        return Response({
+            'user': user_serializer.data,
+            'userextra': userextra_serializer.data
+        })
