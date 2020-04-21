@@ -15,7 +15,12 @@ DATABASES_MYSQL = {
         'USER': os.getenv('env_db_user'),
         'PASSWORD': os.getenv('env_db_password'),
         'PORT': os.getenv('env_db_port'),
-        'OPTIONS': {'autocommit': True,
-                    },
+        'CONN_MAX_AGE': 27800,
+        'OPTIONS': {
+            'autocommit': True,
+        },
+    },
+    'OPTIONS': {
+        'timeout': 26000,
     }
 }

@@ -18,3 +18,17 @@ from .models_product import Warehouse, Category,  Product
 from .models_order import UserOrder, SubUserOrder, OrderDetail
 from .models_user_role import UserRole
 from .models_user_asset import UserAsset
+
+# for drf authentication
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
+from django.conf import settings
+
+# 测试 user_instance.token attribute error的问题
+# from .models_drf_token import ProxyToken
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_auth_token(sender, instance=None, created=False, **kwargs):
+   if created:
+      Token.objects.create(user=instance)

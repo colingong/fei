@@ -81,8 +81,21 @@ class PermissionAdmin(admin.ModelAdmin):
 
 @admin.register(UserExtra)
 class UserExtraAdmin(admin.ModelAdmin):
+    """UserExtra不提供add和delete功能
+
+    禁止add/delete操作
+        每个用户有且仅有一条记录，这条记录在用户登录时自动生成，后期再由用户补充完全。
+        既不允许手动添加，也不允许手动删除；仅可以view/change这两个操作
+    
+    """
     list_display = ('user', 'weixin_openid', 'phone', 'qq', 'pay_password',)
     fields = ('user', 'weixin_openid', 'phone', 'qq', 'pay_password',)
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+    
+    def has_add_permission(self, request, obj=None):
+        return False
 
 @admin.register(UserRole)
 class UserRoleAdmin(admin.ModelAdmin):
@@ -91,9 +104,21 @@ class UserRoleAdmin(admin.ModelAdmin):
 
 @admin.register(UserAsset)
 class UserAssetAdmin(admin.ModelAdmin):
+    """UserAsset管理
+
+    禁止add/delete操作
+        每个用户有且仅有一条asset 记录，在用户第一次登录时自动由middleware创建
+        之后仅可以view/change，不允许add/delete操作
+    
+    """
     list_display = ('user', 'balance')
     fields = ('user', 'balance')
 
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 # 在app_models里，定制User的管理
 from django.contrib.auth.models import User
@@ -125,6 +150,10 @@ class UserExtraInline(admin.StackedInline):
     """
     model = UserExtra
 
+    # 每个用户都必须有一条user extra记录，不允许删除
+    def has_delete_permission(self, request, obj=None):
+        return False
+
 class UserAssetInline(admin.StackedInline):
     """UserAsset StackedInline
 
@@ -136,8 +165,13 @@ class UserAssetInline(admin.StackedInline):
     """
     model = UserAsset
 
+    # 由于每个用户都必须有一条 user asset记录，因此不允许删除
+    def has_delete_permission(self, request, obj=None):
+        return False
+
 @admin.register(FullUserInfo)
 class CustomUserAdmin(admin.ModelAdmin):
     list_display = ('username', 'first_name', 'email')
     fields = ('username', 'first_name', 'email')
     inlines = [UserAssetInline, UserExtraInline]
+

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from share.config_mysql import DATABASES_MYSQL
 import os
 
 # for sphinx , setup env variable DJANGO_SETTINGS_MODULE
@@ -30,7 +31,7 @@ SECRET_KEY = 'e)fn@*u@%+x7kxd^+&_vd5gnd%&3r#nopn-+)k3u$2fm$8l67a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*",]
+ALLOWED_HOSTS = ["*", ]
 
 
 # Application definition
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'app_demo1',
     'app_models',
     'rest_framework',
+    'rest_framework.authtoken',
     'app_drf',
 ]
 
@@ -56,9 +58,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+
     # custom middleware
     'fei_middleware.data_initial.add_initial_data',
+    'fei_middleware.generate_token.generate_token_if_not_exist',
 ]
 
 ROOT_URLCONF = 'main_settings.urls'
@@ -92,7 +95,6 @@ WSGI_APPLICATION = 'main_settings.wsgi.application'
 #     }
 # }
 
-from share.config_mysql import DATABASES_MYSQL
 DATABASES = DATABASES_MYSQL
 
 # 不使用AbstractUser来扩展用户模型
@@ -140,6 +142,16 @@ STATIC_URL = '/static/'
 
 # for app_drf
 REST_FRAMEWORK = {
+    # for drf pagination
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
+
+    # for drf authentication
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+
 }

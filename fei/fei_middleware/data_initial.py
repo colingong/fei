@@ -43,3 +43,4 @@ def add_initial_data(get_response):
         response = get_response(request)
         return response
     return middleware
+
