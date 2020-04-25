@@ -21,12 +21,12 @@ class Warehouse(models.Model):
        :warehouse_type_name: 仓库名称
        :warehouse_code: 仓库代码
     """
-    warehouse_type_name = models.CharField(max_length=100, unique=True)
+    warehouse_name = models.CharField(max_length=100, unique=True)
     warehouse_code = models.CharField(max_length=50, unique=True)
     warehouse_address = models.CharField(max_length=250)
     
     def __str__(self):
-        return f'{self.warehouse_type_code} {self.warehouse_type_name}'
+        return f'{self.warehouse_code} {self.warehouse_name}'
 
 class Category(models.Model):
     """类目的模型

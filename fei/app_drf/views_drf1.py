@@ -8,10 +8,15 @@ from rest_framework.decorators import api_view
 
         
 class UserSerializer(serializers.ModelSerializer):
+    api_desc = serializers.SerializerMethodField('comment_for_user')
+
+    def comment_for_user(self, pk=None):
+        return 'API接口说明： 这是一个用户信息列表'
+
     class Meta:
         model = User
         # fields = '__all__'
-        fields = ['username', 'first_name', 'last_name', 'is_active']
+        fields = ['api_desc', 'username', 'first_name', 'last_name', 'is_active']
 
 # @api_view()
 # def show_user(request, pk):
@@ -25,9 +30,9 @@ class UserSerializer(serializers.ModelSerializer):
 
 @api_view()
 def show_user(request, pk):
-    custom_data = {"key1": "value1", "key2": "value2", "username": "custom_data_username"}
-
-    user_serializer = UserSerializer(custom_data)
+    # custom_data = {"key1": "value1", "key2": "value2", "username": "custom_data_username"}
+    
+    user_serializer = UserSerializer(request.user)
 
     return Response({'user': user_serializer.data})
 

@@ -30,6 +30,7 @@ SECRET_KEY = 'e)fn@*u@%+x7kxd^+&_vd5gnd%&3r#nopn-+)k3u$2fm$8l67a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
 ALLOWED_HOSTS = ["*", ]
 
@@ -51,13 +52,21 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+
+    # 检查信息
+    'fei_middleware.check_info.request_info',
+
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # custom middleware: current_user
+    'fei_middleware.logging_access_user.current_user',
 
     # custom middleware
     'fei_middleware.data_initial.add_initial_data',
@@ -140,6 +149,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = 'collect_to'
+STATICFILES_DIRS = ['collect_serve', ]
+
 # for app_drf
 REST_FRAMEWORK = {
     # for drf pagination
@@ -152,6 +164,7 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ),
-
 }
+

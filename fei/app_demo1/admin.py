@@ -48,24 +48,24 @@ from app_models.models import UserAsset
 # 替换admin.site会有问题，先不要替换
 # admin.site = FeiAdminSite()
 
-class ProxyUserextra(UserExtra):
-    class Meta:
-        proxy = True
+# class ProxyUserextra(UserExtra):
+#     class Meta:
+#         proxy = True
 
-class ProxyUserAsset(UserAsset):
-    class Meta:
-        proxy = True
+# class ProxyUserAsset(UserAsset):
+#     class Meta:
+#         proxy = True
 
-@admin.register(ProxyUserextra)
-class UserExtraAdmin(admin.ModelAdmin):
-    # list_display = ('user', 'weixin_openid', 'phone', 'qq', 'pay_password',)
-    list_display = ('weixin_openid', 'phone', 'qq', 'pay_password',)
-    # fields = ('user', 'weixin_openid', 'phone', 'qq', 'pay_password',)
-    fields = ('weixin_openid', 'phone', 'qq', 'pay_password',)
+# @admin.register(ProxyUserextra)
+# class UserExtraAdmin(admin.ModelAdmin):
+#     # list_display = ('user', 'weixin_openid', 'phone', 'qq', 'pay_password',)
+#     list_display = ('weixin_openid', 'phone', 'qq', 'pay_password',)
+#     # fields = ('user', 'weixin_openid', 'phone', 'qq', 'pay_password',)
+#     fields = ('weixin_openid', 'phone', 'qq', 'pay_password',)
 
-@admin.register(ProxyUserAsset)
-class UserAssetAdmin(admin.ModelAdmin):
-    # list_display = ('user', 'balance')
-    # fields = ('user', 'balance')
-    list_display = ('balance',)
-    fields = ('balance',)
+# @admin.register(ProxyUserAsset)
+# class UserAssetAdmin(admin.ModelAdmin):
+#     # list_display = ('user', 'balance')
+#     # fields = ('user', 'balance')
+#     list_display = ('balance',)
+#     fields = ('balance',)

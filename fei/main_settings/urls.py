@@ -22,26 +22,24 @@ from django.urls import path, include
 from . import views
 
 from rest_framework import routers
-from app_drf import views as app_drf_views
-from app_drf import views_apiview_to_router
+from app_drf.urls import router as drf_router
+# from app_drf import views as app_drf_views
+# from app_drf import views_apiview_to_router
 
 router = routers.DefaultRouter()
-router.register(r'users', app_drf_views.UserViewSet)
-router.register(r'userextras', app_drf_views.UserExtraViewSet)
-router.register(r'feiviewset', app_drf_views.FeiViewSet, basename='feiviewset')
-# router.register(r'feiview', views.FeiView, basename='feiview')
-router.register(r'user_and_extra', views_apiview_to_router.UserAndExtra, basename='custome_api')
+router.registry.extend(drf_router.registry)
+# router.register(r'users', app_drf_views.UserViewSet)
+# router.register(r'userextras', app_drf_views.UserExtraViewSet)
+# router.register(r'feiviewset', app_drf_views.FeiViewSet, basename='feiviewset')
+# router.register(r'user_and_extra', views_apiview_to_router.UserAndExtra, basename='custome_api')
 
 urlpatterns = [
+    # path('', include(router.urls)),
+    path('api/', include(router.urls)),
+
     path('admin/', admin.site.urls),
     path('demo1/', include('app_demo1.urls')),
     path('models/', include('app_models.urls')),
-    # some global views
-    # path('favicon.ico', views.favicon, name='favicon'),
-
-    # app_drf
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('app_drf/', include('app_drf.urls')),
+    # path('drf/', i', include('app_drf.urls')),
     ]
 
