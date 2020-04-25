@@ -36,7 +36,8 @@ router.registry.extend(drf_router.registry)
 urlpatterns = [
     # path('', include(router.urls)),
     path('api/', include(router.urls)),
-
+    path('api/api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    
     path('admin/', admin.site.urls),
     path('demo1/', include('app_demo1.urls')),
     path('models/', include('app_models.urls')),
