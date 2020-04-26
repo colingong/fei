@@ -11,7 +11,8 @@ from rest_framework.response import Response
 class UserAndExtra(viewsets.ViewSet):
     lookup_field = 'username_or_pk'
     def retrieve(self, request, username_or_pk, format=None):
-        user = None
+        # user = None
+        user = request.user
         try:
             user = User.objects.get(username=username_or_pk)
         except:
@@ -28,12 +29,22 @@ class UserAndExtra(viewsets.ViewSet):
         users = User.objects.all()
 
         user_and_extra = []
-
         for u in users:
+            try:
+                weixin_openid = u.userextra.weixin_openid
+            except:
+                weixin_openid = '-'
+
+            try:            
+                qq = u.userextra.qq
+            except:
+                qq = '-'
+
             u_data = {'username': u.username,
             'first_name': u.first_name,
-            'weixin_openid': u.userextra.weixin_openid,
-            'qq': u.userextra.qq}
+            'weixin_openid': weixin_openid,
+            'qq': qq}
+
             user_and_extra.append(u_data)
 
         print(f'---> {user_and_extra}')
