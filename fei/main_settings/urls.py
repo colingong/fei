@@ -22,12 +22,15 @@ from django.urls import path, include
 from . import views
 
 from rest_framework import routers
-from app_drf.urls import router as drf_router
-# from app_drf import views as app_drf_views
-# from app_drf import views_apiview_to_router
 
-router = routers.DefaultRouter()
-router.registry.extend(drf_router.registry)
+# from app_drf.urls import router as drf_router
+# router = routers.DefaultRouter()
+# router.registry.extend(drf_router.registry)
+
+from app_drf.urls import router_v2 as drf_router_v2
+router2 = routers.DefaultRouter()
+router2.registry.extend(drf_router_v2.registry)
+
 # router.register(r'users', app_drf_views.UserViewSet)
 # router.register(r'userextras', app_drf_views.UserExtraViewSet)
 # router.register(r'feiviewset', app_drf_views.FeiViewSet, basename='feiviewset')
@@ -35,8 +38,12 @@ router.registry.extend(drf_router.registry)
 
 urlpatterns = [
     # path('', include(router.urls)),
-    path('api/', include(router.urls)),
-    path('api/api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # path('api/', include(router.urls)),
+    # path('api/api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('v2/', include(router2.urls)),
+    
     
     path('admin/', admin.site.urls),
     path('demo1/', include('app_demo1.urls')),
