@@ -14,7 +14,7 @@ from django.db import models
 
 # from django.contrib.auth.models import User
 from .models_extra_user import UserExtra
-from .models_product import Warehouse, Category,  Product
+from .models_product import Warehouse, Category,  Product, Supplier
 from .models_order import UserOrder, SubUserOrder, OrderDetail
 from .models_user_role import UserRole
 from .models_user_asset import UserAsset
