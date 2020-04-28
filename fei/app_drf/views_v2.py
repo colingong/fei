@@ -47,12 +47,12 @@ class UserOrderViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = UserOrder.objects.all()
     serializer_class = UserOrderSerializer
 
+#    Warehouse
 class WarehouseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Warehouse
         fields = '__all__'
 
-#    Warehouse, Supplier
 class WarehouseViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Warehouse.objects.all()
     serializer_class = WarehouseSerializer
@@ -67,7 +67,8 @@ class SupplierViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Supplier.objects.all()
     serializer_class = SupplierSerializer
 
-# UserExtra  
+# UserExtra, UserAsset
+# 这两个one-to-one的信息，和User一起显示出来
 from django.core.exceptions import ObjectDoesNotExist
 class FullUserSerializer(serializers.ModelSerializer):
     """显示用户的完整信息 User & UserExtra & UserAsset
@@ -89,28 +90,28 @@ class FullUserSerializer(serializers.ModelSerializer):
         try:
             return user.userextra.weixin_openid
         except ObjectDoesNotExist as e:
-            return '-'
+            return '微信还没有登录过哦 😀'
 
     def get_userextra_phone(self, instance):
         user = instance
         try:
             return user.userextra.phone
         except ObjectDoesNotExist as e:
-            return '-'
+            return '电话号码还没有填哦 😀'
         
     def get_userextra_qq(self, instance):
         user = instance
         try:
             return user.userextra.qq
         except ObjectDoesNotExist as e:
-            return '-'
+            return 'qq号还没有填哦 😀'
 
     def get_userasset_balance(self, instance):
         user = instance
         try:
             return user.userasset.balance
         except ObjectDoesNotExist as e:
-            return '-'
+            return '还没有用户资产，需要登录一次才会有哦 😀'
 
     class Meta:
         model = User
