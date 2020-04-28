@@ -156,7 +156,7 @@ STATICFILES_DIRS = ['collect_serve', ]
 REST_FRAMEWORK = {
     # for drf pagination
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
+    'PAGE_SIZE': 5,
 
     # for drf authentication
     'DEFAULT_PERMISSION_CLASSES': (
