@@ -11,9 +11,9 @@ class UserExtra(models.Model):
         models {[type]} -- [description]
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    weixin_openid = models.CharField(max_length=50, unique=True, null=True)
-    phone = models.CharField(max_length=11, unique=True, null=True)
-    qq = models.CharField(max_length=50, unique=True, null=True)
+    weixin_openid = models.CharField(max_length=50, unique=True, null=True, blank=True)
+    phone = models.CharField(max_length=11, unique=True, null=True, blank=True)
+    qq = models.CharField(max_length=50, unique=True, null=True, blank=True)
     pay_password = models.CharField(max_length=50, blank=True)
 
     def __str__(self):
