@@ -42,7 +42,7 @@ def upload(request):
         form = ImgUploadForm(request.POST, request.FILES)
         if form.is_valid():
             saved_file = process_file(
-                request.FILES['file'],
+                request.FILES['上传个图片'],
                 upload_to=UPLOAD_TO,
                 url_prefix=URL_PREFIX
                 )
