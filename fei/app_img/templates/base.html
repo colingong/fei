@@ -1,0 +1,72 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Educa{% endblock title %}</title>
+    <link href="{% static 'admin/css/base.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="alert">
+        {% if current_page %}CURRENT PAGE: {{ current_page }} / {% endif %}
+        {% if request.user %}当前登录用户: [{{ user.username }}]
+        {% else %}NO USER
+        {% endif %}
+    </div>
+    <div id="header">
+        <a href="/" class="logo">Educa</a>
+        <ul class="menu">
+            {#        {% if request.user.is_authenticated %}#}
+            {#            <li><a href="{% url 'logout' %}">Sign out</a></li>#}
+            {#        {% else %}#}
+            {#            <li><a href="{% url 'login' %}">Sign in</a></li>#}
+            {#        {% endif %}#}
+        </ul>
+    </div>
+
+    <div id="content">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    {% if context.request_info %}
+    {% block request_status %}
+    <div class="alert alert-info border">
+
+        <table>
+            <tr>------ 当前请求信息 ------</tr>
+            {% for k, v in context.request_info.items %}
+            <tr>
+                <td>{{ k }}</td>
+                <td>{{ v }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endblock %}
+    {% endif %}
+
+    {% block footer %}
+    <div class="alert alert-success rounded-0 text-light bg-dark">
+        <a href="/all_urls/" class="text-white">COME HERE</a>
+    </div>
+    {% endblock footer %}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
