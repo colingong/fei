@@ -57,7 +57,7 @@ class CustEmoji(object):
         draw = ImageDraw.Draw(img)
 
         font = ImageFont.truetype(font, 45)
-        draw.text((0, height - 50), text, (0,0,0), font=font)
+        draw.text((0, height - 50), text, (100,100,100), font=font)
         img.save(save_to_file)
 
 if __name__ == '__main__':
