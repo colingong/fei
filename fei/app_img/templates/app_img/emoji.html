@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3>表情包文字生成器/6种随机</h3>
-<img src="/static/emoji/{{ emoji_src }}" style="height=30%; weight=30%; object-fit: contain;">
+<h3>表情包文字生成器</h3><br>
+<h3>6种随机</h3>
 <form method="post" enctype="multipart/form-data" />
-    {% csrf_token %}
-    <table>
-        {{ form.emoji.as_hidden }}
-        输入你的沙雕宣言吧 {{ form.text }}
-    </table>
-    <input type="submit" value="提交生成"> 
+{% csrf_token %}
+<table>
+    {{ form.emoji.as_hidden }}
+    输入你的沙雕宣言吧 {{ form.text }}
+</table>
+<input type="submit" value="点这儿提交生成"> 
 </form>
+<img src="/static/emoji/{{ emoji_src }}" style="height=30%; weight=30%; object-fit: contain;">
 {% endblock content %}
