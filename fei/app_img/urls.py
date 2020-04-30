@@ -7,8 +7,6 @@ app_name = 'app_img'
 urlpatterns = [
     path('alive/', views.alive, name='alive'),
 
-    path('upload/', views_img_upload.upload, name='upload'),
-    path('pic001/', views_img_upload.display_img, name='display-img'),
-
+    # 生成带文字的emoji图片
     path('emoji/', views_img_upload.emoji, name='emoji'),
 ]
