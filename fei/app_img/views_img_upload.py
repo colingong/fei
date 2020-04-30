@@ -19,6 +19,9 @@ class ImgUploadForm(forms.Form):
 class EmojiText(forms.Form):
     text = forms.CharField(max_length=250)
 
+def get_random_src_img(img_list):
+    return random.choice(img_list)
+
 from .img_process.water_mark import CustEmoji
 def emoji(request):
     if request.method == 'GET':
@@ -28,11 +31,15 @@ def emoji(request):
     elif request.method == 'POST':
         form = EmojiText(request.POST)
         if form.is_valid():
+            img_list = ['panda_src.jpg', 'panda_src2.jpg', 'panda_src3.jpg', 'panda_src4.jpg', 'panda_src5.jpg', 'panda_src6.jpg']
             input_text = str(form.cleaned_data['text'])[:12]
 
             save_to_dir = os.path.join(settings.BASE_DIR, 'collect_serve/emoji/')
             url_prefix = '/static/emoji/'
-            src_img = 'panda_src.jpg'
+            # src_img = 'panda_src5.jpg'
+            # src_img = 'panda_src.jpg'
+            src_img = get_random_src_img(img_list)
+            print(f'===> {src_img}')
             
             current_emoji = CustEmoji(folder=save_to_dir, url_prefix=url_prefix, src_img=src_img)
             current_emoji.water_mark(input_text)

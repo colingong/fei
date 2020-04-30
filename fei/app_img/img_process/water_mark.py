@@ -35,7 +35,7 @@ class CustEmoji(object):
         filename = ts + '.jpg'
         return filename
 
-    def water_mark(self, text):
+    def water_mark_from_left_top(self, text):
         src_img = self.src_img
         font = self.font
         save_to_file = self.emoji_file
@@ -45,6 +45,19 @@ class CustEmoji(object):
 
         font = ImageFont.truetype(font, 45)
         draw.text((0, 500), text, (0,0,0), font=font)
+        img.save(save_to_file)
+
+    def water_mark(self, text):
+        src_img = self.src_img
+        font = self.font
+        save_to_file = self.emoji_file
+
+        img = Image.open(src_img)
+        weight, height = img.size
+        draw = ImageDraw.Draw(img)
+
+        font = ImageFont.truetype(font, 45)
+        draw.text((0, height - 50), text, (0,0,0), font=font)
         img.save(save_to_file)
 
 if __name__ == '__main__':
