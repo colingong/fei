@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>文件上传</h2>
+<h2>表情包文字生成器</h2>
+<img src="/static/emoji/panda_src.jpg" style="height=30%; weight=30%; object-fit: contain;">
 <form method="post" enctype="multipart/form-data" />
     {% csrf_token %}
     <table>
         {{ form.as_table }}
     </table>
-    <input type="submit" value="提交"> 
+    <input type="submit" value="Upload"> 
 </form>
 {% endblock content %}

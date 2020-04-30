@@ -12,10 +12,31 @@ from django.core.validators import FileExtensionValidator
 
 
 class ImgUploadForm(forms.Form):
-    给个沙雕宣言吧 = forms.CharField(max_length=50)
-    上传个图片 = forms.FileField(
-        validators=[FileExtensionValidator(['jpg', 'png', 'gif'])])
+    给个沙雕宣言吧 = forms.CharField(max_length=15)
+    # 上传个图片 = forms.FileField(
+    #     validators=[FileExtensionValidator(['jpg', 'png', 'gif'])])
 
+class EmojiText(forms.Form):
+    text = forms.CharField(max_length=250)
+
+from .img_process.water_mark import CustEmoji
+def emoji(request):
+    if request.method == 'GET':
+        form = EmojiText()
+        form.fields['text'].label = '给个沙雕宣言吧'
+        return render(request, 'app_img/emoji.html', {'form': form})
+    elif request.method == 'POST':
+        form = EmojiText(request.POST)
+        if form.is_valid():
+            input_text = str(form.cleaned_data['text'])[:12]
+
+            save_to_dir = os.path.join(settings.BASE_DIR, 'collect_serve/emoji/')
+            url_prefix = '/static/emoji/'
+            src_img = 'panda_src.jpg'
+            
+            current_emoji = CustEmoji(folder=save_to_dir, url_prefix=url_prefix, src_img=src_img)
+            current_emoji.water_mark(input_text)
+            return HttpResponse(f'<img style="height: 50%; width: 50%; object-fit: contain" src="{current_emoji.emoji_url}">')
 
 def process_file(uploaded_file, upload_to=None, url_prefix=None):
     _, file_extension = os.path.splitext(uploaded_file.name)
