@@ -1,6 +1,6 @@
 """
 """
-
+from django.shortcuts import HttpResponse
 from rest_framework import views
 from rest_framework import serializers
 from rest_framework import response
@@ -31,7 +31,8 @@ class CustomView(views.APIView):
         """
         data = {
             'userid': 996,
-            'name': 'feifeifei',
+            # 'name': '飞飞飞feifeifei'.encode('utf-8'),
+            'name': "kkk飞飞飞feifeifei",
             'balance': 123.4567}
         serializer = CustomSerializer(data)
         block_print(serializer.__dict__)
@@ -42,3 +43,6 @@ class CustomView(views.APIView):
 
     # def post(self, request, format=None):
     #     pass
+
+def view2(request):
+    return HttpResponse('飞飞飞')

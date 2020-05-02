@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
+
 from rest_framework.schemas import get_schema_view
+from django.views.generic import TemplateView
 from . import views_v3
 from rest_framework import routers
 
@@ -27,11 +30,18 @@ urlpatterns = [
     # path('api-token-auth/', views_token.drf_views.obtain_auth_token, name='api-token-auth'),
     # APIViews
     path('view1/', views_v3.CustomView.as_view(), name='view1'),
+    path('view2/', views_v3.view2, name='view2'),
 
     # demo ofor schema
     path('openapi/', get_schema_view(
-        title="Fei - Demo, 中文，by Django & Django Rest Framewrok",
+        title="Fei - 使用 Django & Django Rest Framewrok 开发",
         description="项目的openapi",
-        version="1.0.0",
+        version="0.0.1",
     ), name='openapi-schema'),
+
+    # swagger
+    path('swagger/', TemplateView.as_view(
+        template_name='swagger-ui.html',
+        extra_context={'schema_url': 'app_drf:openapi-schema'},
+        ), name='swagger'),
     ]
