@@ -1,3 +1,5 @@
+from rest_framework.schemas import get_schema_view
+from . import views_v3
 from rest_framework import routers
 
 from django.urls import path, include
@@ -20,6 +22,16 @@ router_v2.register('warehouse', views_v2.WarehouseViewSet)
 router_v2.register('supplier', views_v2.SupplierViewSet)
 router_v2.register('fulluser', views_v2.FullUserViewSet)
 
+
 urlpatterns = [
     # path('api-token-auth/', views_token.drf_views.obtain_auth_token, name='api-token-auth'),
-]
+    # APIViews
+    path('view1/', views_v3.CustomView.as_view(), name='view1'),
+
+    # demo ofor schema
+    path('openapi', get_schema_view(
+        title="Fei - Demo, 中文，by Django & Django Rest Framewrok",
+        description="项目的openapi",
+        version="1.0.0",
+    ), name='openapi-schema'),
+    ]

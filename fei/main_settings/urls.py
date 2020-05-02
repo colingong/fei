@@ -17,6 +17,7 @@ Including another URLconf
 
 """
 
+from main_settings.views import v2_root
 from django.contrib import admin
 from django.urls import path, include
 from . import views
@@ -29,11 +30,15 @@ router2.registry.extend(drf_router_v2.registry)
 
 urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
     path('v2/', include(router2.urls)),
+    # path('v2/', views.v2_root, name='v2'),
+    # path('v2/api1/', include(router2.urls)),
+    # path('v2/api2/', include('app_drf.urls')),
     
     path('admin/', admin.site.urls),
     path('demo1/', include('app_demo1.urls')),
     path('models/', include('app_models.urls')),
     path('img/', include('app_img.urls')),
+    path('drf/', include('app_drf.urls')),
     ]
-

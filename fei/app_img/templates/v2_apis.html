@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+    {% for url in urls %}
+    <tr>
+        <td>
+            <a href={{ url }}> {{ url }}</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock content %}
