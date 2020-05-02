@@ -29,7 +29,7 @@ urlpatterns = [
     path('view1/', views_v3.CustomView.as_view(), name='view1'),
 
     # demo ofor schema
-    path('openapi', get_schema_view(
+    path('openapi/', get_schema_view(
         title="Fei - Demo, 中文，by Django & Django Rest Framewrok",
         description="项目的openapi",
         version="1.0.0",
