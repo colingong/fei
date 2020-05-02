@@ -171,11 +171,11 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ),
     'UNICODE_JSON': False,
-    'DEFAULT_RENDERER_CLASSES': (
-        # UnicodeJSONRenderer has an ensure_ascii = False attribute,
-        # thus it will not escape characters.
-        # 'rest_framework.renderers.UnicodeJSONRenderer',
-        # You only need to keep this one if you're using the browsable API
-        'rest_framework.renderers.BrowsableAPIRenderer',
-    )
+    # 'DEFAULT_RENDERER_CLASSES': (
+    #     # UnicodeJSONRenderer has an ensure_ascii = False attribute,
+    #     # thus it will not escape characters.
+    #     # 'rest_framework.renderers.UnicodeJSONRenderer',
+    #     # You only need to keep this one if you're using the browsable API
+    #     'rest_framework.renderers.BrowsableAPIRenderer',
+    # )
 }
