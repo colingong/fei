@@ -1,5 +1,6 @@
 """V2
 """
+from typing import Any
 from django.contrib.auth.models import User
 from app_models.models import UserExtra, UserAsset
 from app_models.models import Category, Product, UserOrder, Warehouse, Supplier
@@ -86,7 +87,6 @@ class FullUserSerializer(serializers.ModelSerializer):
 
     def get_userextra_weixin_openid(self, instance):
         user = instance
-        print(f'---> type instance {type(user)}')
         try:
             return user.userextra.weixin_openid
         except ObjectDoesNotExist as e:
@@ -122,3 +122,4 @@ class FullUserViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all().order_by('id')
     serializer_class = FullUserSerializer
 #   UserExtra, UserAsset
+

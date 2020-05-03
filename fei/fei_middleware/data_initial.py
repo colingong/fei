@@ -27,7 +27,7 @@ def add_initial_data(get_response):
             try:
                 request.user.userextra
             except ObjectDoesNotExist:
-                print(f'---> 用户{request.user.username}的 userextra 不存在')
+                print(f'---[add_initial_data] ---> 用户{request.user.username}的 userextra 不存在')
                 userextra = UserExtra(user=request.user)
                 userextra.save()
 
@@ -35,7 +35,7 @@ def add_initial_data(get_response):
             try:
                 request.user.userasset
             except ObjectDoesNotExist:
-                print(f'---> 用户的 资产记录不存在')
+                print(f'--- [add_initial_data] ---> 用户的 资产记录不存在')
                 asset = UserAsset(user=request.user)
                 asset.balance = 0
                 asset.save()
