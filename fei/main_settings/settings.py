@@ -57,7 +57,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     # 自定义middleware，检查response headers
-    'fei_middlewares.check_info.response_header',
+    'fei_middlewares.headers_info.response_header',
     'fei_middlewares.drf_middleware.drf_user_info',
     
     'django.middleware.security.SecurityMiddleware',
@@ -67,7 +67,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 
     # 检查信息
-    'fei_middlewares.check_info.request_headers',
+    'fei_middlewares.headers_info.request_headers',
     
 
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -75,7 +75,8 @@ MIDDLEWARE = [
 
     # custom middleware: current_user
     'fei_middlewares.logging_user.current_user',
-    'fei_middlewares.data_initial.add_initial_data',
+    'fei_middlewares.data_initial.initial_user_extra',
+    'fei_middlewares.data_initial.initial_user_asset',
     'fei_middlewares.generate_token.generate_token_if_not_exist',
 ]
 
