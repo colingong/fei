@@ -58,7 +58,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     # 自定义middleware，检查response headers
     'fei_middlewares.headers_info.response_header',
-    'fei_middlewares.drf_middleware.drf_user_info',
+    'fei_middlewares.drf_token_info.drf_user_info',
     
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -74,7 +74,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     # custom middleware: current_user
-    'fei_middlewares.logging_user.current_user',
+    'fei_middlewares.logging_user.django_current_user',
     'fei_middlewares.data_initial.initial_user_extra',
     'fei_middlewares.data_initial.initial_user_asset',
     'fei_middlewares.generate_token.generate_token_if_not_exist',

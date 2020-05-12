@@ -27,7 +27,7 @@ def generate_token_if_not_exist(get_response):
         if request.user.is_authenticated:
             try:
                 request.user.auth_token
-                print(f'=== [generate_token_if_not_exist] ===> token already existed: {request.user}')
+                print(f'--- MIDDLEWARE [generate_token_if_not_exist] ===> token already existed: {request.user}')
 
             # 对应： from django.core.exceptions import ObjectDoesNotExist
             # except ObjectDoesNotExist as e:
@@ -41,7 +41,7 @@ def generate_token_if_not_exist(get_response):
                 token = Token(user=request.user)
                 token.save()
 
-                print(f'--- [generate_token_if_not_exist] ---> created token for user: {request.user}')
+                print(f'--- MIDDLEWARE [generate_token_if_not_exist] ---> created token for user: {request.user}')
                 # print(traceback.format_exc())
         response = get_response(request)
         return response

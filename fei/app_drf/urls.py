@@ -25,7 +25,7 @@ router_v2.register('category', views_v2.CategoryViewSet)
 router_v2.register('userorder', views_v2.UserOrderViewSet)
 router_v2.register('warehouse', views_v2.WarehouseViewSet)
 router_v2.register('supplier', views_v2.SupplierViewSet)
-router_v2.register('fulluser', views_v2.FullUserViewSet)
+router_v2.register('fulluser', views_v2.FulluserViewSet)
 # router_v2.register('register', views_perm_any.UserRegisterViewSet)
 router_v2.register('new/product', views_perm_any.NewProductViewSet)
 

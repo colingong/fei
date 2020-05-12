@@ -1,4 +1,5 @@
-"""检查一些信息，尤其是request
+"""检查request / response 的headers
+    用于debug
 """
 from django.conf import settings
 
@@ -24,11 +25,11 @@ def request_headers(get_response):
     def wrapper(request):
         headers_not_log = ["Content-Length", "Referer", "Connection", "Host", "Upgrade-Insecure-Requests", ]
         headers = getattr(request, 'headers', 'request目前还没有 *headers* ')
-        print('--- START middleware [request_headers] ----------------')
+        print('--- MIDDLEWARE [request_headers] ----------------')
         for k, v in headers.items():
             if k not in headers_not_log:
-                print(f'{k.ljust(30)} ---> {v.ljust(80)}')
-        print('---------------- END middleware [request_headers] ---\n')
+                print(f'        {k.ljust(30)} ---> {v.ljust(80)}')
+        # print('---------------- END middleware [request_headers] ---\n')
         result = get_response(request)
         return result
     return wrapper
@@ -37,9 +38,9 @@ def response_header(get_response):
     def wrapper(request):
         result = get_response(request)
         # after
-        print('--- START [response_header] ----------')
+        print('--- MIDDLEWARE [response_header] ----------')
         for k, v in result._headers.items():
-            print(f'{str(k).ljust(30)} ---> {str(v).ljust(80)}')
-        print('---------- END   [response_header] ---')
+            print(f'        {str(k).ljust(30)} ---> {str(v).ljust(80)}')
+        # print('---------- END   [response_header] ---')
         return result
     return wrapper

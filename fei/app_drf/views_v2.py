@@ -71,7 +71,7 @@ class SupplierViewSet(viewsets.ReadOnlyModelViewSet):
 # UserExtra, UserAsset
 # 这两个one-to-one的信息，和User一起显示出来
 from django.core.exceptions import ObjectDoesNotExist
-class FullUserSerializer(serializers.ModelSerializer):
+class FulluserSerializer(serializers.ModelSerializer):
     """显示用户的完整信息 User & UserExtra & UserAsset
 
     Arguments:
@@ -118,8 +118,8 @@ class FullUserSerializer(serializers.ModelSerializer):
         # fields = '__all__'
         exclude = ['password', ]
 
-class FullUserViewSet(viewsets.ReadOnlyModelViewSet):
+class FulluserViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all().order_by('id')
-    serializer_class = FullUserSerializer
+    serializer_class = FulluserSerializer
 #   UserExtra, UserAsset
 
