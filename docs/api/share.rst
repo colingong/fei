@@ -20,6 +20,14 @@ share.custom\_auth module
    :undoc-members:
    :show-inheritance:
 
+share.fei\_debug module
+-----------------------
+
+.. automodule:: share.fei_debug
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------

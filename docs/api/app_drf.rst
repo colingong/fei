@@ -75,10 +75,50 @@ app\_drf.views\_apiview\_to\_router module
    :undoc-members:
    :show-inheritance:
 
+app\_drf.views\_customize\_serializer module
+--------------------------------------------
+
+.. automodule:: app_drf.views_customize_serializer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 app\_drf.views\_drf1 module
 ---------------------------
 
 .. automodule:: app_drf.views_drf1
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+app\_drf.views\_perm\_any module
+--------------------------------
+
+.. automodule:: app_drf.views_perm_any
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+app\_drf.views\_token module
+----------------------------
+
+.. automodule:: app_drf.views_token
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+app\_drf.views\_v2 module
+-------------------------
+
+.. automodule:: app_drf.views_v2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+app\_drf.views\_v3 module
+-------------------------
+
+.. automodule:: app_drf.views_v3
    :members:
    :undoc-members:
    :show-inheritance:

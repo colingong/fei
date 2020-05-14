@@ -43,6 +43,14 @@ app\_models.models\_customuser module
    :undoc-members:
    :show-inheritance:
 
+app\_models.models\_drf\_token module
+-------------------------------------
+
+.. automodule:: app_models.models_drf_token
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 app\_models.models\_extra\_user module
 --------------------------------------
 

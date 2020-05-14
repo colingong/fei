@@ -6,8 +6,9 @@ fei
 
    app_demo1
    app_drf
+   app_img
    app_models
-   fei_middleware
+   fei_middlewares
    main_settings
    manage
    not_use

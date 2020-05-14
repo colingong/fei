@@ -36,6 +36,54 @@ app\_models.migrations.0004\_userasset module
    :undoc-members:
    :show-inheritance:
 
+app\_models.migrations.0005\_fulluserinfo module
+------------------------------------------------
+
+.. automodule:: app_models.migrations.0005_fulluserinfo
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+app\_models.migrations.0006\_proxytoken module
+----------------------------------------------
+
+.. automodule:: app_models.migrations.0006_proxytoken
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+app\_models.migrations.0007\_delete\_proxytoken module
+------------------------------------------------------
+
+.. automodule:: app_models.migrations.0007_delete_proxytoken
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+app\_models.migrations.0008\_auto\_20200422\_1048 module
+--------------------------------------------------------
+
+.. automodule:: app_models.migrations.0008_auto_20200422_1048
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+app\_models.migrations.0009\_auto\_20200427\_0944 module
+--------------------------------------------------------
+
+.. automodule:: app_models.migrations.0009_auto_20200427_0944
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+app\_models.migrations.0010\_auto\_20200428\_1558 module
+--------------------------------------------------------
+
+.. automodule:: app_models.migrations.0010_auto_20200428_1558
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------
