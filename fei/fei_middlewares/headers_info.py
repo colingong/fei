@@ -6,20 +6,20 @@ from django.conf import settings
 def request_headers(get_response):
     """
     下面这几个常规的headers不显示:
-    Content-Length                 --->
-    Referer                        ---> http://127.0.0.1:8000/v2/
-    Connection                     ---> keep-alive
-    Host                           ---> 127.0.0.1:8000
-    Upgrade-Insecure-Requests      ---> 1
+        Content-Length                 --->
+        Referer                        ---> http://127.0.0.1:8000/v2/
+        Connection                     ---> keep-alive
+        Host                           ---> 127.0.0.1:8000
+        Upgrade-Insecure-Requests      ---> 1
 
-    Content-Type                   ---> text/plain
-    Cookie                         ---> csrftoken=COuMh90BlYq4dOSxOqe9PzRo8frkH8lnPuviYvoSjxaqHRscHUWi4a95bLHlzAD8; sessionid=1h8ntp1x5mo7prtjnqbittnnhr413gcx
-    Accept                         ---> text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-    User-Agent                     ---> Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15
-    Accept-Language                ---> en-us
-    Accept-Encoding                ---> gzip, deflate
-    request.user.id ---> 25
-
+    下面这几个headers会被显示
+        Content-Type                   ---> text/plain
+        Cookie                         ---> csrftoken=COuMh90BlYq4dOSxOq ...; sessionid=1h8ntp1x ...
+        Accept                         ---> text/html,application/xht ...
+        User-Agent                     ---> Mozilla/5.0 (Macintosh; Intel Mac OS X 1 ...
+        Accept-Language                ---> en-us
+        Accept-Encoding                ---> gzip, deflate
+        request.user.id ---> 25
     """
 
     def wrapper(request):
@@ -35,6 +35,10 @@ def request_headers(get_response):
     return wrapper
 
 def response_header(get_response):
+    """显示response的headers
+
+        和request_headers类似，但这里显示的是reponse headers
+    """
     def wrapper(request):
         result = get_response(request)
         # after

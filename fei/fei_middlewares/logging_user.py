@@ -3,6 +3,10 @@
 from django.conf import settings
 
 def django_current_user(get_response):
+    """记录当前访问的用户
+
+        django用户，非drf用户
+    """
     def wrapper(request):
         print('--- MIDDLEWARE [django_current_user] ----------------------')
         print(f'        session ---> {request.session._SessionBase__session_key}')

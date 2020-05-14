@@ -41,4 +41,7 @@ urlpatterns = [
     path('models/', include('app_models.urls')),
     path('img/', include('app_img.urls')),
     path('drf/', include('app_drf.urls')),
+
+    path('favicon.ico', views.favicon, name='favicon'),
+    path('', views.site_root, name='site-root'),
     ]
