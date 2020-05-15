@@ -70,8 +70,9 @@ MIDDLEWARE = [
 
     # 检查信息
     'fei_middlewares.headers_info.request_headers',
+    # 过滤一下测试用户，不让它改密码
+    'fei_middlewares.user_filter.disable_user_change_pass',
     
-
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
