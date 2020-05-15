@@ -96,9 +96,15 @@
     </table>
 </div>
 
-<!-- <div class="alert alert-primary">
-    <table>
 
-    </table>
-</div> -->
+<div class="alert alert-primary">
+    <h2>欢迎留下您的留言</h2>
+    <form action="/comments/leave_comments/" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="提交留言">
+    </form>
+</div>
         {% endblock content %}

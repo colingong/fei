@@ -1,6 +1,6 @@
 """some global views"""
 
-from django.shortcuts import HttpResponse, Http404, render
+from django.shortcuts import HttpResponse, Http404, render, redirect
 
 
 def favicon(request):
@@ -22,7 +22,18 @@ def v2_root(request):
     ]
     return render(request, 'v2_apis.html', {'urls': urls})
 
+from app_comments.forms import AnonymousCommentsForm
+
 def site_root(request):
     """提供一个主页，在主页上提供文档、接口等等链接，作为本demo项目的客户入口
     """
-    return render(request, "site_root.html")
+    if request.method == 'GET':
+        form = AnonymousCommentsForm()
+        return render(request, "site_root.html", {'form': form})
+    elif request.method == 'POST':
+        form = AnonymousCommentsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('留言收到，谢谢！')
+    else:
+        return redirect('/')

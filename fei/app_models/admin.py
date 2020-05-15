@@ -1,3 +1,4 @@
+from app_models.models_comments import AnonymousComments
 from app_drf.urls import app_name
 from app_models.models_product import Warehouse
 from django.contrib import admin
@@ -226,3 +227,18 @@ class CustAdmin(admin.ModelAdmin):
         return instance.userasset.balance
 
 # admin.site.register(UserInfo, CustAdmin)
+
+@admin.register(AnonymousComments)
+class AnonymousCommentsAdmin(admin.ModelAdmin):
+    # list_display = ['username', 'email']
+    # fields = ['username', 'email']
+    list_display = ['name', 'phone', 'email', 'comments', 'create_time']
+    fields = ['name', 'phone', 'email', 'comments', 'create_time']
+
+# """
+#     username = models.CharField(max_length=50, blank=True)
+#     phone = models.CharField(max_length=20, blank=True)
+#     email = models.EmailField(max_length=50, blank=True)
+#     comments = models.CharField(max_length=200)
+#     create_time = models.DateTimeField(auto_now_add=True)
+# """

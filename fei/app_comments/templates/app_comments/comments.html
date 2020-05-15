@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/comments/leave_comments/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="提交留言">
+</form>
+{% endblock content %}
