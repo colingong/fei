@@ -42,6 +42,8 @@ urlpatterns = [
     path('img/', include('app_img.urls')),
     path('drf/', include('app_drf.urls')),
 
+    path('ip/', include('app_clientip.urls')),
+
     path('favicon.ico', views.favicon, name='favicon'),
     path('', views.site_root, name='site-root'),
     ]
