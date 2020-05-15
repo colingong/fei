@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'app_drf',
     'app_img',
     'app_clientip',
+    'app_comments',
 ]
 
 MIDDLEWARE = [

@@ -43,6 +43,7 @@ urlpatterns = [
     path('drf/', include('app_drf.urls')),
 
     path('ip/', include('app_clientip.urls')),
+    path('comments/', include('app_comments.urls')),
 
     path('favicon.ico', views.favicon, name='favicon'),
     path('', views.site_root, name='site-root'),
