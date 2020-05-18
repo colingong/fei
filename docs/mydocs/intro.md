@@ -1,5 +1,9 @@
 # Fei's django app demo INTRO / 简介
 
+## 项目布署在这儿
+
+<a href="http://demo.hhxx.me">http://demo.hhxx.me</a>
+
 ## 模型扩展
 
 ### 继承AbstractUser并扩展
