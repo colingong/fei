@@ -140,7 +140,7 @@ from django.contrib.auth.models import User
 #     """
 #     class Meta:
 #         proxy = True
-    
+
 class UserExtraInline(admin.StackedInline):
     """UserExtra模型作为StackedInline
 

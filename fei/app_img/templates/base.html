@@ -13,10 +13,9 @@
 </head>
 
 <body>
-    <div class="alert">
-        {% if current_page %}CURRENT PAGE: {{ current_page }} / {% endif %}
-        {% if request.user %}当前登录用户: [{{ user.username }}]
-        {% else %}NO USER
+    <div class="alert alert-warning border">
+        {% if request.user.is_authenticated %}当前登录用户: [{{ user.username }}]
+        {% else %}未登录，可使用测试用户/密码 user/user 来登录
         {% endif %}
     </div>
     <div id="header">

@@ -162,6 +162,12 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'collect_to'
 STATICFILES_DIRS = ['collect_serve', ]
 
+# django 认证
+AUTHENTICATION_BACKENDS = [
+     'django.contrib.auth.backends.ModelBackend', 
+    #  'fei_backend.my_auth_backend_1.MyBackend1',
+    ]
+
 # for app_drf
 REST_FRAMEWORK = {
     # for drf pagination
