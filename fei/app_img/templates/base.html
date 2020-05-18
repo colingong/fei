@@ -15,7 +15,7 @@
 <body>
     <div class="alert alert-warning border">
         {% if request.user.is_authenticated %}当前登录用户: [{{ user.username }}]
-        {% else %}未登录，可使用测试用户/密码 user/user 来登录
+        {% else %}未登录，可使用测试用户登录，用户名/密码: user/user 
         {% endif %}
     </div>
     <div id="header">
