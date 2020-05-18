@@ -165,6 +165,7 @@ STATICFILES_DIRS = ['collect_serve', ]
 # django 认证
 AUTHENTICATION_BACKENDS = [
      'django.contrib.auth.backends.ModelBackend', 
+     'fei_backend.fei_auth.FeiAuth',
     #  'fei_backend.my_auth_backend_1.MyBackend1',
     ]
 
