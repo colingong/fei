@@ -10,7 +10,7 @@ fei
    app_drf
    app_img
    app_models
-   fei_backend
+   fei_backends
    fei_middlewares
    main_settings
    manage

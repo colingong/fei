@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>fei_backend.fei_auth &mdash; Fei Django Demo v0.01 文档</title>
+  <title>fei_backends.fei_auth &mdash; Fei Django Demo v0.01 文档</title>
   
 
   
@@ -130,7 +130,7 @@
         
           <li><a href="../index.html">模块代码</a> &raquo;</li>
         
-      <li>fei_backend.fei_auth</li>
+      <li>fei_backends.fei_auth</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -145,7 +145,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>fei_backend.fei_auth 源代码</h1><div class="highlight"><pre>
+  <h1>fei_backends.fei_auth 源代码</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;自定义一个认证的backend</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
@@ -153,14 +153,14 @@
 <span class="kn">from</span> <span class="nn">django.contrib.auth.hashers</span> <span class="kn">import</span> <span class="n">check_password</span>
 
 
-<div class="viewcode-block" id="FeiAuth"><a class="viewcode-back" href="../../api/fei_backend.html#fei_backend.fei_auth.FeiAuth">[文档]</a><span class="k">class</span> <span class="nc">FeiAuth</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="FeiAuth"><a class="viewcode-back" href="../../api/fei_backends.html#fei_backends.fei_auth.FeiAuth">[文档]</a><span class="k">class</span> <span class="nc">FeiAuth</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;任意组合的认证方式</span>
 
 <span class="sd">        可以使用 username, email, qq, phone中的任意一个作为用户名 </span>
 <span class="sd">        密码符合 user.password，userextra.pay_password中的任意一个，即成功认证</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="FeiAuth.authenticate"><a class="viewcode-back" href="../../api/fei_backend.html#fei_backend.fei_auth.FeiAuth.authenticate">[文档]</a>    <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="FeiAuth.authenticate"><a class="viewcode-back" href="../../api/fei_backends.html#fei_backends.fei_auth.FeiAuth.authenticate">[文档]</a>    <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;========&gt; start FeiAuth&#39;</span><span class="p">)</span>
         <span class="n">in_pass</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
@@ -198,7 +198,7 @@
 
         <span class="k">return</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="FeiAuth.get_user"><a class="viewcode-back" href="../../api/fei_backend.html#fei_backend.fei_auth.FeiAuth.get_user">[文档]</a>    <span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+<div class="viewcode-block" id="FeiAuth.get_user"><a class="viewcode-back" href="../../api/fei_backends.html#fei_backends.fei_auth.FeiAuth.get_user">[文档]</a>    <span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span></div></div>
 </pre></div>
 

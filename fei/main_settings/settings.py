@@ -59,7 +59,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     # 自定义middleware，检查response headers
-    'fei_middlewares.headers_info.response_header',
+    'fei_middlewares.headers_info.response_headers',
     'fei_middlewares.drf_token_info.drf_user_info',
     
     'django.middleware.security.SecurityMiddleware',
@@ -165,7 +165,7 @@ STATICFILES_DIRS = ['collect_serve', ]
 # django 认证
 AUTHENTICATION_BACKENDS = [
      'django.contrib.auth.backends.ModelBackend', 
-     'fei_backend.fei_auth.FeiAuth',
+     'fei_backends.fei_auth.FeiAuth',
     #  'fei_backend.my_auth_backend_1.MyBackend1',
     ]
 

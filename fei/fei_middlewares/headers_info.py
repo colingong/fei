@@ -34,7 +34,7 @@ def request_headers(get_response):
         return result
     return wrapper
 
-def response_header(get_response):
+def response_headers(get_response):
     """显示response的headers
 
         和request_headers类似，但这里显示的是reponse headers

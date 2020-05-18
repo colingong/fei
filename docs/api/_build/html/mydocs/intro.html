@@ -92,8 +92,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#vs-one-to-one">直接修改模型并迁移 vs one-to-one</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#middleware">自行定制middleware</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#auth-backend">自行定制auth backend</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#celery-rabbitmq-redis">celery / rabbitmq /redis 实现异步处理某些事务</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cache">自行定制cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-root-open-api-swagger">API Root / Open API / Swagger等</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">一个表情包加文字的小功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ip">一个查询IP的小功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#webhook">webhook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#celery-rabbitmq-redis">celery / rabbitmq /redis 等</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api/modules.html">fei</a></li>
@@ -241,21 +244,77 @@ CREATE TABLE `app_models_customuser_user_permissions` (
 <div class="section" id="middleware">
 <h2>自行定制middleware<a class="headerlink" href="#middleware" title="永久链接至标题">¶</a></h2>
 <p>针对全部用户或针对全部访问请求的操作，可以用定制middleware实现</p>
-<p>TODO: 实现流控</p>
+<p>见<code class="docutils literal notranslate"><span class="pre">fei/fei_middlewares</span></code>目录：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 为用户初始化一些信息</span>
+<span class="n">data_initial</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">initial_user_asset</span>
+    <span class="n">initial_user_extra</span>
+
+<span class="c1"># 为用户自动生成token</span>
+<span class="n">generate_token</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">generate_token_if_not_exist</span>
+
+<span class="c1"># 开放了一个测试用户，为了避免被改密码，简单的禁止了该用户的改密码功能</span>
+<span class="c1"># 其实只是禁止了change password的url</span>
+<span class="n">user_filter</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">disable_user_change_pass</span>
+
+<span class="c1"># 以下几个middlewares作为调试工具，可以在控制台打印出当前访问用户、headers、用户token等信息</span>
+<span class="n">headers_info</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">request_headers</span>
+    <span class="n">response_headers</span>
+<span class="n">logging_user</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">django_current_user</span>
+<span class="n">drf_token_info</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">drf_user_info</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="auth-backend">
 <h2>自行定制auth backend<a class="headerlink" href="#auth-backend" title="永久链接至标题">¶</a></h2>
-<p>内置的User用户模型，认证方式很单一。通过定制的backend，实现username, email，手机号，或者任何其它需要的用户标识来进行认证；</p>
-<p>以及不同用户标识必须有不同密码，也可以实现所有标识都使用同一个密码</p>
+<p>通过定制的backend，实现username, email，手机号，或者任何其它需要的用户标识来进行认证；</p>
+<p>并且用户可以用password或pay_password等任何密码来进行认证。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fei</span><span class="o">/</span><span class="n">fei_backends</span><span class="o">/</span><span class="n">fei_auth</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="api-root-open-api-swagger">
+<h2>API Root / Open API / Swagger等<a class="headerlink" href="#api-root-open-api-swagger" title="永久链接至标题">¶</a></h2>
+<p>写了一个简单的后端demo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">demo</span><span class="o">.</span><span class="n">hhxx</span><span class="o">.</span><span class="n">me</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span>									<span class="c1"># Api Root</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">demo</span><span class="o">.</span><span class="n">hhxx</span><span class="o">.</span><span class="n">me</span><span class="o">/</span><span class="n">drf</span><span class="o">/</span><span class="n">openapi</span><span class="o">/</span>				<span class="c1"># Open API</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">demo</span><span class="o">.</span><span class="n">hhxx</span><span class="o">.</span><span class="n">me</span><span class="o">/</span><span class="n">drf</span><span class="o">/</span><span class="n">swargger</span><span class="o">/</span>				<span class="c1"># 用swagger UI格式的接口列表</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>一个表情包加文字的小功能<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">demo</span><span class="o">.</span><span class="n">hhxx</span><span class="o">.</span><span class="n">me</span><span class="o">/</span><span class="n">img</span><span class="o">/</span><span class="n">emoji</span><span class="o">/</span>					<span class="c1"># 一个表情包处理的功能，做给朋友玩</span>
+																				<span class="c1"># fei/app_img</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ip">
+<h2>一个查询IP的小功能<a class="headerlink" href="#ip" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">demo</span><span class="o">.</span><span class="n">hhxx</span><span class="o">.</span><span class="n">me</span><span class="o">/</span><span class="n">ip</span><span class="o">/</span>									<span class="c1"># 发现查询自已的公网ip的功能还比较常用，然后一些查ip的网站老是给一个页面出来，所以做个小功能，直接返回个json就可以了，便于命令行curl访问。用法：</span>
+
+<span class="n">curl</span> <span class="n">demo</span><span class="o">.</span><span class="n">hhxx</span><span class="o">.</span><span class="n">me</span><span class="o">/</span><span class="n">ip</span><span class="o">/</span>										<span class="c1"># output: {&quot;Your IP&quot;: &quot;61.140.26.251&quot;}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="webhook">
+<h2>webhook<a class="headerlink" href="#webhook" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 收到webhook后，在本地就去git pull一下相应的repo</span>
+<span class="c1"># 用于在ecs上自动更新代码</span>
+<span class="c1"># 没想好需要些什么功能，目前就最简单粗暴的git pull一下</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">fei</span><span class="o">-</span><span class="n">webhook</span><span class="o">.</span><span class="n">readthedocs</span><span class="o">.</span><span class="n">io</span><span class="o">/</span>						<span class="c1"># webhook的文档</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">colingong</span><span class="o">/</span><span class="n">fei_webhook</span><span class="o">/</span>			<span class="c1"># 项目代码</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="celery-rabbitmq-redis">
-<h2>celery / rabbitmq /redis 实现异步处理某些事务<a class="headerlink" href="#celery-rabbitmq-redis" title="永久链接至标题">¶</a></h2>
-<p>可以把一些相对耗时的操作放到后台处理，避免用户等待，提升用户体验</p>
-<p>TODO: 处理秒杀等场景</p>
-</div>
-<div class="section" id="cache">
-<h2>自行定制cache<a class="headerlink" href="#cache" title="永久链接至标题">¶</a></h2>
-<p>仅针对少数表的部分指定字段进行cache，用于认证等专门场景</p>
+<h2>celery / rabbitmq /redis 等<a class="headerlink" href="#celery-rabbitmq-redis" title="永久链接至标题">¶</a></h2>
+<p>TODO:</p>
 </div>
 </div>
 
