@@ -6,7 +6,7 @@ from django.contrib import admin
 # Register your models here.
 from django.contrib import admin
 from django.contrib.auth.models import Permission
-from .models import UserExtra, UserExtraTest, Category, Product
+from .models import UserExtra, Category, Product
 from .models import UserOrder, SubUserOrder, OrderDetail, Warehouse
 from .models import UserRole
 from .models import UserAsset
@@ -242,38 +242,3 @@ class AnonymousCommentsAdmin(admin.ModelAdmin):
 #     comments = models.CharField(max_length=200)
 #     create_time = models.DateTimeField(auto_now_add=True)
 # """
-
-class UserExtraTestInline(admin.StackedInline):
-    """UserExtraTest模型作为StackedInline
-
-    模型关系:
-        UserExtraTest有一个password字段，该字段用property来处理从明文转换成hash
-    
-    其它和UserExtrag一样：
-        UserExtra和User是One to One
-        因此每个User有一条（且仅有一条）UserExtra记录
-        作为StackedInline，现在管理每个User的时候，也可一起管理UserExtra
-    
-    """
-    model = UserExtraTest
-
-    # 每个用户都必须有一条user extra记录，不允许删除
-    def has_delete_permission(self, request, obj=None):
-        return False
-    
-    def has_add_permission(self, request, obj=None):
-        return False
-
-# 由于User模型前面已经用过，需要再建新的proxy
-class FeiUser(User):
-    class Meta:
-        proxy = True
-
-@admin.register(FeiUser)
-class UserAndExtraTest(admin.ModelAdmin):
-    list_display = ['username', 'email', 'password']
-    fields = ['username', 'email', 'password', 'pay_password']
-    inlines = [UserExtraTestInline, ]
-
-    def pay_password(self, isinstance):
-        return self.user.userextratest.pay_password
