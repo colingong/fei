@@ -1,0 +1,225 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>app_models.models &mdash; Fei Django Demo v0.01 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Fei Django Demo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents/欢迎阅读:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mydocs/intro.html">Fei’s django app demo INTRO / 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">fei</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Fei Django Demo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">模块代码</a> &raquo;</li>
+        
+      <li>app_models.models</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>app_models.models 源代码</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;[项目的models]</span>
+<span class="sd">   所有models的定义都在同目录下其它的文件中定义</span>
+<span class="sd">   所有定义models的文件，命名都类似这样：models_for_some_app.py</span>
+<span class="sd">   所有app用到的models都从这里import</span>
+<span class="sd">   from .models_for_some_app import MyModel</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="c1"># Create your models here.</span>
+
+<span class="c1"># A custom user model, extended from Abstractuser</span>
+<span class="c1"># Just use django default User model</span>
+<span class="c1"># from .models_customuser import CustomUser</span>
+<span class="c1"># CustomerUser NOT used , just a practice</span>
+
+<span class="c1"># from django.contrib.auth.models import User</span>
+<span class="kn">from</span> <span class="nn">.models_extra_user</span> <span class="kn">import</span> <span class="n">UserExtra</span>
+<span class="kn">from</span> <span class="nn">.models_product</span> <span class="kn">import</span> <span class="n">Warehouse</span><span class="p">,</span> <span class="n">Category</span><span class="p">,</span>  <span class="n">Product</span><span class="p">,</span> <span class="n">Supplier</span>
+<span class="kn">from</span> <span class="nn">.models_order</span> <span class="kn">import</span> <span class="n">UserOrder</span><span class="p">,</span> <span class="n">SubUserOrder</span><span class="p">,</span> <span class="n">OrderDetail</span>
+<span class="kn">from</span> <span class="nn">.models_user_role</span> <span class="kn">import</span> <span class="n">UserRole</span>
+<span class="kn">from</span> <span class="nn">.models_user_asset</span> <span class="kn">import</span> <span class="n">UserAsset</span>
+<span class="kn">from</span> <span class="nn">.models_comments</span> <span class="kn">import</span> <span class="n">AnonymousComments</span>
+
+<span class="c1"># for drf authentication</span>
+<span class="kn">from</span> <span class="nn">django.db.models.signals</span> <span class="kn">import</span> <span class="n">post_save</span>
+<span class="kn">from</span> <span class="nn">django.dispatch</span> <span class="kn">import</span> <span class="n">receiver</span>
+<span class="kn">from</span> <span class="nn">rest_framework.authtoken.models</span> <span class="kn">import</span> <span class="n">Token</span>
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+
+<span class="c1"># 测试 user_instance.token attribute error的问题</span>
+<span class="c1"># from .models_drf_token import ProxyToken</span>
+
+<div class="viewcode-block" id="create_auth_token"><a class="viewcode-back" href="../../api/app_models.html#app_models.models.create_auth_token">[文档]</a><span class="nd">@receiver</span><span class="p">(</span><span class="n">post_save</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">AUTH_USER_MODEL</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">create_auth_token</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">instance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">created</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+   <span class="k">if</span> <span class="n">created</span><span class="p">:</span>
+      <span class="n">Token</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">instance</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Fei
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -15,6 +15,8 @@ class FeiAuth(object):
     def authenticate(self, request, username=None, password=None):
         print('========> start FeiAuth')
         in_pass = request.POST.get('password', None)
+
+        # 用User username认证
         try:
             u = User.objects.get(username=request.POST.get('username'))
             if check_password(in_pass, u.password) or check_password(in_pass, u.userextra.pay_password):
@@ -22,13 +24,15 @@ class FeiAuth(object):
         except:
             pass
 
+        # 用User email认证
         try:
             u = User.objects.get(email=request.POST.get('username'))
             if check_password(in_pass, u.password) or check_password(in_pass, u.userextra.pay_password):
                 return u
         except:
             pass
-
+        
+        # 用UserExtra的 qq进行认证
         try:
             user_extra = UserExtra.objects.get(qq=request.POST.get('username'))
             if check_password(in_pass, user_extra.pay_password) or check_password(in_pass, user_extra.user.password):
@@ -36,6 +40,7 @@ class FeiAuth(object):
         except:
             pass
 
+        # 用UserExtra的 phone进行认证
         try:
             user_extra = UserExtra.objects.get(phone=request.POST.get('username'))
             if check_password(in_pass, user_extra.pay_password) or check_password(in_pass, user_extra.user.password):
@@ -45,26 +50,5 @@ class FeiAuth(object):
 
         return None
 
-
-
     def get_user(self, user_id):
         return User.objects.get(id=user_id)
-
-class WeixinAuth(object):
-    pass
-
-class PhoneAuth(object):
-    def authenticate(self, request, username=None, password=None):
-        pass
-    
-    def get_user(self, user_id):
-        pass
-
-class QqAuth(object):
-    def authenticate(self, request, username=None, password=None):
-        pass
-
-    def get_user(self, user_id):
-        pass
-
-

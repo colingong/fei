@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>app_drf.views_customize_serializer &mdash; Fei Django Demo v0.01 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Fei Django Demo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents/欢迎阅读:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mydocs/intro.html">Fei’s django app demo INTRO / 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">fei</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Fei Django Demo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">模块代码</a> &raquo;</li>
+        
+      <li>app_drf.views_customize_serializer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>app_drf.views_customize_serializer 源代码</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;定制Serializer</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span><span class="p">,</span> <span class="n">response</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">app_models.models</span> <span class="kn">import</span> <span class="n">UserExtra</span><span class="p">,</span> <span class="n">UserAsset</span>
+<span class="kn">from</span> <span class="nn">rest_framework.decorators</span> <span class="kn">import</span> <span class="n">api_view</span>
+
+<div class="viewcode-block" id="UserAllInfoSerializer"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views_customize_serializer.UserAllInfoSerializer">[文档]</a><span class="k">class</span> <span class="nc">UserAllInfoSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="n">api_desc</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">SerializerMethodField</span><span class="p">(</span><span class="s1">&#39;api_comment&#39;</span><span class="p">)</span>
+    <span class="n">phone</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">SerializerMethodField</span><span class="p">(</span><span class="s1">&#39;user_phone&#39;</span><span class="p">)</span>
+    <span class="n">qq</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">SerializerMethodField</span><span class="p">(</span><span class="s1">&#39;user_qq&#39;</span><span class="p">)</span>
+    <span class="n">balance</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">SerializerMethodField</span><span class="p">(</span><span class="s1">&#39;user_balance&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="UserAllInfoSerializer.user_phone"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views_customize_serializer.UserAllInfoSerializer.user_phone">[文档]</a>    <span class="k">def</span> <span class="nf">user_phone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pk</span><span class="p">):</span>
+        <span class="n">user_extra</span> <span class="o">=</span> <span class="n">UserExtra</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">user_extra</span><span class="o">.</span><span class="n">phone</span></div>
+
+<div class="viewcode-block" id="UserAllInfoSerializer.user_qq"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views_customize_serializer.UserAllInfoSerializer.user_qq">[文档]</a>    <span class="k">def</span> <span class="nf">user_qq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pk</span><span class="p">):</span>
+        <span class="n">user_extra</span> <span class="o">=</span> <span class="n">UserExtra</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">user_extra</span><span class="o">.</span><span class="n">qq</span></div>
+
+<div class="viewcode-block" id="UserAllInfoSerializer.user_balance"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views_customize_serializer.UserAllInfoSerializer.user_balance">[文档]</a>    <span class="k">def</span> <span class="nf">user_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pk</span><span class="p">):</span>
+        <span class="c1"># balance = UserAsset.objects.filter(user_id=pk).values_list(&#39;balance&#39;, flat=True)[0]</span>
+        <span class="n">user_asset</span> <span class="o">=</span> <span class="n">UserAsset</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
+        <span class="n">balance</span> <span class="o">=</span> <span class="n">user_asset</span><span class="o">.</span><span class="n">balance</span>
+        <span class="k">return</span> <span class="n">balance</span></div>
+
+
+<div class="viewcode-block" id="UserAllInfoSerializer.api_comment"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views_customize_serializer.UserAllInfoSerializer.api_comment">[文档]</a>    <span class="k">def</span> <span class="nf">api_comment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;这是一个用户完整信息列表，包括了UserExtra，以及 UserAsset的信息&#39;</span></div>
+
+<div class="viewcode-block" id="UserAllInfoSerializer.Meta"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views_customize_serializer.UserAllInfoSerializer.Meta">[文档]</a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;api_desc&#39;</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;is_staff&#39;</span><span class="p">,</span> <span class="s1">&#39;is_superuser&#39;</span><span class="p">,</span> <span class="s1">&#39;balance&#39;</span><span class="p">,</span> <span class="s1">&#39;phone&#39;</span><span class="p">,</span> <span class="s1">&#39;qq&#39;</span><span class="p">]</span></div></div>
+
+<div class="viewcode-block" id="show_user_all_info"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views_customize_serializer.show_user_all_info">[文档]</a><span class="nd">@api_view</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">show_user_all_info</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
+    <span class="n">user_all_info_serializer</span> <span class="o">=</span> <span class="n">UserAllInfoSerializer</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">Response</span><span class="p">({</span><span class="s1">&#39;user&#39;</span><span class="p">:</span><span class="n">user_all_info_serializer</span><span class="o">.</span><span class="n">data</span><span class="p">})</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Fei
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -2,7 +2,8 @@
 
     仅作为一个middleware的示例
     实际上为已有用户创建token可以直接在django shell里进行一次操作
-
+    
+.. code-block:
     users = User.objects.all()
     for user in users:
         if getattr(user, 'auth_token', True):

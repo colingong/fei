@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fei_middlewares package &mdash; Fei Django Demo v0.01 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="main_settings package" href="main_settings.html" />
+    <link rel="prev" title="fei_backend package" href="fei_backend.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fei Django Demo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents/欢迎阅读:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../mydocs/intro.html">Fei’s django app demo INTRO / 简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fei</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="app_clientip.html">app_clientip package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_comments.html">app_comments package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_demo1.html">app_demo1 package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_drf.html">app_drf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_img.html">app_img package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.html">app_models package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fei_backend.html">fei_backend package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">fei_middlewares package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fei_middlewares.data_initial">fei_middlewares.data_initial module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fei_middlewares.drf_token_info">fei_middlewares.drf_token_info module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fei_middlewares.generate_token">fei_middlewares.generate_token module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fei_middlewares.headers_info">fei_middlewares.headers_info module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fei_middlewares.logging_user">fei_middlewares.logging_user module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fei_middlewares.user_filter">fei_middlewares.user_filter module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fei_middlewares">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="main_settings.html">main_settings package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="not_use.html">not_use package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="share.html">share package</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fei Django Demo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">fei</a> &raquo;</li>
+        
+      <li>fei_middlewares package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/fei_middlewares.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fei-middlewares-package">
+<h1>fei_middlewares package<a class="headerlink" href="#fei-middlewares-package" title="永久链接至标题">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="module-fei_middlewares.data_initial">
+<span id="fei-middlewares-data-initial-module"></span><h2>fei_middlewares.data_initial module<a class="headerlink" href="#module-fei_middlewares.data_initial" title="永久链接至标题">¶</a></h2>
+<p>这个middleware用于初始化一些模型</p>
+<p>例如，注册用户一开始只有基本的信息：username/first_name/last_name/email等，
+其它 UserExtra， UserAsset等等都没有数据，或者某些模型是后来增加的，也没有专门的初始化
+这个middleware用于判断用户的某些数据是否已初始化，如果没有则进行初始化，增加相应的记录
+例：当用户访问的时候，检测用户是否有UserAsset记录，如果没有，则为该用户初始化，balance=0</p>
+<dl class="function">
+<dt id="fei_middlewares.data_initial.initial_user_asset">
+<code class="sig-prename descclassname">fei_middlewares.data_initial.</code><code class="sig-name descname">initial_user_asset</code><span class="sig-paren">(</span><em class="sig-param">get_response</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fei_middlewares/data_initial.html#initial_user_asset"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#fei_middlewares.data_initial.initial_user_asset" title="永久链接至目标">¶</a></dt>
+<dd><p>检查当前登录用户的UserExtra和UserAsset记录是否存在</p>
+<p>如果不存在，则自动为用户添加一条记录到数据库
+UserAsset增加一条记录，将balance设为0即可</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fei_middlewares.data_initial.initial_user_extra">
+<code class="sig-prename descclassname">fei_middlewares.data_initial.</code><code class="sig-name descname">initial_user_extra</code><span class="sig-paren">(</span><em class="sig-param">get_response</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fei_middlewares/data_initial.html#initial_user_extra"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#fei_middlewares.data_initial.initial_user_extra" title="永久链接至目标">¶</a></dt>
+<dd><p>检查当前登录用户的UserExtra和UserAsset记录是否存在</p>
+<p>如果不存在，则自动为用户添加一条记录到数据库
+UserExtra增加一条记录，其中weixin_openid/qq/phone/pay_password都为null
+由于weixin_openid/qq/phone均为unique，因此不能设为空字串’’，null即可
+在以后某个场景，例如用户认证时，由用户将其中的部分或全部信息补齐</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-fei_middlewares.drf_token_info">
+<span id="fei-middlewares-drf-token-info-module"></span><h2>fei_middlewares.drf_token_info module<a class="headerlink" href="#module-fei_middlewares.drf_token_info" title="永久链接至标题">¶</a></h2>
+<p>检查用户是已经生成了token，drf需要token才能认证用户</p>
+<dl class="function">
+<dt id="fei_middlewares.drf_token_info.drf_user_info">
+<code class="sig-prename descclassname">fei_middlewares.drf_token_info.</code><code class="sig-name descname">drf_user_info</code><span class="sig-paren">(</span><em class="sig-param">get_response</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fei_middlewares/drf_token_info.html#drf_user_info"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#fei_middlewares.drf_token_info.drf_user_info" title="永久链接至目标">¶</a></dt>
+<dd><p>log用户的id和token</p>
+<p>如果用户认证成功，打印出用户id和token；否则显示failed信息
+如果从浏览器访问，即使是已登录用户也会失败，因为浏览器用户是通过session认证的</p>
+<p>客户端直接访问的用户提供了 ‘Authorization: Token 954… ‘ 这个header才能被drf认证
+可以用curl/postman等直接模拟一个客户端的访问：
+curl -X GET -H ‘Authorization: Token &lt;此处是一个有效的token&gt;’ <a class="reference external" href="http://demo.hhxx.me/v2/">http://demo.hhxx.me/v2/</a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-fei_middlewares.generate_token">
+<span id="fei-middlewares-generate-token-module"></span><h2>fei_middlewares.generate_token module<a class="headerlink" href="#module-fei_middlewares.generate_token" title="永久链接至标题">¶</a></h2>
+<p>为当前系统中已有的用户创建token</p>
+<blockquote>
+<div><p>仅作为一个middleware的示例
+实际上为已有用户创建token可以直接在django shell里进行一次操作</p>
+</div></blockquote>
+<dl class="function">
+<dt id="fei_middlewares.generate_token.generate_token_if_not_exist">
+<code class="sig-prename descclassname">fei_middlewares.generate_token.</code><code class="sig-name descname">generate_token_if_not_exist</code><span class="sig-paren">(</span><em class="sig-param">get_response</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fei_middlewares/generate_token.html#generate_token_if_not_exist"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#fei_middlewares.generate_token.generate_token_if_not_exist" title="永久链接至目标">¶</a></dt>
+<dd><p>为用户生成一个token</p>
+<p>用户token在app_models/models.py里已经有一个生成功能，为每个新注册的用户生成token
+不过对于系统中已有的用户，就不起作用
+此middleware在每个用户访问的时候，会检查该用户是否已经有token，没有的话即为用户生成并入库</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-fei_middlewares.headers_info">
+<span id="fei-middlewares-headers-info-module"></span><h2>fei_middlewares.headers_info module<a class="headerlink" href="#module-fei_middlewares.headers_info" title="永久链接至标题">¶</a></h2>
+<p>检查request / response 的headers
+用于debug</p>
+<dl class="function">
+<dt id="fei_middlewares.headers_info.request_headers">
+<code class="sig-prename descclassname">fei_middlewares.headers_info.</code><code class="sig-name descname">request_headers</code><span class="sig-paren">(</span><em class="sig-param">get_response</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fei_middlewares/headers_info.html#request_headers"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#fei_middlewares.headers_info.request_headers" title="永久链接至目标">¶</a></dt>
+<dd><dl class="simple">
+<dt>下面这几个常规的headers不显示:</dt><dd><p>Content-Length                 —&gt;
+Referer                        —&gt; <a class="reference external" href="http://127.0.0.1:8000/v2/">http://127.0.0.1:8000/v2/</a>
+Connection                     —&gt; keep-alive
+Host                           —&gt; 127.0.0.1:8000
+Upgrade-Insecure-Requests      —&gt; 1</p>
+</dd>
+<dt>下面这几个headers会被显示</dt><dd><p>Content-Type                   —&gt; text/plain
+Cookie                         —&gt; csrftoken=COuMh90BlYq4dOSxOq …; sessionid=1h8ntp1x …
+Accept                         —&gt; text/html,application/xht …
+User-Agent                     —&gt; Mozilla/5.0 (Macintosh; Intel Mac OS X 1 …
+Accept-Language                —&gt; en-us
+Accept-Encoding                —&gt; gzip, deflate
+request.user.id —&gt; 25</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="fei_middlewares.headers_info.response_header">
+<code class="sig-prename descclassname">fei_middlewares.headers_info.</code><code class="sig-name descname">response_header</code><span class="sig-paren">(</span><em class="sig-param">get_response</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fei_middlewares/headers_info.html#response_header"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#fei_middlewares.headers_info.response_header" title="永久链接至目标">¶</a></dt>
+<dd><p>显示response的headers</p>
+<p>和request_headers类似，但这里显示的是reponse headers</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-fei_middlewares.logging_user">
+<span id="fei-middlewares-logging-user-module"></span><h2>fei_middlewares.logging_user module<a class="headerlink" href="#module-fei_middlewares.logging_user" title="永久链接至标题">¶</a></h2>
+<p>记录当前访问的用户</p>
+<dl class="function">
+<dt id="fei_middlewares.logging_user.django_current_user">
+<code class="sig-prename descclassname">fei_middlewares.logging_user.</code><code class="sig-name descname">django_current_user</code><span class="sig-paren">(</span><em class="sig-param">get_response</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fei_middlewares/logging_user.html#django_current_user"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#fei_middlewares.logging_user.django_current_user" title="永久链接至目标">¶</a></dt>
+<dd><p>记录当前访问的用户</p>
+<p>django用户，非drf用户</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-fei_middlewares.user_filter">
+<span id="fei-middlewares-user-filter-module"></span><h2>fei_middlewares.user_filter module<a class="headerlink" href="#module-fei_middlewares.user_filter" title="永久链接至标题">¶</a></h2>
+<p>禁示测试用户改密码</p>
+<dl class="function">
+<dt id="fei_middlewares.user_filter.disable_user_change_pass">
+<code class="sig-prename descclassname">fei_middlewares.user_filter.</code><code class="sig-name descname">disable_user_change_pass</code><span class="sig-paren">(</span><em class="sig-param">get_response</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fei_middlewares/user_filter.html#disable_user_change_pass"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#fei_middlewares.user_filter.disable_user_change_pass" title="永久链接至目标">¶</a></dt>
+<dd><p>简单粗暴的禁止测试用户改密码</p>
+<p>用户更改密码的url是 /admin/password_change/
+因此判断当用户名是 ‘user’，并且 url里包含 admin/password_change时，判断用户修改密码
+直接返回一个警告消息即可
+一种简单的实现，但是不保证用户不能真正找到其它修改密码的办法
+生产系统不能依靠这种方式</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-fei_middlewares">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fei_middlewares" title="永久链接至标题">¶</a></h2>
+<p>Custom middleware</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="main_settings.html" class="btn btn-neutral float-right" title="main_settings package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fei_backend.html" class="btn btn-neutral float-left" title="fei_backend package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Fei
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

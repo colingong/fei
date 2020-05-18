@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>app_drf.views &mdash; Fei Django Demo v0.01 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Fei Django Demo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents/欢迎阅读:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mydocs/intro.html">Fei’s django app demo INTRO / 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">fei</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Fei Django Demo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">模块代码</a> &raquo;</li>
+        
+      <li>app_drf.views</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>app_drf.views 源代码</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">app_models.models</span> <span class="kn">import</span> <span class="n">UserExtra</span>
+<span class="kn">from</span> <span class="nn">.serializers</span> <span class="kn">import</span> <span class="n">UserSerializer</span><span class="p">,</span> <span class="n">UserExtraSerializer</span>
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">viewsets</span>
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">views</span> <span class="k">as</span> <span class="n">rest_views</span>
+<span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+
+<span class="c1"># Create your views here.</span>
+<div class="viewcode-block" id="alive"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views.alive">[文档]</a><span class="k">def</span> <span class="nf">alive</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;---&gt; /app_drf/alive/&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="UserViewSet"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views.UserViewSet">[文档]</a><span class="k">class</span> <span class="nc">UserViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-date_joined&#39;</span><span class="p">)</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">UserSerializer</span></div>
+
+<div class="viewcode-block" id="UserExtraViewSet"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views.UserExtraViewSet">[文档]</a><span class="k">class</span> <span class="nc">UserExtraViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">UserExtra</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">UserExtraSerializer</span></div>
+
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+
+
+<span class="c1">### 上面的的因为是 DRF的ViewSet，所以可以用router注册</span>
+<span class="c1">### 以下因为是APIView，需要在本地的urls中，用FeiView.as_view()来显示响应，不能用router注册</span>
+
+<div class="viewcode-block" id="FeiUserSerializer"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views.FeiUserSerializer">[文档]</a><span class="k">class</span> <span class="nc">FeiUserSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<div class="viewcode-block" id="FeiUserSerializer.Meta"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views.FeiUserSerializer.Meta">[文档]</a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;is_staff&#39;</span><span class="p">,</span> <span class="s1">&#39;is_active&#39;</span><span class="p">,</span> <span class="s1">&#39;objects&#39;</span><span class="p">]</span></div></div>
+
+<div class="viewcode-block" id="FeiUserExtraSerializer"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views.FeiUserExtraSerializer">[文档]</a><span class="k">class</span> <span class="nc">FeiUserExtraSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<div class="viewcode-block" id="FeiUserExtraSerializer.Meta"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views.FeiUserExtraSerializer.Meta">[文档]</a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">UserExtra</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;weixin_openid&#39;</span><span class="p">,</span> <span class="s1">&#39;qq&#39;</span><span class="p">]</span></div></div>
+
+<div class="viewcode-block" id="FeiView"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views.FeiView">[文档]</a><span class="k">class</span> <span class="nc">FeiView</span><span class="p">(</span><span class="n">rest_views</span><span class="o">.</span><span class="n">APIView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;成功显示了两个models， User , UserExtra</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FeiView.get"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views.FeiView.get">[文档]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">pk</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
+        <span class="n">user_serializer</span> <span class="o">=</span> <span class="n">FeiUserSerializer</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">userextra</span> <span class="o">=</span> <span class="n">UserExtra</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
+        <span class="n">userextra_serializer</span> <span class="o">=</span> <span class="n">FeiUserExtraSerializer</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">userextra</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;===&gt; </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="vm">__dict__</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">userextra</span><span class="o">.</span><span class="vm">__dict__</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;---&gt; </span><span class="si">{</span><span class="n">user_serializer</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">userextra_serializer</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--- </span><span class="si">{</span><span class="n">user_serializer</span><span class="o">.</span><span class="vm">__dict__</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span>
+            <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="n">user_serializer</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+            <span class="s1">&#39;userextra&#39;</span><span class="p">:</span> <span class="n">userextra_serializer</span><span class="o">.</span><span class="n">data</span><span class="p">})</span></div></div>
+
+<span class="kn">from</span> <span class="nn">rest_framework.decorators</span> <span class="kn">import</span> <span class="n">api_view</span>
+
+<div class="viewcode-block" id="send_json"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views.send_json">[文档]</a><span class="nd">@api_view</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">send_json</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">({</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">})</span></div>
+
+<span class="c1"># Use ViewSet instead of APIView (FeiView)</span>
+<div class="viewcode-block" id="FeiViewSet"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views.FeiViewSet">[文档]</a><span class="k">class</span> <span class="nc">FeiViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ViewSet</span><span class="p">):</span>
+<div class="viewcode-block" id="FeiViewSet.list"><a class="viewcode-back" href="../../api/app_drf.html#app_drf.views.FeiViewSet.list">[文档]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+        <span class="n">userextra</span> <span class="o">=</span> <span class="n">UserExtra</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+
+        <span class="n">user_serializer</span> <span class="o">=</span> <span class="n">FeiUserSerializer</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">userextra_serializer</span> <span class="o">=</span> <span class="n">FeiUserExtraSerializer</span><span class="p">(</span><span class="n">userextra</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">({</span>
+            <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="n">user_serializer</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+            <span class="s1">&#39;userextra&#39;</span><span class="p">:</span> <span class="n">userextra_serializer</span><span class="o">.</span><span class="n">data</span>
+        <span class="p">})</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Fei
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

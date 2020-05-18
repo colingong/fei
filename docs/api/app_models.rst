@@ -35,6 +35,14 @@ app\_models.models module
    :undoc-members:
    :show-inheritance:
 
+app\_models.models\_comments module
+-----------------------------------
+
+.. automodule:: app_models.models_comments
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 app\_models.models\_customuser module
 -------------------------------------
 

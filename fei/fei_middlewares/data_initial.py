@@ -1,4 +1,5 @@
 """这个middleware用于初始化一些模型
+
     例如，注册用户一开始只有基本的信息：username/first_name/last_name/email等，
     其它 UserExtra， UserAsset等等都没有数据，或者某些模型是后来增加的，也没有专门的初始化
     这个middleware用于判断用户的某些数据是否已初始化，如果没有则进行初始化，增加相应的记录

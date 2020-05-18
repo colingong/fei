@@ -84,14 +84,21 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../mydocs/intro.html">Fei’s django app demo INTRO / 简介</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">fei</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="app_clientip.html">app_clientip package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_comments.html">app_comments package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="app_demo1.html">app_demo1 package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_drf.html">app_drf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_img.html">app_img package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="app_models.html">app_models package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fei_backend.html">fei_backend package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fei_middlewares.html">fei_middlewares package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main_settings.html">main_settings package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="not_use.html">not_use package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">share package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-share.config_mysql">share.config_mysql module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-share.fei_debug">share.fei_debug module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-share">Module contents</a></li>
 </ul>
 </li>
@@ -175,8 +182,23 @@ mysql的相关配置，都作为os 的环境变量
 在生成docker container的时候，需要配置
 这些敏感信息也不能放到repo中，即使是私有的repo也不建议放</p>
 </div>
+<div class="section" id="module-share.fei_debug">
+<span id="share-fei-debug-module"></span><h2>share.fei_debug module<a class="headerlink" href="#module-share.fei_debug" title="永久链接至标题">¶</a></h2>
+<p>Print tool</p>
+<dl class="function">
+<dt id="share.fei_debug.block_print">
+<code class="sig-prename descclassname">share.fei_debug.</code><code class="sig-name descname">block_print</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/share/fei_debug.html#block_print"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#share.fei_debug.block_print" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="module-share">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-share" title="永久链接至标题">¶</a></h2>
+<p>项目中一些公共的配置或工具模块</p>
+<dl class="simple">
+<dt>config_mysql.py</dt><dd><p>数据库的配置
+mysql的相关配置，仅保存在环境变量中，避免和代码一起放到repo里</p>
+</dd>
+</dl>
 </div>
 </div>
 

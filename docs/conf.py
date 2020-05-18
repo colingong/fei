@@ -16,6 +16,7 @@ import sys
 import django
 
 sys.path.insert(0, os.path.abspath('../fei'))
+# sys.path.append(os.path.join(os.path.dirname(__name__), '../fei'))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'main_settings.settings'
 django.setup()
 

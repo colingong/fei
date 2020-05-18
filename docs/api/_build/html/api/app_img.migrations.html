@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>app_img.migrations package &mdash; Fei Django Demo v0.01 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="app_models package" href="app_models.html" />
+    <link rel="prev" title="app_img package" href="app_img.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fei Django Demo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents/欢迎阅读:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../mydocs/intro.html">Fei’s django app demo INTRO / 简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fei</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="app_clientip.html">app_clientip package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_comments.html">app_comments package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_demo1.html">app_demo1 package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_drf.html">app_drf package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="app_img.html">app_img package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="app_img.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">app_img.migrations package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="app_img.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app_img.html#module-app_img.admin">app_img.admin module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app_img.html#module-app_img.apps">app_img.apps module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app_img.html#module-app_img.models">app_img.models module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app_img.html#module-app_img.tests">app_img.tests module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app_img.html#module-app_img.urls">app_img.urls module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app_img.html#module-app_img.views">app_img.views module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app_img.html#module-app_img.views_img_upload">app_img.views_img_upload module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="app_img.html#module-app_img">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.html">app_models package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fei_backend.html">fei_backend package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fei_middlewares.html">fei_middlewares package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_settings.html">main_settings package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="not_use.html">not_use package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="share.html">share package</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fei Django Demo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">fei</a> &raquo;</li>
+        
+          <li><a href="app_img.html">app_img package</a> &raquo;</li>
+        
+      <li>app_img.migrations package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/app_img.migrations.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="app-img-migrations-package">
+<h1>app_img.migrations package<a class="headerlink" href="#app-img-migrations-package" title="永久链接至标题">¶</a></h1>
+<div class="section" id="module-app_img.migrations">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-app_img.migrations" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="app_models.html" class="btn btn-neutral float-right" title="app_models package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="app_img.html" class="btn btn-neutral float-left" title="app_img package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Fei
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

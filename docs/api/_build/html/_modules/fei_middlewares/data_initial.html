@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fei_middlewares.data_initial &mdash; Fei Django Demo v0.01 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Fei Django Demo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents/欢迎阅读:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mydocs/intro.html">Fei’s django app demo INTRO / 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">fei</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Fei Django Demo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">模块代码</a> &raquo;</li>
+        
+      <li>fei_middlewares.data_initial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>fei_middlewares.data_initial 源代码</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;这个middleware用于初始化一些模型</span>
+
+<span class="sd">    例如，注册用户一开始只有基本的信息：username/first_name/last_name/email等，</span>
+<span class="sd">    其它 UserExtra， UserAsset等等都没有数据，或者某些模型是后来增加的，也没有专门的初始化</span>
+<span class="sd">    这个middleware用于判断用户的某些数据是否已初始化，如果没有则进行初始化，增加相应的记录</span>
+<span class="sd">    例：当用户访问的时候，检测用户是否有UserAsset记录，如果没有，则为该用户初始化，balance=0</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">app_models.models_extra_user</span> <span class="kn">import</span> <span class="n">UserExtra</span>
+<span class="kn">from</span> <span class="nn">app_models.models_user_asset</span> <span class="kn">import</span> <span class="n">UserAsset</span>
+<span class="kn">from</span> <span class="nn">django.core.exceptions</span> <span class="kn">import</span> <span class="n">ObjectDoesNotExist</span>
+<span class="kn">import</span> <span class="nn">decimal</span>
+
+<div class="viewcode-block" id="initial_user_asset"><a class="viewcode-back" href="../../api/fei_middlewares.html#fei_middlewares.data_initial.initial_user_asset">[文档]</a><span class="k">def</span> <span class="nf">initial_user_asset</span><span class="p">(</span><span class="n">get_response</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;检查当前登录用户的UserExtra和UserAsset记录是否存在</span>
+
+<span class="sd">        如果不存在，则自动为用户添加一条记录到数据库</span>
+<span class="sd">        UserAsset增加一条记录，将balance设为0即可</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">middleware</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+            <span class="c1"># 如果用户没有UserAsset 记录，则增加并保存该记录</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">userasset</span>
+            <span class="k">except</span> <span class="n">ObjectDoesNotExist</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--- MIDDLEWARE [initial_user_asset] ---&gt; 用户的 资产记录不存在&#39;</span><span class="p">)</span>
+                <span class="n">asset</span> <span class="o">=</span> <span class="n">UserAsset</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+                <span class="n">asset</span><span class="o">.</span><span class="n">balance</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">asset</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="n">get_response</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span>
+    <span class="k">return</span> <span class="n">middleware</span></div>
+
+<div class="viewcode-block" id="initial_user_extra"><a class="viewcode-back" href="../../api/fei_middlewares.html#fei_middlewares.data_initial.initial_user_extra">[文档]</a><span class="k">def</span> <span class="nf">initial_user_extra</span><span class="p">(</span><span class="n">get_response</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;检查当前登录用户的UserExtra和UserAsset记录是否存在</span>
+
+<span class="sd">        如果不存在，则自动为用户添加一条记录到数据库</span>
+<span class="sd">        UserExtra增加一条记录，其中weixin_openid/qq/phone/pay_password都为null</span>
+<span class="sd">        由于weixin_openid/qq/phone均为unique，因此不能设为空字串&#39;&#39;，null即可</span>
+<span class="sd">        在以后某个场景，例如用户认证时，由用户将其中的部分或全部信息补齐</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">middleware</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+            <span class="c1">#  如果用户还没朋UserExtra 记录，则初始化并保存该记录</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">userextra</span>
+            <span class="k">except</span> <span class="n">ObjectDoesNotExist</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;---MIDDLEWARE [initial_user_extra] ---&gt; 用户</span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">的 userextra 不存在&#39;</span><span class="p">)</span>
+                <span class="n">userextra</span> <span class="o">=</span> <span class="n">UserExtra</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+                <span class="n">userextra</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="n">get_response</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span>
+    <span class="k">return</span> <span class="n">middleware</span></div>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Fei
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

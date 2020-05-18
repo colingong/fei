@@ -148,13 +148,43 @@
   <h1>main_settings.views 源代码</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;some global views&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">HttpResponse</span><span class="p">,</span> <span class="n">Http404</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">HttpResponse</span><span class="p">,</span> <span class="n">Http404</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+
+
 <div class="viewcode-block" id="favicon"><a class="viewcode-back" href="../../api/main_settings.html#main_settings.views.favicon">[文档]</a><span class="k">def</span> <span class="nf">favicon</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;简单粗暴的提供一个favicon.ico</span>
+
+<span class="sd">        显然用django来提从文件服务是低效的</span>
+<span class="sd">        用nginx来处理这种文件服务更合适</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;static/favicon.ico&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">content_type</span><span class="o">=</span><span class="s2">&quot;image/x-icon&quot;</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">Http404</span></div>
+
+<div class="viewcode-block" id="v2_root"><a class="viewcode-back" href="../../api/main_settings.html#main_settings.views.v2_root">[文档]</a><span class="k">def</span> <span class="nf">v2_root</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;/v2/api1/&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;/v2/api2/&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;v2_apis.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;urls&#39;</span><span class="p">:</span> <span class="n">urls</span><span class="p">})</span></div>
+
+<span class="kn">from</span> <span class="nn">app_comments.forms</span> <span class="kn">import</span> <span class="n">AnonymousCommentsForm</span>
+
+<div class="viewcode-block" id="site_root"><a class="viewcode-back" href="../../api/main_settings.html#main_settings.views.site_root">[文档]</a><span class="k">def</span> <span class="nf">site_root</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;提供一个主页，在主页上提供文档、接口等等链接，作为本demo项目的客户入口</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;GET&#39;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">AnonymousCommentsForm</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;site_root.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+    <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">AnonymousCommentsForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;留言收到，谢谢！&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

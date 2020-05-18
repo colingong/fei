@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>app_models.admin &mdash; Fei Django Demo v0.01 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Fei Django Demo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents/欢迎阅读:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mydocs/intro.html">Fei’s django app demo INTRO / 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">fei</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Fei Django Demo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">模块代码</a> &raquo;</li>
+        
+      <li>app_models.admin</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>app_models.admin 源代码</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">app_models.models_comments</span> <span class="kn">import</span> <span class="n">AnonymousComments</span>
+<span class="kn">from</span> <span class="nn">app_drf.urls</span> <span class="kn">import</span> <span class="n">app_name</span>
+<span class="kn">from</span> <span class="nn">app_models.models_product</span> <span class="kn">import</span> <span class="n">Warehouse</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+
+<span class="c1"># Register your models here.</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">Permission</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">UserExtra</span><span class="p">,</span> <span class="n">Category</span><span class="p">,</span> <span class="n">Product</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">UserOrder</span><span class="p">,</span> <span class="n">SubUserOrder</span><span class="p">,</span> <span class="n">OrderDetail</span><span class="p">,</span> <span class="n">Warehouse</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">UserRole</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">UserAsset</span>
+
+<div class="viewcode-block" id="CategoryAdmin"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.CategoryAdmin">[文档]</a><span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Category</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">CategoryAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;category_type_name&#39;</span><span class="p">,</span> <span class="s1">&#39;category_type_code&#39;</span><span class="p">)</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;category_type_name&#39;</span><span class="p">,</span> <span class="s1">&#39;category_type_code&#39;</span><span class="p">)</span></div>
+    <span class="c1"># def has_change_permission(self, request, obj=None):</span>
+    <span class="c1">#     if request.user.username == &#39;user&#39;:</span>
+    <span class="c1">#         return False</span>
+    <span class="c1">#     return True</span>
+
+    <span class="c1"># def has_delete_permission(self, request, obj=None):</span>
+    <span class="c1">#     if request.user.username == &#39;user&#39;:</span>
+    <span class="c1">#         return False</span>
+    <span class="c1">#     return True</span>
+
+    <span class="c1"># # to disable view and add you can do this </span>
+    <span class="c1"># def has_view_permission(self, request, obj=None):</span>
+    <span class="c1">#     return True</span>
+
+    <span class="c1"># def has_add_permission(self, request):</span>
+    <span class="c1">#     if request.user.username == &#39;user&#39;:</span>
+    <span class="c1">#         return False</span>
+    <span class="c1">#     return True</span>
+
+<div class="viewcode-block" id="ProductAdmin"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.ProductAdmin">[文档]</a><span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Product</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ProductAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;管理Product模型</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s1">&#39;product_name&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;product_description&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;product_price&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;product_stock&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;category&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;warehouse&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;for_sale&#39;</span><span class="p">)</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s1">&#39;category&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;warehouse&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;product_name&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;product_description&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;product_price&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;product_stock&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;for_sale&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="WarehouseAdmin"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.WarehouseAdmin">[文档]</a><span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Warehouse</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">WarehouseAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;warehouse_name&#39;</span><span class="p">,</span> <span class="s1">&#39;warehouse_code&#39;</span><span class="p">,</span> <span class="s1">&#39;warehouse_address&#39;</span><span class="p">,)</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;warehouse_name&#39;</span><span class="p">,</span> <span class="s1">&#39;warehouse_code&#39;</span><span class="p">,</span> <span class="s1">&#39;warehouse_address&#39;</span><span class="p">,)</span></div>
+
+<div class="viewcode-block" id="OrderAdmin"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.OrderAdmin">[文档]</a><span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">UserOrder</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">OrderAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;order_number&#39;</span><span class="p">,</span> <span class="s1">&#39;total_price&#39;</span><span class="p">,)</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;order_number&#39;</span><span class="p">,</span> <span class="s1">&#39;total_price&#39;</span><span class="p">,)</span></div>
+
+<div class="viewcode-block" id="SubOrderAdmin"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.SubOrderAdmin">[文档]</a><span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">SubUserOrder</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">SubOrderAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;userorder&#39;</span><span class="p">,</span> <span class="s1">&#39;sub_userorder_number&#39;</span><span class="p">,)</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;userorder&#39;</span><span class="p">,</span> <span class="s1">&#39;sub_userorder_number&#39;</span><span class="p">,)</span></div>
+
+<div class="viewcode-block" id="OrderDetailAdmin"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.OrderDetailAdmin">[文档]</a><span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">OrderDetail</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">OrderDetailAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;subuserorder&#39;</span><span class="p">,</span> <span class="s1">&#39;product&#39;</span><span class="p">,</span> <span class="s1">&#39;quntity&#39;</span><span class="p">,)</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;subuserorder&#39;</span><span class="p">,</span> <span class="s1">&#39;product&#39;</span><span class="p">,</span> <span class="s1">&#39;quntity&#39;</span><span class="p">,)</span></div>
+
+<span class="c1"># @admin.register(Permission)</span>
+<span class="c1"># class PermissionAdmin(admin.ModelAdmin):</span>
+<span class="c1">#     list_display = (&#39;name&#39;, &#39;codename&#39;)</span>
+<span class="c1">#     fields = (&#39;name&#39;, &#39;codename&#39;)</span>
+
+<span class="c1"># @admin.register(UserExtra)</span>
+<span class="c1"># class UserExtraAdmin(admin.ModelAdmin):</span>
+<span class="c1">#     &quot;&quot;&quot;UserExtra不提供add和delete功能</span>
+
+<span class="c1">#     禁止add/delete操作</span>
+<span class="c1">#         每个用户有且仅有一条记录，这条记录在用户登录时自动生成，后期再由用户补充完全。</span>
+<span class="c1">#         既不允许手动添加，也不允许手动删除；仅可以view/change这两个操作</span>
+    
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     list_display = (&#39;user&#39;, &#39;weixin_openid&#39;, &#39;phone&#39;, &#39;qq&#39;, &#39;pay_password&#39;,)</span>
+<span class="c1">#     fields = (&#39;user&#39;, &#39;weixin_openid&#39;, &#39;phone&#39;, &#39;qq&#39;, &#39;pay_password&#39;,)</span>
+
+<span class="c1">#     def has_delete_permission(self, request, obj=None):</span>
+<span class="c1">#         return False</span>
+    
+<span class="c1">#     def has_add_permission(self, request, obj=None):</span>
+<span class="c1">#         return False</span>
+
+<div class="viewcode-block" id="UserRoleAdmin"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.UserRoleAdmin">[文档]</a><span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">UserRole</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">UserRoleAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;role_code&#39;</span><span class="p">)</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;role_code&#39;</span><span class="p">)</span></div>
+
+<span class="c1"># @admin.register(UserAsset)</span>
+<span class="c1"># class UserAssetAdmin(admin.ModelAdmin):</span>
+<span class="c1">#     &quot;&quot;&quot;UserAsset管理</span>
+
+<span class="c1">#     禁止add/delete操作</span>
+<span class="c1">#         每个用户有且仅有一条asset 记录，在用户第一次登录时自动由middleware创建</span>
+<span class="c1">#         之后仅可以view/change，不允许add/delete操作</span>
+    
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     list_display = (&#39;user&#39;, &#39;balance&#39;)</span>
+<span class="c1">#     fields = (&#39;user&#39;, &#39;balance&#39;)</span>
+
+<span class="c1">#     def has_add_permission(self, request, obj=None):</span>
+<span class="c1">#         return False</span>
+
+<span class="c1">#     def has_delete_permission(self, request, obj=None):</span>
+<span class="c1">#         return False</span>
+
+<span class="c1"># 在app_models里，定制User的管理</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+
+<span class="c1"># class FullUserInfo(User):</span>
+<span class="c1">#     &quot;&quot;&quot;这是一个django built-in User的代理模型</span>
+
+<span class="c1">#     作用：</span>
+<span class="c1">#         用这个代理模型，定制一个User管理</span>
+<span class="c1">#         让这个可以管理到关连的UserExtra和UserAsset</span>
+
+<span class="c1">#     为什么需要这个代理模型：</span>
+<span class="c1">#         实现一个用户自定义的User模型管理</span>
+<span class="c1">#         由于User已经默认被admin.register注册过，就不能再次注册了</span>
+<span class="c1">#         所以实现一个代理模型，用这个代理模型再来注册</span>
+    
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     class Meta:</span>
+<span class="c1">#         proxy = True</span>
+
+<div class="viewcode-block" id="UserExtraInline"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.UserExtraInline">[文档]</a><span class="k">class</span> <span class="nc">UserExtraInline</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">StackedInline</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;UserExtra模型作为StackedInline</span>
+
+<span class="sd">    模型关系:</span>
+<span class="sd">        UserExtra和User是One to One</span>
+<span class="sd">        因此每个User有一条（且仅有一条）UserExtra记录</span>
+<span class="sd">        作为StackedInline，现在管理每个User的时候，也可一起管理UserExtra</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">UserExtra</span>
+
+    <span class="c1"># 每个用户都必须有一条user extra记录，不允许删除</span>
+<div class="viewcode-block" id="UserExtraInline.has_delete_permission"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.UserExtraInline.has_delete_permission">[文档]</a>    <span class="k">def</span> <span class="nf">has_delete_permission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+    
+<div class="viewcode-block" id="UserExtraInline.has_add_permission"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.UserExtraInline.has_add_permission">[文档]</a>    <span class="k">def</span> <span class="nf">has_add_permission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span></div></div>
+
+<div class="viewcode-block" id="UserAssetInline"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.UserAssetInline">[文档]</a><span class="k">class</span> <span class="nc">UserAssetInline</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">StackedInline</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;UserAsset StackedInline</span>
+
+<span class="sd">    模型关系：</span>
+<span class="sd">        UserAsset和User也是One to One</span>
+<span class="sd">        同样每个User都会有一条（且仅有一条）UserAsset记录</span>
+<span class="sd">        作为StackedInline，管理User的时候也可管理UserAsset</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">UserAsset</span>
+
+    <span class="c1"># 由于每个用户都必须有一条 user asset记录，因此不允许删除</span>
+<div class="viewcode-block" id="UserAssetInline.has_delete_permission"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.UserAssetInline.has_delete_permission">[文档]</a>    <span class="k">def</span> <span class="nf">has_delete_permission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+    
+<div class="viewcode-block" id="UserAssetInline.has_add_permission"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.UserAssetInline.has_add_permission">[文档]</a>    <span class="k">def</span> <span class="nf">has_add_permission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span></div></div>
+
+<span class="c1"># @admin.register(FullUserInfo)</span>
+<span class="c1"># class CustomUserAdmin(admin.ModelAdmin):</span>
+<span class="c1">#     list_display = (&#39;username&#39;, &#39;first_name&#39;, &#39;email&#39;)</span>
+<span class="c1">#     fields = (&#39;username&#39;, &#39;first_name&#39;, &#39;email&#39;)</span>
+<span class="c1">#     inlines = [UserAssetInline, UserExtraInline]</span>
+
+<span class="c1"># 定制的一个 User / UserExtra /UserAsset 的管理</span>
+<span class="c1"># 将 UserExtra和UserAsset的字段，和User字段一起显示，而不是作为StackedInline</span>
+<span class="c1"># TODO</span>
+<div class="viewcode-block" id="UserInfo"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.UserInfo">[文档]</a><span class="k">class</span> <span class="nc">UserInfo</span><span class="p">(</span><span class="n">User</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">proxy</span> <span class="o">=</span> <span class="n">User</span></div>
+
+<div class="viewcode-block" id="CustAdmin"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.CustAdmin">[文档]</a><span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">UserInfo</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">CustAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;除了注册的模型之外，增加一些字段，这些增加的字段来自于其它模型</span>
+<span class="sd">    </span>
+<span class="sd">    UserExtra:</span>
+<span class="sd">        &#39;weixin_openid&#39;, &#39;qq&#39;</span>
+
+<span class="sd">    UserAsset:</span>
+<span class="sd">        &#39;balance&#39;</span>
+
+<span class="sd">    增加的这些字段，需要定义一个方法，和增加的字段名字一样的方法</span>
+<span class="sd">    例如字段名为 &#39;weixin_openid&#39;， 则 def weixin_openid(self, instance):</span>
+<span class="sd">    这个方法的参数是模型的实例，名字可以任取，但是传入的就是模型实例，</span>
+<span class="sd">    例如这里注册的是模型NewUserInfo，那么传入的实际就是NewUserInfo的一个实例，也就是一个user object</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s1">&#39;cust_field1&#39;</span><span class="p">,</span>                          <span class="c1"># 这是一个自定义字段，需要定义方法获取或赋值</span>
+        <span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span>  <span class="c1"># 这是来自于模型的字段，不用定义方法获取</span>
+        <span class="s1">&#39;weixin_openid&#39;</span><span class="p">,</span> <span class="s1">&#39;qq&#39;</span><span class="p">,</span>                  <span class="c1"># 这是来自于UserExtra的字段，两个需要分别定义方法</span>
+        <span class="s1">&#39;balance&#39;</span><span class="p">)</span>                              <span class="c1"># 这是来自于UserAsset的字段，需要定义方法</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="p">)</span>
+    <span class="n">inlines</span> <span class="o">=</span> <span class="p">[</span><span class="n">UserExtraInline</span><span class="p">,</span> <span class="n">UserAssetInline</span><span class="p">]</span>
+    
+<div class="viewcode-block" id="CustAdmin.cust_field1"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.CustAdmin.cust_field1">[文档]</a>    <span class="k">def</span> <span class="nf">cust_field1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;abc&#39;</span></div>
+
+<div class="viewcode-block" id="CustAdmin.weixin_openid"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.CustAdmin.weixin_openid">[文档]</a>    <span class="k">def</span> <span class="nf">weixin_openid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">.</span><span class="n">userextra</span><span class="o">.</span><span class="n">weixin_openid</span></div>
+
+<div class="viewcode-block" id="CustAdmin.qq"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.CustAdmin.qq">[文档]</a>    <span class="k">def</span> <span class="nf">qq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">.</span><span class="n">userextra</span><span class="o">.</span><span class="n">qq</span></div>
+    
+<div class="viewcode-block" id="CustAdmin.balance"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.CustAdmin.balance">[文档]</a>    <span class="k">def</span> <span class="nf">balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">.</span><span class="n">userasset</span><span class="o">.</span><span class="n">balance</span></div></div>
+
+<span class="c1"># admin.site.register(UserInfo, CustAdmin)</span>
+
+<div class="viewcode-block" id="AnonymousCommentsAdmin"><a class="viewcode-back" href="../../api/app_models.html#app_models.admin.AnonymousCommentsAdmin">[文档]</a><span class="nd">@admin</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">AnonymousComments</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">AnonymousCommentsAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="c1"># list_display = [&#39;username&#39;, &#39;email&#39;]</span>
+    <span class="c1"># fields = [&#39;username&#39;, &#39;email&#39;]</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;phone&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;comments&#39;</span><span class="p">,</span> <span class="s1">&#39;create_time&#39;</span><span class="p">]</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;phone&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;comments&#39;</span><span class="p">,</span> <span class="s1">&#39;create_time&#39;</span><span class="p">]</span></div>
+
+<span class="c1"># &quot;&quot;&quot;</span>
+<span class="c1">#     username = models.CharField(max_length=50, blank=True)</span>
+<span class="c1">#     phone = models.CharField(max_length=20, blank=True)</span>
+<span class="c1">#     email = models.EmailField(max_length=50, blank=True)</span>
+<span class="c1">#     comments = models.CharField(max_length=200)</span>
+<span class="c1">#     create_time = models.DateTimeField(auto_now_add=True)</span>
+<span class="c1"># &quot;&quot;&quot;</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Fei
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

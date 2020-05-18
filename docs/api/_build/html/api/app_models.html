@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="main_settings package" href="main_settings.html" />
-    <link rel="prev" title="app_demo1 package" href="app_demo1.html" /> 
+    <link rel="next" title="app_models.migrations package" href="app_models.migrations.html" />
+    <link rel="prev" title="app_img.migrations package" href="app_img.migrations.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,20 +85,36 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../mydocs/intro.html">Fei’s django app demo INTRO / 简介</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">fei</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="app_clientip.html">app_clientip package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_comments.html">app_comments package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="app_demo1.html">app_demo1 package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_drf.html">app_drf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_img.html">app_img package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">app_models package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app_models.migrations.html">app_models.migrations package</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-app_models.admin">app_models.admin module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-app_models.apps">app_models.apps module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-app_models.models">app_models.models module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_models.models_comments">app_models.models_comments module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-app_models.models_customuser">app_models.models_customuser module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_models.models_drf_token">app_models.models_drf_token module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-app_models.models_extra_user">app_models.models_extra_user module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_models.models_order">app_models.models_order module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_models.models_product">app_models.models_product module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_models.models_user_asset">app_models.models_user_asset module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_models.models_user_role">app_models.models_user_role module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-app_models.tests">app_models.tests module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-app_models.urls">app_models.urls module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-app_models.views">app_models.views module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-app_models">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="fei_backend.html">fei_backend package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fei_middlewares.html">fei_middlewares package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main_settings.html">main_settings package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="not_use.html">not_use package</a></li>
@@ -173,11 +189,371 @@
             
   <div class="section" id="app-models-package">
 <h1>app_models package<a class="headerlink" href="#app-models-package" title="永久链接至标题">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="永久链接至标题">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="app_models.migrations.html">app_models.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0001_initial">app_models.migrations.0001_initial module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0002_category_orderdetail_product_subuserorder_supplier_userorder_warehouse">app_models.migrations.0002_category_orderdetail_product_subuserorder_supplier_userorder_warehouse module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0003_userrole">app_models.migrations.0003_userrole module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0004_userasset">app_models.migrations.0004_userasset module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0005_fulluserinfo">app_models.migrations.0005_fulluserinfo module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0006_proxytoken">app_models.migrations.0006_proxytoken module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0007_delete_proxytoken">app_models.migrations.0007_delete_proxytoken module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0008_auto_20200422_1048">app_models.migrations.0008_auto_20200422_1048 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0009_auto_20200427_0944">app_models.migrations.0009_auto_20200427_0944 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0010_auto_20200428_1558">app_models.migrations.0010_auto_20200428_1558 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0011_anonymouscomments">app_models.migrations.0011_anonymouscomments module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0012_auto_20200516_0059">app_models.migrations.0012_auto_20200516_0059 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0013_userextratest">app_models.migrations.0013_userextratest module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0014_feiuser">app_models.migrations.0014_feiuser module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0015_auto_20200518_1059">app_models.migrations.0015_auto_20200518_1059 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0016_auto_20200518_1424">app_models.migrations.0016_auto_20200518_1424 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0017_auto_20200518_1437">app_models.migrations.0017_auto_20200518_1437 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations.0018_auto_20200518_1445">app_models.migrations.0018_auto_20200518_1445 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.migrations.html#module-app_models.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="永久链接至标题">¶</a></h2>
 </div>
 <div class="section" id="module-app_models.admin">
 <span id="app-models-admin-module"></span><h2>app_models.admin module<a class="headerlink" href="#module-app_models.admin" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="app_models.admin.AnonymousCommentsAdmin">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.admin.</code><code class="sig-name descname">AnonymousCommentsAdmin</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">admin_site</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#AnonymousCommentsAdmin"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.AnonymousCommentsAdmin" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="app_models.admin.AnonymousCommentsAdmin.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ['name', 'phone', 'email', 'comments', 'create_time']</em><a class="headerlink" href="#app_models.admin.AnonymousCommentsAdmin.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.admin.AnonymousCommentsAdmin.list_display">
+<code class="sig-name descname">list_display</code><em class="property"> = ['name', 'phone', 'email', 'comments', 'create_time']</em><a class="headerlink" href="#app_models.admin.AnonymousCommentsAdmin.list_display" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.AnonymousCommentsAdmin.media">
+<em class="property">property </em><code class="sig-name descname">media</code><a class="headerlink" href="#app_models.admin.AnonymousCommentsAdmin.media" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.admin.CategoryAdmin">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.admin.</code><code class="sig-name descname">CategoryAdmin</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">admin_site</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#CategoryAdmin"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.CategoryAdmin" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="app_models.admin.CategoryAdmin.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('category_type_name', 'category_type_code')</em><a class="headerlink" href="#app_models.admin.CategoryAdmin.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.admin.CategoryAdmin.list_display">
+<code class="sig-name descname">list_display</code><em class="property"> = ('category_type_name', 'category_type_code')</em><a class="headerlink" href="#app_models.admin.CategoryAdmin.list_display" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.CategoryAdmin.media">
+<em class="property">property </em><code class="sig-name descname">media</code><a class="headerlink" href="#app_models.admin.CategoryAdmin.media" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.admin.CustAdmin">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.admin.</code><code class="sig-name descname">CustAdmin</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">admin_site</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#CustAdmin"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.CustAdmin" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<p>除了注册的模型之外，增加一些字段，这些增加的字段来自于其它模型</p>
+<dl class="simple">
+<dt>UserExtra:</dt><dd><p>‘weixin_openid’, ‘qq’</p>
+</dd>
+<dt>UserAsset:</dt><dd><p>‘balance’</p>
+</dd>
+</dl>
+<p>增加的这些字段，需要定义一个方法，和增加的字段名字一样的方法
+例如字段名为 ‘weixin_openid’， 则 def weixin_openid(self, instance):
+这个方法的参数是模型的实例，名字可以任取，但是传入的就是模型实例，
+例如这里注册的是模型NewUserInfo，那么传入的实际就是NewUserInfo的一个实例，也就是一个user object</p>
+<dl class="method">
+<dt id="app_models.admin.CustAdmin.balance">
+<code class="sig-name descname">balance</code><span class="sig-paren">(</span><em class="sig-param">instance</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#CustAdmin.balance"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.CustAdmin.balance" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.CustAdmin.cust_field1">
+<code class="sig-name descname">cust_field1</code><span class="sig-paren">(</span><em class="sig-param">inst</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#CustAdmin.cust_field1"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.CustAdmin.cust_field1" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.admin.CustAdmin.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('username', 'first_name', 'last_name')</em><a class="headerlink" href="#app_models.admin.CustAdmin.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.admin.CustAdmin.inlines">
+<code class="sig-name descname">inlines</code><em class="property"> = [&lt;class 'app_models.admin.UserExtraInline'&gt;, &lt;class 'app_models.admin.UserAssetInline'&gt;]</em><a class="headerlink" href="#app_models.admin.CustAdmin.inlines" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.admin.CustAdmin.list_display">
+<code class="sig-name descname">list_display</code><em class="property"> = ('cust_field1', 'username', 'first_name', 'last_name', 'weixin_openid', 'qq', 'balance')</em><a class="headerlink" href="#app_models.admin.CustAdmin.list_display" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.CustAdmin.media">
+<em class="property">property </em><code class="sig-name descname">media</code><a class="headerlink" href="#app_models.admin.CustAdmin.media" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.CustAdmin.qq">
+<code class="sig-name descname">qq</code><span class="sig-paren">(</span><em class="sig-param">instance</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#CustAdmin.qq"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.CustAdmin.qq" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.CustAdmin.weixin_openid">
+<code class="sig-name descname">weixin_openid</code><span class="sig-paren">(</span><em class="sig-param">instance</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#CustAdmin.weixin_openid"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.CustAdmin.weixin_openid" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.admin.OrderAdmin">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.admin.</code><code class="sig-name descname">OrderAdmin</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">admin_site</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#OrderAdmin"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.OrderAdmin" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="app_models.admin.OrderAdmin.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('user', 'order_number', 'total_price')</em><a class="headerlink" href="#app_models.admin.OrderAdmin.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.admin.OrderAdmin.list_display">
+<code class="sig-name descname">list_display</code><em class="property"> = ('user', 'order_number', 'total_price')</em><a class="headerlink" href="#app_models.admin.OrderAdmin.list_display" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.OrderAdmin.media">
+<em class="property">property </em><code class="sig-name descname">media</code><a class="headerlink" href="#app_models.admin.OrderAdmin.media" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.admin.OrderDetailAdmin">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.admin.</code><code class="sig-name descname">OrderDetailAdmin</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">admin_site</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#OrderDetailAdmin"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.OrderDetailAdmin" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="app_models.admin.OrderDetailAdmin.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('subuserorder', 'product', 'quntity')</em><a class="headerlink" href="#app_models.admin.OrderDetailAdmin.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.admin.OrderDetailAdmin.list_display">
+<code class="sig-name descname">list_display</code><em class="property"> = ('subuserorder', 'product', 'quntity')</em><a class="headerlink" href="#app_models.admin.OrderDetailAdmin.list_display" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.OrderDetailAdmin.media">
+<em class="property">property </em><code class="sig-name descname">media</code><a class="headerlink" href="#app_models.admin.OrderDetailAdmin.media" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.admin.ProductAdmin">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.admin.</code><code class="sig-name descname">ProductAdmin</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">admin_site</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#ProductAdmin"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.ProductAdmin" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<p>管理Product模型</p>
+<dl class="attribute">
+<dt id="app_models.admin.ProductAdmin.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('category', 'warehouse', 'product_name', 'product_description', 'product_price', 'product_stock', 'for_sale')</em><a class="headerlink" href="#app_models.admin.ProductAdmin.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.admin.ProductAdmin.list_display">
+<code class="sig-name descname">list_display</code><em class="property"> = ('product_name', 'product_description', 'product_price', 'product_stock', 'category', 'warehouse', 'for_sale')</em><a class="headerlink" href="#app_models.admin.ProductAdmin.list_display" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.ProductAdmin.media">
+<em class="property">property </em><code class="sig-name descname">media</code><a class="headerlink" href="#app_models.admin.ProductAdmin.media" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.admin.SubOrderAdmin">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.admin.</code><code class="sig-name descname">SubOrderAdmin</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">admin_site</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#SubOrderAdmin"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.SubOrderAdmin" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="app_models.admin.SubOrderAdmin.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('userorder', 'sub_userorder_number')</em><a class="headerlink" href="#app_models.admin.SubOrderAdmin.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.admin.SubOrderAdmin.list_display">
+<code class="sig-name descname">list_display</code><em class="property"> = ('userorder', 'sub_userorder_number')</em><a class="headerlink" href="#app_models.admin.SubOrderAdmin.list_display" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.SubOrderAdmin.media">
+<em class="property">property </em><code class="sig-name descname">media</code><a class="headerlink" href="#app_models.admin.SubOrderAdmin.media" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.admin.UserAssetInline">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.admin.</code><code class="sig-name descname">UserAssetInline</code><span class="sig-paren">(</span><em class="sig-param">parent_model</em>, <em class="sig-param">admin_site</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#UserAssetInline"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.UserAssetInline" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.StackedInline</span></code></p>
+<p>UserAsset StackedInline</p>
+<dl class="simple">
+<dt>模型关系：</dt><dd><p>UserAsset和User也是One to One
+同样每个User都会有一条（且仅有一条）UserAsset记录
+作为StackedInline，管理User的时候也可管理UserAsset</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="app_models.admin.UserAssetInline.has_add_permission">
+<code class="sig-name descname">has_add_permission</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">obj=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#UserAssetInline.has_add_permission"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.UserAssetInline.has_add_permission" title="永久链接至目标">¶</a></dt>
+<dd><p>Return True if the given request has permission to add an object.
+Can be overridden by the user in subclasses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.UserAssetInline.has_delete_permission">
+<code class="sig-name descname">has_delete_permission</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">obj=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#UserAssetInline.has_delete_permission"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.UserAssetInline.has_delete_permission" title="永久链接至目标">¶</a></dt>
+<dd><p>Return True if the given request has permission to change the given
+Django model instance, the default implementation doesn’t examine the
+<cite>obj</cite> parameter.</p>
+<p>Can be overridden by the user in subclasses. In such case it should
+return True if the given request has permission to delete the <cite>obj</cite>
+model instance. If <cite>obj</cite> is None, this should return True if the given
+request has permission to delete <em>any</em> object of the given type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.UserAssetInline.media">
+<em class="property">property </em><code class="sig-name descname">media</code><a class="headerlink" href="#app_models.admin.UserAssetInline.media" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.admin.UserAssetInline.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_models.admin.UserAssetInline.model" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="#app_models.models_user_asset.UserAsset" title="app_models.models_user_asset.UserAsset"><code class="xref py py-class docutils literal notranslate"><span class="pre">app_models.models_user_asset.UserAsset</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.admin.UserExtraInline">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.admin.</code><code class="sig-name descname">UserExtraInline</code><span class="sig-paren">(</span><em class="sig-param">parent_model</em>, <em class="sig-param">admin_site</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#UserExtraInline"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.UserExtraInline" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.StackedInline</span></code></p>
+<p>UserExtra模型作为StackedInline</p>
+<dl class="simple">
+<dt>模型关系:</dt><dd><p>UserExtra和User是One to One
+因此每个User有一条（且仅有一条）UserExtra记录
+作为StackedInline，现在管理每个User的时候，也可一起管理UserExtra</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="app_models.admin.UserExtraInline.has_add_permission">
+<code class="sig-name descname">has_add_permission</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">obj=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#UserExtraInline.has_add_permission"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.UserExtraInline.has_add_permission" title="永久链接至目标">¶</a></dt>
+<dd><p>Return True if the given request has permission to add an object.
+Can be overridden by the user in subclasses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.UserExtraInline.has_delete_permission">
+<code class="sig-name descname">has_delete_permission</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">obj=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#UserExtraInline.has_delete_permission"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.UserExtraInline.has_delete_permission" title="永久链接至目标">¶</a></dt>
+<dd><p>Return True if the given request has permission to change the given
+Django model instance, the default implementation doesn’t examine the
+<cite>obj</cite> parameter.</p>
+<p>Can be overridden by the user in subclasses. In such case it should
+return True if the given request has permission to delete the <cite>obj</cite>
+model instance. If <cite>obj</cite> is None, this should return True if the given
+request has permission to delete <em>any</em> object of the given type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.UserExtraInline.media">
+<em class="property">property </em><code class="sig-name descname">media</code><a class="headerlink" href="#app_models.admin.UserExtraInline.media" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.admin.UserExtraInline.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_models.admin.UserExtraInline.model" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="#app_models.models_extra_user.UserExtra" title="app_models.models_extra_user.UserExtra"><code class="xref py py-class docutils literal notranslate"><span class="pre">app_models.models_extra_user.UserExtra</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.admin.UserInfo">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.admin.</code><code class="sig-name descname">UserInfo</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">password</em>, <em class="sig-param">last_login</em>, <em class="sig-param">is_superuser</em>, <em class="sig-param">username</em>, <em class="sig-param">first_name</em>, <em class="sig-param">last_name</em>, <em class="sig-param">email</em>, <em class="sig-param">is_staff</em>, <em class="sig-param">is_active</em>, <em class="sig-param">date_joined</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#UserInfo"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.UserInfo" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.User</span></code></p>
+<dl class="exception">
+<dt id="app_models.admin.UserInfo.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#app_models.admin.UserInfo.DoesNotExist" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.DoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="app_models.admin.UserInfo.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#app_models.admin.UserInfo.MultipleObjectsReturned" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.admin.UserRoleAdmin">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.admin.</code><code class="sig-name descname">UserRoleAdmin</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">admin_site</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#UserRoleAdmin"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.UserRoleAdmin" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="app_models.admin.UserRoleAdmin.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('user', 'role_code')</em><a class="headerlink" href="#app_models.admin.UserRoleAdmin.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.admin.UserRoleAdmin.list_display">
+<code class="sig-name descname">list_display</code><em class="property"> = ('user', 'role_code')</em><a class="headerlink" href="#app_models.admin.UserRoleAdmin.list_display" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.UserRoleAdmin.media">
+<em class="property">property </em><code class="sig-name descname">media</code><a class="headerlink" href="#app_models.admin.UserRoleAdmin.media" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.admin.WarehouseAdmin">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.admin.</code><code class="sig-name descname">WarehouseAdmin</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">admin_site</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/admin.html#WarehouseAdmin"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.admin.WarehouseAdmin" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="app_models.admin.WarehouseAdmin.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('warehouse_name', 'warehouse_code', 'warehouse_address')</em><a class="headerlink" href="#app_models.admin.WarehouseAdmin.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.admin.WarehouseAdmin.list_display">
+<code class="sig-name descname">list_display</code><em class="property"> = ('warehouse_name', 'warehouse_code', 'warehouse_address')</em><a class="headerlink" href="#app_models.admin.WarehouseAdmin.list_display" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_models.admin.WarehouseAdmin.media">
+<em class="property">property </em><code class="sig-name descname">media</code><a class="headerlink" href="#app_models.admin.WarehouseAdmin.media" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-app_models.apps">
 <span id="app-models-apps-module"></span><h2>app_models.apps module<a class="headerlink" href="#module-app_models.apps" title="永久链接至标题">¶</a></h2>
@@ -200,104 +576,100 @@
 所有定义models的文件，命名都类似这样：models_for_some_app.py
 所有app用到的models都从这里import
 from .models_for_some_app import MyModel</p>
+<dl class="function">
+<dt id="app_models.models.create_auth_token">
+<code class="sig-prename descclassname">app_models.models.</code><code class="sig-name descname">create_auth_token</code><span class="sig-paren">(</span><em class="sig-param">sender</em>, <em class="sig-param">instance=None</em>, <em class="sig-param">created=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/models.html#create_auth_token"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.models.create_auth_token" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
 </div>
-<div class="section" id="module-app_models.models_customuser">
-<span id="app-models-models-customuser-module"></span><h2>app_models.models_customuser module<a class="headerlink" href="#module-app_models.models_customuser" title="永久链接至标题">¶</a></h2>
+<div class="section" id="module-app_models.models_comments">
+<span id="app-models-models-comments-module"></span><h2>app_models.models_comments module<a class="headerlink" href="#module-app_models.models_comments" title="永久链接至标题">¶</a></h2>
+<p>留言功能</p>
 <dl class="class">
-<dt id="app_models.models_customuser.CustomUser">
-<em class="property">class </em><code class="sig-prename descclassname">app_models.models_customuser.</code><code class="sig-name descname">CustomUser</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">password</em>, <em class="sig-param">last_login</em>, <em class="sig-param">is_superuser</em>, <em class="sig-param">username</em>, <em class="sig-param">first_name</em>, <em class="sig-param">last_name</em>, <em class="sig-param">email</em>, <em class="sig-param">is_staff</em>, <em class="sig-param">is_active</em>, <em class="sig-param">date_joined</em>, <em class="sig-param">chinese_name</em>, <em class="sig-param">chinese_pass</em>, <em class="sig-param">chinese_addr</em>, <em class="sig-param">chinese_info</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/models_customuser.html#CustomUser"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.models_customuser.CustomUser" title="永久链接至目标">¶</a></dt>
-<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.AbstractUser</span></code></p>
+<dt id="app_models.models_comments.AnonymousComments">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.models_comments.</code><code class="sig-name descname">AnonymousComments</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/models_comments.html#AnonymousComments"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.models_comments.AnonymousComments" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>匿名留言</p>
+<p>用户名，电话，email，都可以空白</p>
 <dl class="exception">
-<dt id="app_models.models_customuser.CustomUser.DoesNotExist">
-<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#app_models.models_customuser.CustomUser.DoesNotExist" title="永久链接至目标">¶</a></dt>
+<dt id="app_models.models_comments.AnonymousComments.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#app_models.models_comments.AnonymousComments.DoesNotExist" title="永久链接至目标">¶</a></dt>
 <dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
 </dd></dl>
 
 <dl class="exception">
-<dt id="app_models.models_customuser.CustomUser.MultipleObjectsReturned">
-<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#app_models.models_customuser.CustomUser.MultipleObjectsReturned" title="永久链接至目标">¶</a></dt>
+<dt id="app_models.models_comments.AnonymousComments.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#app_models.models_comments.AnonymousComments.MultipleObjectsReturned" title="永久链接至目标">¶</a></dt>
 <dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="app_models.models_customuser.CustomUser.chinese_addr">
-<code class="sig-name descname">chinese_addr</code><a class="headerlink" href="#app_models.models_customuser.CustomUser.chinese_addr" title="永久链接至目标">¶</a></dt>
+<dt id="app_models.models_comments.AnonymousComments.comments">
+<code class="sig-name descname">comments</code><a class="headerlink" href="#app_models.models_comments.AnonymousComments.comments" title="永久链接至目标">¶</a></dt>
 <dd><p>A wrapper for a deferred-loading field. When the value is read from this
 object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="app_models.models_customuser.CustomUser.chinese_info">
-<code class="sig-name descname">chinese_info</code><a class="headerlink" href="#app_models.models_customuser.CustomUser.chinese_info" title="永久链接至目标">¶</a></dt>
+<dt id="app_models.models_comments.AnonymousComments.create_time">
+<code class="sig-name descname">create_time</code><a class="headerlink" href="#app_models.models_comments.AnonymousComments.create_time" title="永久链接至目标">¶</a></dt>
 <dd><p>A wrapper for a deferred-loading field. When the value is read from this
 object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="app_models.models_customuser.CustomUser.chinese_name">
-<code class="sig-name descname">chinese_name</code><a class="headerlink" href="#app_models.models_customuser.CustomUser.chinese_name" title="永久链接至目标">¶</a></dt>
-<dd><p>A wrapper for a deferred-loading field. When the value is read from this
-object the first time, the query is executed.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="app_models.models_customuser.CustomUser.chinese_pass">
-<code class="sig-name descname">chinese_pass</code><a class="headerlink" href="#app_models.models_customuser.CustomUser.chinese_pass" title="永久链接至目标">¶</a></dt>
+<dt id="app_models.models_comments.AnonymousComments.email">
+<code class="sig-name descname">email</code><a class="headerlink" href="#app_models.models_comments.AnonymousComments.email" title="永久链接至目标">¶</a></dt>
 <dd><p>A wrapper for a deferred-loading field. When the value is read from this
 object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="app_models.models_customuser.CustomUser.get_next_by_date_joined">
-<code class="sig-name descname">get_next_by_date_joined</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: date_joined&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app_models.models_customuser.CustomUser.get_next_by_date_joined" title="永久链接至目标">¶</a></dt>
+<dt id="app_models.models_comments.AnonymousComments.get_next_by_create_time">
+<code class="sig-name descname">get_next_by_create_time</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: create_time&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app_models.models_comments.AnonymousComments.get_next_by_create_time" title="永久链接至目标">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="app_models.models_customuser.CustomUser.get_previous_by_date_joined">
-<code class="sig-name descname">get_previous_by_date_joined</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: date_joined&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app_models.models_customuser.CustomUser.get_previous_by_date_joined" title="永久链接至目标">¶</a></dt>
+<dt id="app_models.models_comments.AnonymousComments.get_previous_by_create_time">
+<code class="sig-name descname">get_previous_by_create_time</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: create_time&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app_models.models_comments.AnonymousComments.get_previous_by_create_time" title="永久链接至目标">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="app_models.models_customuser.CustomUser.groups">
-<code class="sig-name descname">groups</code><a class="headerlink" href="#app_models.models_customuser.CustomUser.groups" title="永久链接至目标">¶</a></dt>
-<dd><p>Accessor to the related objects manager on the forward and reverse sides of
-a many-to-many relation.</p>
-<p>In the example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
-instances.</p>
-<p>Most of the implementation is delegated to a dynamically defined manager
-class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="app_models.models_customuser.CustomUser.id">
-<code class="sig-name descname">id</code><a class="headerlink" href="#app_models.models_customuser.CustomUser.id" title="永久链接至目标">¶</a></dt>
+<dt id="app_models.models_comments.AnonymousComments.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#app_models.models_comments.AnonymousComments.id" title="永久链接至目标">¶</a></dt>
 <dd><p>A wrapper for a deferred-loading field. When the value is read from this
 object the first time, the query is executed.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="app_models.models_customuser.CustomUser.user_permissions">
-<code class="sig-name descname">user_permissions</code><a class="headerlink" href="#app_models.models_customuser.CustomUser.user_permissions" title="永久链接至目标">¶</a></dt>
-<dd><p>Accessor to the related objects manager on the forward and reverse sides of
-a many-to-many relation.</p>
-<p>In the example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
-</pre></div>
+<dt id="app_models.models_comments.AnonymousComments.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#app_models.models_comments.AnonymousComments.name" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_comments.AnonymousComments.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#app_models.models_comments.AnonymousComments.objects" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_comments.AnonymousComments.phone">
+<code class="sig-name descname">phone</code><a class="headerlink" href="#app_models.models_comments.AnonymousComments.phone" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
-instances.</p>
-<p>Most of the implementation is delegated to a dynamically defined manager
-class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="module-app_models.models_customuser">
+<span id="app-models-models-customuser-module"></span><h2>app_models.models_customuser module<a class="headerlink" href="#module-app_models.models_customuser" title="永久链接至标题">¶</a></h2>
+<p>仅测试，暂不引入；当前用OneToOneField的UserExtra方式扩展用户信息</p>
+</div>
+<div class="section" id="module-app_models.models_drf_token">
+<span id="app-models-models-drf-token-module"></span><h2>app_models.models_drf_token module<a class="headerlink" href="#module-app_models.models_drf_token" title="永久链接至标题">¶</a></h2>
+<p>drf token</p>
 </div>
 <div class="section" id="module-app_models.models_extra_user">
 <span id="app-models-models-extra-user-module"></span><h2>app_models.models_extra_user module<a class="headerlink" href="#module-app_models.models_extra_user" title="永久链接至标题">¶</a></h2>
@@ -360,6 +732,16 @@ object the first time, the query is executed.</p>
 object the first time, the query is executed.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="app_models.models_extra_user.UserExtra.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/models_extra_user.html#UserExtra.save"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.models_extra_user.UserExtra.save" title="永久链接至目标">¶</a></dt>
+<dd><p>Save the current instance. Override this in a subclass if you want to
+control the saving process.</p>
+<p>The ‘force_insert’ and ‘force_update’ parameters can be used to insist
+that the “save” must be an SQL insert or update (or equivalent for
+non-SQL backends), respectively. Normally, they should not be set.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="app_models.models_extra_user.UserExtra.user">
 <code class="sig-name descname">user</code><a class="headerlink" href="#app_models.models_extra_user.UserExtra.user" title="永久链接至目标">¶</a></dt>
@@ -389,6 +771,717 @@ object the first time, the query is executed.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-app_models.models_order">
+<span id="app-models-models-order-module"></span><h2>app_models.models_order module<a class="headerlink" href="#module-app_models.models_order" title="永久链接至标题">¶</a></h2>
+<p>用户订单
+UserOrder: 用户下的订单</p>
+<dl class="simple">
+<dt>SubUserOrder: 如果需要，用户订单可能会分成几个；</dt><dd><p>如果没有拆分，那么就当成一个子订单，即每个用户订单，包含至少一个子订单或多个子订单</p>
+</dd>
+<dt>OrderDetail: 订单详情，包括子订单号，购买的产品，每个购买产品的数量</dt><dd><p>根据用户订购产品种类，每个用户订单对应至少一个或多个子订单
+每个子订单对应至少一个或多个订单详情</p>
+</dd>
+</dl>
+<dl class="class">
+<dt id="app_models.models_order.OrderDetail">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.models_order.</code><code class="sig-name descname">OrderDetail</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">subuserorder</em>, <em class="sig-param">product</em>, <em class="sig-param">quntity</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/models_order.html#OrderDetail"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.models_order.OrderDetail" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="app_models.models_order.OrderDetail.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#app_models.models_order.OrderDetail.DoesNotExist" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="app_models.models_order.OrderDetail.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#app_models.models_order.OrderDetail.MultipleObjectsReturned" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.OrderDetail.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#app_models.models_order.OrderDetail.id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.OrderDetail.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#app_models.models_order.OrderDetail.objects" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.OrderDetail.product">
+<code class="sig-name descname">product</code><a class="headerlink" href="#app_models.models_order.OrderDetail.product" title="永久链接至目标">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.OrderDetail.product_id">
+<code class="sig-name descname">product_id</code><a class="headerlink" href="#app_models.models_order.OrderDetail.product_id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.OrderDetail.quntity">
+<code class="sig-name descname">quntity</code><a class="headerlink" href="#app_models.models_order.OrderDetail.quntity" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.OrderDetail.subuserorder">
+<code class="sig-name descname">subuserorder</code><a class="headerlink" href="#app_models.models_order.OrderDetail.subuserorder" title="永久链接至目标">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.OrderDetail.subuserorder_id">
+<code class="sig-name descname">subuserorder_id</code><a class="headerlink" href="#app_models.models_order.OrderDetail.subuserorder_id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.models_order.SubUserOrder">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.models_order.</code><code class="sig-name descname">SubUserOrder</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">userorder</em>, <em class="sig-param">sub_userorder_number</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/models_order.html#SubUserOrder"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.models_order.SubUserOrder" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="app_models.models_order.SubUserOrder.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#app_models.models_order.SubUserOrder.DoesNotExist" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="app_models.models_order.SubUserOrder.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#app_models.models_order.SubUserOrder.MultipleObjectsReturned" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.SubUserOrder.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#app_models.models_order.SubUserOrder.id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.SubUserOrder.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#app_models.models_order.SubUserOrder.objects" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.SubUserOrder.orderdetail_set">
+<code class="sig-name descname">orderdetail_set</code><a class="headerlink" href="#app_models.models_order.SubUserOrder.orderdetail_set" title="永久链接至目标">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.SubUserOrder.sub_userorder_number">
+<code class="sig-name descname">sub_userorder_number</code><a class="headerlink" href="#app_models.models_order.SubUserOrder.sub_userorder_number" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.SubUserOrder.userorder">
+<code class="sig-name descname">userorder</code><a class="headerlink" href="#app_models.models_order.SubUserOrder.userorder" title="永久链接至目标">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.SubUserOrder.userorder_id">
+<code class="sig-name descname">userorder_id</code><a class="headerlink" href="#app_models.models_order.SubUserOrder.userorder_id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.models_order.UserOrder">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.models_order.</code><code class="sig-name descname">UserOrder</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">user</em>, <em class="sig-param">order_number</em>, <em class="sig-param">total_price</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/models_order.html#UserOrder"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.models_order.UserOrder" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="app_models.models_order.UserOrder.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#app_models.models_order.UserOrder.DoesNotExist" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="app_models.models_order.UserOrder.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#app_models.models_order.UserOrder.MultipleObjectsReturned" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.UserOrder.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#app_models.models_order.UserOrder.id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.UserOrder.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#app_models.models_order.UserOrder.objects" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.UserOrder.order_number">
+<code class="sig-name descname">order_number</code><a class="headerlink" href="#app_models.models_order.UserOrder.order_number" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.UserOrder.subuserorder_set">
+<code class="sig-name descname">subuserorder_set</code><a class="headerlink" href="#app_models.models_order.UserOrder.subuserorder_set" title="永久链接至目标">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.UserOrder.total_price">
+<code class="sig-name descname">total_price</code><a class="headerlink" href="#app_models.models_order.UserOrder.total_price" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.UserOrder.user">
+<code class="sig-name descname">user</code><a class="headerlink" href="#app_models.models_order.UserOrder.user" title="永久链接至目标">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_order.UserOrder.user_id">
+<code class="sig-name descname">user_id</code><a class="headerlink" href="#app_models.models_order.UserOrder.user_id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app_models.models_product">
+<span id="app-models-models-product-module"></span><h2>app_models.models_product module<a class="headerlink" href="#module-app_models.models_product" title="永久链接至标题">¶</a></h2>
+<p>产品相关的模型：产品类目和产品
+Category: 类目
+Product: 具体产品</p>
+<dl class="class">
+<dt id="app_models.models_product.Category">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.models_product.</code><code class="sig-name descname">Category</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/models_product.html#Category"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.models_product.Category" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>类目的模型
+:用于配置可用的产品类目。</p>
+<dl class="exception">
+<dt id="app_models.models_product.Category.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#app_models.models_product.Category.DoesNotExist" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="app_models.models_product.Category.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#app_models.models_product.Category.MultipleObjectsReturned" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Category.category_type_code">
+<code class="sig-name descname">category_type_code</code><a class="headerlink" href="#app_models.models_product.Category.category_type_code" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Category.category_type_name">
+<code class="sig-name descname">category_type_name</code><a class="headerlink" href="#app_models.models_product.Category.category_type_name" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Category.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#app_models.models_product.Category.id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Category.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#app_models.models_product.Category.objects" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Category.product_set">
+<code class="sig-name descname">product_set</code><a class="headerlink" href="#app_models.models_product.Category.product_set" title="永久链接至目标">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.models_product.Product">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.models_product.</code><code class="sig-name descname">Product</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/models_product.html#Product"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.models_product.Product" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>产品列表，包含了所有的产品</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><p><strong>{</strong><strong>[</strong><strong>type</strong><strong>]</strong><strong>} --</strong><strong> [</strong><strong>description</strong><strong>]</strong> (<em>models</em>) – </p>
+</dd>
+</dl>
+<dl class="exception">
+<dt id="app_models.models_product.Product.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#app_models.models_product.Product.DoesNotExist" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="app_models.models_product.Product.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#app_models.models_product.Product.MultipleObjectsReturned" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Product.category">
+<code class="sig-name descname">category</code><a class="headerlink" href="#app_models.models_product.Product.category" title="永久链接至目标">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Product.category_id">
+<code class="sig-name descname">category_id</code><a class="headerlink" href="#app_models.models_product.Product.category_id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Product.for_sale">
+<code class="sig-name descname">for_sale</code><a class="headerlink" href="#app_models.models_product.Product.for_sale" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Product.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#app_models.models_product.Product.id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Product.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#app_models.models_product.Product.objects" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Product.orderdetail_set">
+<code class="sig-name descname">orderdetail_set</code><a class="headerlink" href="#app_models.models_product.Product.orderdetail_set" title="永久链接至目标">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Product.product_description">
+<code class="sig-name descname">product_description</code><a class="headerlink" href="#app_models.models_product.Product.product_description" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Product.product_name">
+<code class="sig-name descname">product_name</code><a class="headerlink" href="#app_models.models_product.Product.product_name" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Product.product_price">
+<code class="sig-name descname">product_price</code><a class="headerlink" href="#app_models.models_product.Product.product_price" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Product.product_stock">
+<code class="sig-name descname">product_stock</code><a class="headerlink" href="#app_models.models_product.Product.product_stock" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Product.warehouse">
+<code class="sig-name descname">warehouse</code><a class="headerlink" href="#app_models.models_product.Product.warehouse" title="永久链接至目标">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Product.warehouse_id">
+<code class="sig-name descname">warehouse_id</code><a class="headerlink" href="#app_models.models_product.Product.warehouse_id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.models_product.Supplier">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.models_product.</code><code class="sig-name descname">Supplier</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/models_product.html#Supplier"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.models_product.Supplier" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>供应商</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><p><strong>{</strong><strong>[</strong><strong>type</strong><strong>]</strong><strong>} --</strong><strong> [</strong><strong>description</strong><strong>]</strong> (<em>models</em>) – </p>
+</dd>
+</dl>
+<dl class="exception">
+<dt id="app_models.models_product.Supplier.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#app_models.models_product.Supplier.DoesNotExist" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="app_models.models_product.Supplier.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#app_models.models_product.Supplier.MultipleObjectsReturned" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Supplier.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#app_models.models_product.Supplier.id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Supplier.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#app_models.models_product.Supplier.objects" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Supplier.supplier_code">
+<code class="sig-name descname">supplier_code</code><a class="headerlink" href="#app_models.models_product.Supplier.supplier_code" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Supplier.supplier_name">
+<code class="sig-name descname">supplier_name</code><a class="headerlink" href="#app_models.models_product.Supplier.supplier_name" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Supplier.supplier_type">
+<code class="sig-name descname">supplier_type</code><a class="headerlink" href="#app_models.models_product.Supplier.supplier_type" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_models.models_product.Warehouse">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.models_product.</code><code class="sig-name descname">Warehouse</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/models_product.html#Warehouse"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.models_product.Warehouse" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>仓库信息配置
+:warehouse_type_name: 仓库名称
+:warehouse_code: 仓库代码</p>
+<dl class="exception">
+<dt id="app_models.models_product.Warehouse.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#app_models.models_product.Warehouse.DoesNotExist" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="app_models.models_product.Warehouse.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#app_models.models_product.Warehouse.MultipleObjectsReturned" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Warehouse.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#app_models.models_product.Warehouse.id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Warehouse.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#app_models.models_product.Warehouse.objects" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Warehouse.product_set">
+<code class="sig-name descname">product_set</code><a class="headerlink" href="#app_models.models_product.Warehouse.product_set" title="永久链接至目标">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Warehouse.warehouse_address">
+<code class="sig-name descname">warehouse_address</code><a class="headerlink" href="#app_models.models_product.Warehouse.warehouse_address" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Warehouse.warehouse_code">
+<code class="sig-name descname">warehouse_code</code><a class="headerlink" href="#app_models.models_product.Warehouse.warehouse_code" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_product.Warehouse.warehouse_name">
+<code class="sig-name descname">warehouse_name</code><a class="headerlink" href="#app_models.models_product.Warehouse.warehouse_name" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app_models.models_user_asset">
+<span id="app-models-models-user-asset-module"></span><h2>app_models.models_user_asset module<a class="headerlink" href="#module-app_models.models_user_asset" title="永久链接至标题">¶</a></h2>
+<p>用户资产表
+继续使用OneToOneField，从User模型扩展</p>
+<dl class="class">
+<dt id="app_models.models_user_asset.UserAsset">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.models_user_asset.</code><code class="sig-name descname">UserAsset</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">user</em>, <em class="sig-param">balance</em>, <em class="sig-param">last_update</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/models_user_asset.html#UserAsset"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.models_user_asset.UserAsset" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="app_models.models_user_asset.UserAsset.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#app_models.models_user_asset.UserAsset.DoesNotExist" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="app_models.models_user_asset.UserAsset.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#app_models.models_user_asset.UserAsset.MultipleObjectsReturned" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_user_asset.UserAsset.balance">
+<code class="sig-name descname">balance</code><a class="headerlink" href="#app_models.models_user_asset.UserAsset.balance" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app_models.models_user_asset.UserAsset.get_next_by_last_update">
+<code class="sig-name descname">get_next_by_last_update</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: last_update&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app_models.models_user_asset.UserAsset.get_next_by_last_update" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_models.models_user_asset.UserAsset.get_previous_by_last_update">
+<code class="sig-name descname">get_previous_by_last_update</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: last_update&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app_models.models_user_asset.UserAsset.get_previous_by_last_update" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_user_asset.UserAsset.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#app_models.models_user_asset.UserAsset.id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_user_asset.UserAsset.last_update">
+<code class="sig-name descname">last_update</code><a class="headerlink" href="#app_models.models_user_asset.UserAsset.last_update" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_user_asset.UserAsset.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#app_models.models_user_asset.UserAsset.objects" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_user_asset.UserAsset.user">
+<code class="sig-name descname">user</code><a class="headerlink" href="#app_models.models_user_asset.UserAsset.user" title="永久链接至目标">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_user_asset.UserAsset.user_id">
+<code class="sig-name descname">user_id</code><a class="headerlink" href="#app_models.models_user_asset.UserAsset.user_id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app_models.models_user_role">
+<span id="app-models-models-user-role-module"></span><h2>app_models.models_user_role module<a class="headerlink" href="#module-app_models.models_user_role" title="永久链接至标题">¶</a></h2>
+<p>用户角色模型
+简单快速的实现一个基于角色的权限控制 /rbac
+用户和用户角色，是一对多的关系
+不过现实的系统里，绝大多数用户只会具有一个角色，例如已认证用户或未认证用户
+少数用户可能具有多个角色
+这样总体来说，角色表的记录并不会膨胀到特别大，和用户表的记录数接近，略多一点，性能可以接受
+当一个用户从未认证客户，经过认证变成已认证客户，一般仅保留认证客户的角色，未认证角色将会删除，这一点由认证的逻辑保证
+在每个视图需要权限控制的视图，用装饰器来实现：
+&#64;require_userrole()</p>
+<dl class="class">
+<dt id="app_models.models_user_role.UserRole">
+<em class="property">class </em><code class="sig-prename descclassname">app_models.models_user_role.</code><code class="sig-name descname">UserRole</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">user</em>, <em class="sig-param">role_code</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_models/models_user_role.html#UserRole"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_models.models_user_role.UserRole" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="app_models.models_user_role.UserRole.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#app_models.models_user_role.UserRole.DoesNotExist" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="app_models.models_user_role.UserRole.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#app_models.models_user_role.UserRole.MultipleObjectsReturned" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="app_models.models_user_role.UserRole.get_role_code_display">
+<code class="sig-name descname">get_role_code_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: role_code&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#app_models.models_user_role.UserRole.get_role_code_display" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_user_role.UserRole.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#app_models.models_user_role.UserRole.id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_user_role.UserRole.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#app_models.models_user_role.UserRole.objects" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_user_role.UserRole.role_code">
+<code class="sig-name descname">role_code</code><a class="headerlink" href="#app_models.models_user_role.UserRole.role_code" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_user_role.UserRole.user">
+<code class="sig-name descname">user</code><a class="headerlink" href="#app_models.models_user_role.UserRole.user" title="永久链接至目标">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_models.models_user_role.UserRole.user_id">
+<code class="sig-name descname">user_id</code><a class="headerlink" href="#app_models.models_user_role.UserRole.user_id" title="永久链接至目标">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-app_models.tests">
 <span id="app-models-tests-module"></span><h2>app_models.tests module<a class="headerlink" href="#module-app_models.tests" title="永久链接至标题">¶</a></h2>
 </div>
@@ -400,12 +1493,15 @@ object the first time, the query is executed.</p>
 </div>
 <div class="section" id="module-app_models">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-app_models" title="永久链接至标题">¶</a></h2>
-<p>这是一个专为模型创建的app
-所有的模型都放在这个app里
+<p>这是一个专为模型创建的app</p>
+<dl class="simple">
+<dt>说明如下:</dt><dd><p>所有的模型都放在这个app里
 所有的模型都以models_开头，后面再加上具体内容或用途，例如：
 models_customuser.py, 为自定义用户而创建的模型
-models_extra_user.py, 为用户模型增加一些extra的信息</p>
-<p>然后在models.py文件里，import 需要的模型类</p>
+models_extra_user.py, 为用户模型增加一些extra的信息
+然后在models.py文件里，import 需要的模型类</p>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -417,10 +1513,10 @@ models_extra_user.py, 为用户模型增加一些extra的信息</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="main_settings.html" class="btn btn-neutral float-right" title="main_settings package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="app_models.migrations.html" class="btn btn-neutral float-right" title="app_models.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="app_demo1.html" class="btn btn-neutral float-left" title="app_demo1 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="app_img.migrations.html" class="btn btn-neutral float-left" title="app_img.migrations package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

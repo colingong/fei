@@ -1,0 +1,1092 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>app_drf package &mdash; Fei Django Demo v0.01 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="app_drf.migrations package" href="app_drf.migrations.html" />
+    <link rel="prev" title="app_demo1 package" href="app_demo1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Fei Django Demo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents/欢迎阅读:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../mydocs/intro.html">Fei’s django app demo INTRO / 简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fei</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="app_clientip.html">app_clientip package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_comments.html">app_comments package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_demo1.html">app_demo1 package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">app_drf package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="app_drf.migrations.html">app_drf.migrations package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf.admin">app_drf.admin module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf.apps">app_drf.apps module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf.models">app_drf.models module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf.serializers">app_drf.serializers module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf.tests">app_drf.tests module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf.urls">app_drf.urls module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf.views">app_drf.views module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf.views_apiview_to_router">app_drf.views_apiview_to_router module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf.views_customize_serializer">app_drf.views_customize_serializer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf.views_drf1">app_drf.views_drf1 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf.views_perm_any">app_drf.views_perm_any module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf.views_token">app_drf.views_token module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf.views_v2">app_drf.views_v2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf.views_v3">app_drf.views_v3 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-app_drf">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="app_img.html">app_img package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_models.html">app_models package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fei_backend.html">fei_backend package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fei_middlewares.html">fei_middlewares package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_settings.html">main_settings package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="not_use.html">not_use package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="share.html">share package</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fei Django Demo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">fei</a> &raquo;</li>
+        
+      <li>app_drf package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/app_drf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="app-drf-package">
+<h1>app_drf package<a class="headerlink" href="#app-drf-package" title="永久链接至标题">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="永久链接至标题">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="app_drf.migrations.html">app_drf.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app_drf.migrations.html#module-app_drf.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="module-app_drf.admin">
+<span id="app-drf-admin-module"></span><h2>app_drf.admin module<a class="headerlink" href="#module-app_drf.admin" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="module-app_drf.apps">
+<span id="app-drf-apps-module"></span><h2>app_drf.apps module<a class="headerlink" href="#module-app_drf.apps" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="app_drf.apps.AppDrfConfig">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.apps.</code><code class="sig-name descname">AppDrfConfig</code><span class="sig-paren">(</span><em class="sig-param">app_name</em>, <em class="sig-param">app_module</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/apps.html#AppDrfConfig"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.apps.AppDrfConfig" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">django.apps.config.AppConfig</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.apps.AppDrfConfig.name">
+<code class="sig-name descname">name</code><em class="property"> = 'app_drf'</em><a class="headerlink" href="#app_drf.apps.AppDrfConfig.name" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app_drf.models">
+<span id="app-drf-models-module"></span><h2>app_drf.models module<a class="headerlink" href="#module-app_drf.models" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="module-app_drf.serializers">
+<span id="app-drf-serializers-module"></span><h2>app_drf.serializers module<a class="headerlink" href="#module-app_drf.serializers" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="app_drf.serializers.UserExtraSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.serializers.</code><code class="sig-name descname">UserExtraSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/serializers.html#UserExtraSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.serializers.UserExtraSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.HyperlinkedModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.serializers.UserExtraSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/serializers.html#UserExtraSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.serializers.UserExtraSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.serializers.UserExtraSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ['url', 'weixin_openid', 'phone', 'qq', 'pay_password']</em><a class="headerlink" href="#app_drf.serializers.UserExtraSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.serializers.UserExtraSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.serializers.UserExtraSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="app_models.html#app_models.models_extra_user.UserExtra" title="app_models.models_extra_user.UserExtra"><code class="xref py py-class docutils literal notranslate"><span class="pre">app_models.models_extra_user.UserExtra</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.serializers.UserSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.serializers.</code><code class="sig-name descname">UserSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/serializers.html#UserSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.serializers.UserSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.HyperlinkedModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.serializers.UserSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/serializers.html#UserSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.serializers.UserSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.serializers.UserSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ['url', 'username', 'first_name', 'last_name', 'email', 'is_staff', 'is_active', 'objects']</em><a class="headerlink" href="#app_drf.serializers.UserSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.serializers.UserSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.serializers.UserSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.User</span></code> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app_drf.tests">
+<span id="app-drf-tests-module"></span><h2>app_drf.tests module<a class="headerlink" href="#module-app_drf.tests" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="module-app_drf.urls">
+<span id="app-drf-urls-module"></span><h2>app_drf.urls module<a class="headerlink" href="#module-app_drf.urls" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="module-app_drf.views">
+<span id="app-drf-views-module"></span><h2>app_drf.views module<a class="headerlink" href="#module-app_drf.views" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="app_drf.views.FeiUserExtraSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views.</code><code class="sig-name descname">FeiUserExtraSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views.html#FeiUserExtraSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views.FeiUserExtraSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.views.FeiUserExtraSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views.html#FeiUserExtraSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views.FeiUserExtraSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views.FeiUserExtraSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ['weixin_openid', 'qq']</em><a class="headerlink" href="#app_drf.views.FeiUserExtraSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views.FeiUserExtraSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views.FeiUserExtraSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="app_models.html#app_models.models_extra_user.UserExtra" title="app_models.models_extra_user.UserExtra"><code class="xref py py-class docutils literal notranslate"><span class="pre">app_models.models_extra_user.UserExtra</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views.FeiUserSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views.</code><code class="sig-name descname">FeiUserSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views.html#FeiUserSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views.FeiUserSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.views.FeiUserSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views.html#FeiUserSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views.FeiUserSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views.FeiUserSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ['username', 'first_name', 'last_name', 'email', 'is_staff', 'is_active', 'objects']</em><a class="headerlink" href="#app_drf.views.FeiUserSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views.FeiUserSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views.FeiUserSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.User</span></code> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views.FeiView">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views.</code><code class="sig-name descname">FeiView</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views.html#FeiView"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views.FeiView" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.views.APIView</span></code></p>
+<p>成功显示了两个models， User , UserExtra</p>
+<dl class="method">
+<dt id="app_drf.views.FeiView.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">pk</em>, <em class="sig-param">format=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views.html#FeiView.get"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views.FeiView.get" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views.FeiViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views.</code><code class="sig-name descname">FeiViewSet</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views.html#FeiViewSet"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views.FeiViewSet" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ViewSet</span></code></p>
+<dl class="method">
+<dt id="app_drf.views.FeiViewSet.list">
+<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">format=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views.html#FeiViewSet.list"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views.FeiViewSet.list" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views.UserExtraViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views.</code><code class="sig-name descname">UserExtraViewSet</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views.html#UserExtraViewSet"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views.UserExtraViewSet" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ModelViewSet</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views.UserExtraViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet [&lt;UserExtra: extra_user admin&gt;, &lt;UserExtra: extra_user fei02&gt;, &lt;UserExtra: extra_user fei03&gt;, &lt;UserExtra: extra_user fei04&gt;, &lt;UserExtra: extra_user fei05&gt;, &lt;UserExtra: extra_user fei12_staff&gt;, &lt;UserExtra: extra_user fei06&gt;, &lt;UserExtra: extra_user user&gt;, &lt;UserExtra: extra_user fei20&gt;]&gt;</em><a class="headerlink" href="#app_drf.views.UserExtraViewSet.queryset" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views.UserExtraViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#app_drf.views.UserExtraViewSet.serializer_class" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="#app_drf.serializers.UserExtraSerializer" title="app_drf.serializers.UserExtraSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">app_drf.serializers.UserExtraSerializer</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views.UserViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views.</code><code class="sig-name descname">UserViewSet</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views.html#UserViewSet"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views.UserViewSet" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ModelViewSet</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views.UserViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet [&lt;User: testuser&gt;, &lt;User: fei31&gt;, &lt;User: fei30&gt;, &lt;User: fei21&gt;, &lt;User: fei20&gt;, &lt;User: user&gt;, &lt;User: fei02&gt;, &lt;User: fei03&gt;, &lt;User: fei04&gt;, &lt;User: fei05&gt;, &lt;User: fei07&gt;, &lt;User: fei08&gt;, &lt;User: fei09&gt;, &lt;User: fei10&gt;, &lt;User: fei11&gt;, &lt;User: fei06&gt;, &lt;User: fei12_staff&gt;, &lt;User: admin&gt;]&gt;</em><a class="headerlink" href="#app_drf.views.UserViewSet.queryset" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views.UserViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#app_drf.views.UserViewSet.serializer_class" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="#app_drf.serializers.UserSerializer" title="app_drf.serializers.UserSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">app_drf.serializers.UserSerializer</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="app_drf.views.alive">
+<code class="sig-prename descclassname">app_drf.views.</code><code class="sig-name descname">alive</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views.html#alive"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views.alive" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="app_drf.views.send_json">
+<code class="sig-prename descclassname">app_drf.views.</code><code class="sig-name descname">send_json</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">request</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views.html#send_json"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views.send_json" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-app_drf.views_apiview_to_router">
+<span id="app-drf-views-apiview-to-router-module"></span><h2>app_drf.views_apiview_to_router module<a class="headerlink" href="#module-app_drf.views_apiview_to_router" title="永久链接至标题">¶</a></h2>
+<p>实现类似api_view的功能，但是要能够注册到router，以便可以在api root能看到
+api_view不能注册到router，那么就换成一个viewset，但是实际上功能还是类似上面的function views那样</p>
+<dl class="class">
+<dt id="app_drf.views_apiview_to_router.UserAndExtra">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_apiview_to_router.</code><code class="sig-name descname">UserAndExtra</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_apiview_to_router.html#UserAndExtra"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_apiview_to_router.UserAndExtra" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ViewSet</span></code></p>
+<dl class="method">
+<dt id="app_drf.views_apiview_to_router.UserAndExtra.list">
+<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">format=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_apiview_to_router.html#UserAndExtra.list"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_apiview_to_router.UserAndExtra.list" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_apiview_to_router.UserAndExtra.lookup_field">
+<code class="sig-name descname">lookup_field</code><em class="property"> = 'username_or_pk'</em><a class="headerlink" href="#app_drf.views_apiview_to_router.UserAndExtra.lookup_field" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_drf.views_apiview_to_router.UserAndExtra.retrieve">
+<code class="sig-name descname">retrieve</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">username_or_pk</em>, <em class="sig-param">format=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_apiview_to_router.html#UserAndExtra.retrieve"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_apiview_to_router.UserAndExtra.retrieve" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app_drf.views_customize_serializer">
+<span id="app-drf-views-customize-serializer-module"></span><h2>app_drf.views_customize_serializer module<a class="headerlink" href="#module-app_drf.views_customize_serializer" title="永久链接至标题">¶</a></h2>
+<p>定制Serializer</p>
+<dl class="class">
+<dt id="app_drf.views_customize_serializer.UserAllInfoSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_customize_serializer.</code><code class="sig-name descname">UserAllInfoSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_customize_serializer.html#UserAllInfoSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_customize_serializer.UserAllInfoSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.views_customize_serializer.UserAllInfoSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views_customize_serializer.html#UserAllInfoSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_customize_serializer.UserAllInfoSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_customize_serializer.UserAllInfoSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ['api_desc', 'username', 'first_name', 'last_name', 'email', 'is_staff', 'is_superuser', 'balance', 'phone', 'qq']</em><a class="headerlink" href="#app_drf.views_customize_serializer.UserAllInfoSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_customize_serializer.UserAllInfoSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views_customize_serializer.UserAllInfoSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.User</span></code> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="app_drf.views_customize_serializer.UserAllInfoSerializer.api_comment">
+<code class="sig-name descname">api_comment</code><span class="sig-paren">(</span><em class="sig-param">pk=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_customize_serializer.html#UserAllInfoSerializer.api_comment"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_customize_serializer.UserAllInfoSerializer.api_comment" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_drf.views_customize_serializer.UserAllInfoSerializer.user_balance">
+<code class="sig-name descname">user_balance</code><span class="sig-paren">(</span><em class="sig-param">pk</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_customize_serializer.html#UserAllInfoSerializer.user_balance"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_customize_serializer.UserAllInfoSerializer.user_balance" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_drf.views_customize_serializer.UserAllInfoSerializer.user_phone">
+<code class="sig-name descname">user_phone</code><span class="sig-paren">(</span><em class="sig-param">pk</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_customize_serializer.html#UserAllInfoSerializer.user_phone"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_customize_serializer.UserAllInfoSerializer.user_phone" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_drf.views_customize_serializer.UserAllInfoSerializer.user_qq">
+<code class="sig-name descname">user_qq</code><span class="sig-paren">(</span><em class="sig-param">pk</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_customize_serializer.html#UserAllInfoSerializer.user_qq"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_customize_serializer.UserAllInfoSerializer.user_qq" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="app_drf.views_customize_serializer.show_user_all_info">
+<code class="sig-prename descclassname">app_drf.views_customize_serializer.</code><code class="sig-name descname">show_user_all_info</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">request</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_customize_serializer.html#show_user_all_info"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_customize_serializer.show_user_all_info" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-app_drf.views_drf1">
+<span id="app-drf-views-drf1-module"></span><h2>app_drf.views_drf1 module<a class="headerlink" href="#module-app_drf.views_drf1" title="永久链接至标题">¶</a></h2>
+<p>views just for drf</p>
+<dl class="class">
+<dt id="app_drf.views_drf1.FullUserSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_drf1.</code><code class="sig-name descname">FullUserSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_drf1.html#FullUserSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_drf1.FullUserSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.views_drf1.FullUserSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views_drf1.html#FullUserSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_drf1.FullUserSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_drf1.FullUserSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = '__all__'</em><a class="headerlink" href="#app_drf.views_drf1.FullUserSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_drf1.FullUserSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views_drf1.FullUserSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.User</span></code> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_drf1.UserAndExtraSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_drf1.</code><code class="sig-name descname">UserAndExtraSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_drf1.html#UserAndExtraSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_drf1.UserAndExtraSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.Serializer</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_drf1.UserExtraSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_drf1.</code><code class="sig-name descname">UserExtraSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_drf1.html#UserExtraSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_drf1.UserExtraSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.views_drf1.UserExtraSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views_drf1.html#UserExtraSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_drf1.UserExtraSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_drf1.UserExtraSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = '__all__'</em><a class="headerlink" href="#app_drf.views_drf1.UserExtraSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_drf1.UserExtraSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views_drf1.UserExtraSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="app_models.html#app_models.models_extra_user.UserExtra" title="app_models.models_extra_user.UserExtra"><code class="xref py py-class docutils literal notranslate"><span class="pre">app_models.models_extra_user.UserExtra</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_drf1.UserSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_drf1.</code><code class="sig-name descname">UserSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_drf1.html#UserSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_drf1.UserSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.views_drf1.UserSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views_drf1.html#UserSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_drf1.UserSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_drf1.UserSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ['api_desc', 'username', 'first_name', 'last_name', 'is_active']</em><a class="headerlink" href="#app_drf.views_drf1.UserSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_drf1.UserSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views_drf1.UserSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.User</span></code> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="app_drf.views_drf1.UserSerializer.comment_for_user">
+<code class="sig-name descname">comment_for_user</code><span class="sig-paren">(</span><em class="sig-param">pk=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_drf1.html#UserSerializer.comment_for_user"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_drf1.UserSerializer.comment_for_user" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="app_drf.views_drf1.full_user">
+<code class="sig-prename descclassname">app_drf.views_drf1.</code><code class="sig-name descname">full_user</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">request</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_drf1.html#full_user"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_drf1.full_user" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="app_drf.views_drf1.show_user">
+<code class="sig-prename descclassname">app_drf.views_drf1.</code><code class="sig-name descname">show_user</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">request</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_drf1.html#show_user"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_drf1.show_user" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="app_drf.views_drf1.user_and_extra">
+<code class="sig-prename descclassname">app_drf.views_drf1.</code><code class="sig-name descname">user_and_extra</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">request</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_drf1.html#user_and_extra"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_drf1.user_and_extra" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-app_drf.views_perm_any">
+<span id="app-drf-views-perm-any-module"></span><h2>app_drf.views_perm_any module<a class="headerlink" href="#module-app_drf.views_perm_any" title="永久链接至标题">¶</a></h2>
+<p>不需要权限的apis</p>
+<p>例如product模型的get，未注册用户也需要有list
+注册用户的权限</p>
+<dl class="class">
+<dt id="app_drf.views_perm_any.NewProductSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_perm_any.</code><code class="sig-name descname">NewProductSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_perm_any.html#NewProductSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_perm_any.NewProductSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<p>Product</p>
+<dl class="simple">
+<dt>fields:</dt><dd><p>[category, warehouse, product_name, product_description, product_price, product_stock, for_sale,]</p>
+</dd>
+</dl>
+<dl class="class">
+<dt id="app_drf.views_perm_any.NewProductSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views_perm_any.html#NewProductSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_perm_any.NewProductSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_perm_any.NewProductSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ['category', 'warehouse', 'product_name', 'product_description', 'product_price', 'product_stock']</em><a class="headerlink" href="#app_drf.views_perm_any.NewProductSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_perm_any.NewProductSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views_perm_any.NewProductSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="app_models.html#app_models.models_product.Product" title="app_models.models_product.Product"><code class="xref py py-class docutils literal notranslate"><span class="pre">app_models.models_product.Product</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_perm_any.NewProductViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_perm_any.</code><code class="sig-name descname">NewProductViewSet</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_perm_any.html#NewProductViewSet"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_perm_any.NewProductViewSet" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ModelViewSet</span></code></p>
+<dl class="method">
+<dt id="app_drf.views_perm_any.NewProductViewSet.create">
+<code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">format=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_perm_any.html#NewProductViewSet.create"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_perm_any.NewProductViewSet.create" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_perm_any.NewProductViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet [&lt;Product: 优衣库T恤A&gt;, &lt;Product: 可口可乐&gt;, &lt;Product: Gummy Bear VC&gt;, &lt;Product: 奥利奥饼干100&gt;]&gt;</em><a class="headerlink" href="#app_drf.views_perm_any.NewProductViewSet.queryset" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_perm_any.NewProductViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#app_drf.views_perm_any.NewProductViewSet.serializer_class" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="#app_drf.views_perm_any.NewProductSerializer" title="app_drf.views_perm_any.NewProductSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">NewProductSerializer</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_perm_any.UserRegisterSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_perm_any.</code><code class="sig-name descname">UserRegisterSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_perm_any.html#UserRegisterSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_perm_any.UserRegisterSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.views_perm_any.UserRegisterSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views_perm_any.html#UserRegisterSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_perm_any.UserRegisterSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_perm_any.UserRegisterSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ['username', 'first_name', 'last_name', 'password', 'email']</em><a class="headerlink" href="#app_drf.views_perm_any.UserRegisterSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_perm_any.UserRegisterSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views_perm_any.UserRegisterSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.User</span></code> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_perm_any.UserRegisterViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_perm_any.</code><code class="sig-name descname">UserRegisterViewSet</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_perm_any.html#UserRegisterViewSet"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_perm_any.UserRegisterViewSet" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ModelViewSet</span></code></p>
+<dl class="method">
+<dt id="app_drf.views_perm_any.UserRegisterViewSet.create">
+<code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">format=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_perm_any.html#UserRegisterViewSet.create"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_perm_any.UserRegisterViewSet.create" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_perm_any.UserRegisterViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet [&lt;User: admin&gt;, &lt;User: fei02&gt;, &lt;User: fei03&gt;, &lt;User: fei04&gt;, &lt;User: fei05&gt;, &lt;User: fei06&gt;, &lt;User: fei07&gt;, &lt;User: fei08&gt;, &lt;User: fei09&gt;, &lt;User: fei10&gt;, &lt;User: fei11&gt;, &lt;User: fei12_staff&gt;, &lt;User: user&gt;, &lt;User: fei20&gt;, &lt;User: fei21&gt;, &lt;User: fei30&gt;, &lt;User: fei31&gt;, &lt;User: testuser&gt;]&gt;</em><a class="headerlink" href="#app_drf.views_perm_any.UserRegisterViewSet.queryset" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_perm_any.UserRegisterViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#app_drf.views_perm_any.UserRegisterViewSet.serializer_class" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="#app_drf.views_perm_any.UserRegisterSerializer" title="app_drf.views_perm_any.UserRegisterSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserRegisterSerializer</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app_drf.views_token">
+<span id="app-drf-views-token-module"></span><h2>app_drf.views_token module<a class="headerlink" href="#module-app_drf.views_token" title="永久链接至标题">¶</a></h2>
+<p>drf token auth demo</p>
+</div>
+<div class="section" id="module-app_drf.views_v2">
+<span id="app-drf-views-v2-module"></span><h2>app_drf.views_v2 module<a class="headerlink" href="#module-app_drf.views_v2" title="永久链接至标题">¶</a></h2>
+<p>V2</p>
+<dl class="class">
+<dt id="app_drf.views_v2.CategorySerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v2.</code><code class="sig-name descname">CategorySerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#CategorySerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.CategorySerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.views_v2.CategorySerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views_v2.html#CategorySerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.CategorySerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_v2.CategorySerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = '__all__'</em><a class="headerlink" href="#app_drf.views_v2.CategorySerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v2.CategorySerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views_v2.CategorySerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="app_models.html#app_models.models_product.Category" title="app_models.models_product.Category"><code class="xref py py-class docutils literal notranslate"><span class="pre">app_models.models_product.Category</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v2.CategoryViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v2.</code><code class="sig-name descname">CategoryViewSet</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#CategoryViewSet"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.CategoryViewSet" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ReadOnlyModelViewSet</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_v2.CategoryViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet [&lt;Category: food 食品&gt;, &lt;Category: drug 药品&gt;, &lt;Category: drink 饮料类&gt;, &lt;Category: clothes 服装类&gt;]&gt;</em><a class="headerlink" href="#app_drf.views_v2.CategoryViewSet.queryset" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v2.CategoryViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#app_drf.views_v2.CategoryViewSet.serializer_class" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="#app_drf.views_v2.CategorySerializer" title="app_drf.views_v2.CategorySerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">CategorySerializer</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v2.FulluserSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v2.</code><code class="sig-name descname">FulluserSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#FulluserSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.FulluserSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<p>显示用户的完整信息 User &amp; UserExtra &amp; UserAsset</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>weixin_openid</strong> – UserExtra / weixin_openid</p></li>
+<li><p><strong>phone</strong> – UserExtra / phone</p></li>
+<li><p><strong>qq</strong> – UserExtra / qq</p></li>
+<li><p><strong>balance</strong> – UserAsset / balance</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="class">
+<dt id="app_drf.views_v2.FulluserSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views_v2.html#FulluserSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.FulluserSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_v2.FulluserSerializer.Meta.exclude">
+<code class="sig-name descname">exclude</code><em class="property"> = ['password']</em><a class="headerlink" href="#app_drf.views_v2.FulluserSerializer.Meta.exclude" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v2.FulluserSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views_v2.FulluserSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.User</span></code> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="app_drf.views_v2.FulluserSerializer.get_userasset_balance">
+<code class="sig-name descname">get_userasset_balance</code><span class="sig-paren">(</span><em class="sig-param">instance</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#FulluserSerializer.get_userasset_balance"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.FulluserSerializer.get_userasset_balance" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_drf.views_v2.FulluserSerializer.get_userextra_phone">
+<code class="sig-name descname">get_userextra_phone</code><span class="sig-paren">(</span><em class="sig-param">instance</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#FulluserSerializer.get_userextra_phone"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.FulluserSerializer.get_userextra_phone" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_drf.views_v2.FulluserSerializer.get_userextra_qq">
+<code class="sig-name descname">get_userextra_qq</code><span class="sig-paren">(</span><em class="sig-param">instance</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#FulluserSerializer.get_userextra_qq"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.FulluserSerializer.get_userextra_qq" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="app_drf.views_v2.FulluserSerializer.get_userextra_weixin_openid">
+<code class="sig-name descname">get_userextra_weixin_openid</code><span class="sig-paren">(</span><em class="sig-param">instance</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#FulluserSerializer.get_userextra_weixin_openid"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.FulluserSerializer.get_userextra_weixin_openid" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v2.FulluserViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v2.</code><code class="sig-name descname">FulluserViewSet</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#FulluserViewSet"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.FulluserViewSet" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ReadOnlyModelViewSet</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_v2.FulluserViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet [&lt;User: admin&gt;, &lt;User: fei02&gt;, &lt;User: fei03&gt;, &lt;User: fei04&gt;, &lt;User: fei05&gt;, &lt;User: fei06&gt;, &lt;User: fei07&gt;, &lt;User: fei08&gt;, &lt;User: fei09&gt;, &lt;User: fei10&gt;, &lt;User: fei11&gt;, &lt;User: fei12_staff&gt;, &lt;User: user&gt;, &lt;User: fei20&gt;, &lt;User: fei21&gt;, &lt;User: fei30&gt;, &lt;User: fei31&gt;, &lt;User: testuser&gt;]&gt;</em><a class="headerlink" href="#app_drf.views_v2.FulluserViewSet.queryset" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v2.FulluserViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#app_drf.views_v2.FulluserViewSet.serializer_class" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="#app_drf.views_v2.FulluserSerializer" title="app_drf.views_v2.FulluserSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">FulluserSerializer</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v2.ProductSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v2.</code><code class="sig-name descname">ProductSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#ProductSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.ProductSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.views_v2.ProductSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views_v2.html#ProductSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.ProductSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_v2.ProductSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = '__all__'</em><a class="headerlink" href="#app_drf.views_v2.ProductSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v2.ProductSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views_v2.ProductSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="app_models.html#app_models.models_product.Product" title="app_models.models_product.Product"><code class="xref py py-class docutils literal notranslate"><span class="pre">app_models.models_product.Product</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v2.ProductViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v2.</code><code class="sig-name descname">ProductViewSet</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#ProductViewSet"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.ProductViewSet" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ModelViewSet</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_v2.ProductViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet [&lt;Product: 奥利奥饼干100&gt;, &lt;Product: Gummy Bear VC&gt;, &lt;Product: 可口可乐&gt;, &lt;Product: 优衣库T恤A&gt;]&gt;</em><a class="headerlink" href="#app_drf.views_v2.ProductViewSet.queryset" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v2.ProductViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#app_drf.views_v2.ProductViewSet.serializer_class" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="#app_drf.views_v2.ProductSerializer" title="app_drf.views_v2.ProductSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProductSerializer</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v2.SupplierSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v2.</code><code class="sig-name descname">SupplierSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#SupplierSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.SupplierSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.views_v2.SupplierSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views_v2.html#SupplierSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.SupplierSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_v2.SupplierSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = '__all__'</em><a class="headerlink" href="#app_drf.views_v2.SupplierSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v2.SupplierSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views_v2.SupplierSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="app_models.html#app_models.models_product.Supplier" title="app_models.models_product.Supplier"><code class="xref py py-class docutils literal notranslate"><span class="pre">app_models.models_product.Supplier</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v2.SupplierViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v2.</code><code class="sig-name descname">SupplierViewSet</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#SupplierViewSet"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.SupplierViewSet" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ReadOnlyModelViewSet</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_v2.SupplierViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet []&gt;</em><a class="headerlink" href="#app_drf.views_v2.SupplierViewSet.queryset" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v2.SupplierViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#app_drf.views_v2.SupplierViewSet.serializer_class" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="#app_drf.views_v2.SupplierSerializer" title="app_drf.views_v2.SupplierSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SupplierSerializer</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v2.UserOrderSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v2.</code><code class="sig-name descname">UserOrderSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#UserOrderSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.UserOrderSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.views_v2.UserOrderSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views_v2.html#UserOrderSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.UserOrderSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_v2.UserOrderSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = '__all__'</em><a class="headerlink" href="#app_drf.views_v2.UserOrderSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v2.UserOrderSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views_v2.UserOrderSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="app_models.html#app_models.models_order.UserOrder" title="app_models.models_order.UserOrder"><code class="xref py py-class docutils literal notranslate"><span class="pre">app_models.models_order.UserOrder</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v2.UserOrderViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v2.</code><code class="sig-name descname">UserOrderViewSet</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#UserOrderViewSet"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.UserOrderViewSet" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ReadOnlyModelViewSet</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_v2.UserOrderViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet []&gt;</em><a class="headerlink" href="#app_drf.views_v2.UserOrderViewSet.queryset" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v2.UserOrderViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#app_drf.views_v2.UserOrderViewSet.serializer_class" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="#app_drf.views_v2.UserOrderSerializer" title="app_drf.views_v2.UserOrderSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserOrderSerializer</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v2.UserSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v2.</code><code class="sig-name descname">UserSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#UserSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.UserSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.HyperlinkedModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.views_v2.UserSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views_v2.html#UserSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.UserSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_v2.UserSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ['url', 'username', 'first_name', 'last_name']</em><a class="headerlink" href="#app_drf.views_v2.UserSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v2.UserSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views_v2.UserSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.User</span></code> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v2.UserViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v2.</code><code class="sig-name descname">UserViewSet</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#UserViewSet"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.UserViewSet" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ReadOnlyModelViewSet</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_v2.UserViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet [&lt;User: testuser&gt;, &lt;User: fei31&gt;, &lt;User: fei30&gt;, &lt;User: fei21&gt;, &lt;User: fei20&gt;, &lt;User: user&gt;, &lt;User: fei02&gt;, &lt;User: fei03&gt;, &lt;User: fei04&gt;, &lt;User: fei05&gt;, &lt;User: fei07&gt;, &lt;User: fei08&gt;, &lt;User: fei09&gt;, &lt;User: fei10&gt;, &lt;User: fei11&gt;, &lt;User: fei06&gt;, &lt;User: fei12_staff&gt;, &lt;User: admin&gt;]&gt;</em><a class="headerlink" href="#app_drf.views_v2.UserViewSet.queryset" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v2.UserViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#app_drf.views_v2.UserViewSet.serializer_class" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="#app_drf.views_v2.UserSerializer" title="app_drf.views_v2.UserSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserSerializer</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v2.WarehouseSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v2.</code><code class="sig-name descname">WarehouseSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#WarehouseSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.WarehouseSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="app_drf.views_v2.WarehouseSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="reference internal" href="../_modules/app_drf/views_v2.html#WarehouseSerializer.Meta"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.WarehouseSerializer.Meta" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_v2.WarehouseSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = '__all__'</em><a class="headerlink" href="#app_drf.views_v2.WarehouseSerializer.Meta.fields" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v2.WarehouseSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#app_drf.views_v2.WarehouseSerializer.Meta.model" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="app_models.html#app_models.models_product.Warehouse" title="app_models.models_product.Warehouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">app_models.models_product.Warehouse</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v2.WarehouseViewSet">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v2.</code><code class="sig-name descname">WarehouseViewSet</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v2.html#WarehouseViewSet"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v2.WarehouseViewSet" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.viewsets.ReadOnlyModelViewSet</span></code></p>
+<dl class="attribute">
+<dt id="app_drf.views_v2.WarehouseViewSet.queryset">
+<code class="sig-name descname">queryset</code><em class="property"> = &lt;QuerySet [&lt;Warehouse: EAST_WAREHOUSE 东区仓库&gt;, &lt;Warehouse: WEST_WAREHOUSE 西区仓库&gt;, &lt;Warehouse: NORTH_WAREHOUSE 北区仓库&gt;, &lt;Warehouse: SOUTH_WAREHOUSE 南区仓库&gt;]&gt;</em><a class="headerlink" href="#app_drf.views_v2.WarehouseViewSet.queryset" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v2.WarehouseViewSet.serializer_class">
+<code class="sig-name descname">serializer_class</code><a class="headerlink" href="#app_drf.views_v2.WarehouseViewSet.serializer_class" title="永久链接至目标">¶</a></dt>
+<dd><p><a class="reference internal" href="#app_drf.views_v2.WarehouseSerializer" title="app_drf.views_v2.WarehouseSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">WarehouseSerializer</span></code></a> 的别名</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-app_drf.views_v3">
+<span id="app-drf-views-v3-module"></span><h2>app_drf.views_v3 module<a class="headerlink" href="#module-app_drf.views_v3" title="永久链接至标题">¶</a></h2>
+<dl class="class">
+<dt id="app_drf.views_v3.CustomSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v3.</code><code class="sig-name descname">CustomSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v3.html#CustomSerializer"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v3.CustomSerializer" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.Serializer</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v3.CustomView">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v3.</code><code class="sig-name descname">CustomView</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v3.html#CustomView"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v3.CustomView" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.views.APIView</span></code></p>
+<dl class="method">
+<dt id="app_drf.views_v3.CustomView.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v3.html#CustomView.get"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v3.CustomView.get" title="永久链接至目标">¶</a></dt>
+<dd><p>request的GET方法
+request  – django 的 request 对象</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="app_drf.views_v3.CustomView.permission_classes">
+<code class="sig-name descname">permission_classes</code><em class="property"> = [&lt;class 'app_drf.views_v3.EnableAllUsers'&gt;]</em><a class="headerlink" href="#app_drf.views_v3.CustomView.permission_classes" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="app_drf.views_v3.EnableAllUsers">
+<em class="property">class </em><code class="sig-prename descclassname">app_drf.views_v3.</code><code class="sig-name descname">EnableAllUsers</code><a class="reference internal" href="../_modules/app_drf/views_v3.html#EnableAllUsers"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v3.EnableAllUsers" title="永久链接至目标">¶</a></dt>
+<dd><p>基类：<code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.permissions.BasePermission</span></code></p>
+<dl class="method">
+<dt id="app_drf.views_v3.EnableAllUsers.has_permission">
+<code class="sig-name descname">has_permission</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">view</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v3.html#EnableAllUsers.has_permission"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v3.EnableAllUsers.has_permission" title="永久链接至目标">¶</a></dt>
+<dd><p>Return <cite>True</cite> if permission is granted, <cite>False</cite> otherwise.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="app_drf.views_v3.view2">
+<code class="sig-prename descclassname">app_drf.views_v3.</code><code class="sig-name descname">view2</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/app_drf/views_v3.html#view2"><span class="viewcode-link">[源代码]</span></a><a class="headerlink" href="#app_drf.views_v3.view2" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-app_drf">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-app_drf" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="app_drf.migrations.html" class="btn btn-neutral float-right" title="app_drf.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="app_demo1.html" class="btn btn-neutral float-left" title="app_demo1 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Fei
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -3,3 +3,4 @@
 # /fei是项目文件所在目录
 
 sphinx-apidoc -f -o api ../fei
+# sphinx-apidoc -F -o api ../fei

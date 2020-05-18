@@ -1,0 +1,239 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-cn" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-cn" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fei_middlewares.generate_token &mdash; Fei Django Demo v0.01 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Fei Django Demo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents/欢迎阅读:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../mydocs/intro.html">Fei’s django app demo INTRO / 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/modules.html">fei</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Fei Django Demo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">模块代码</a> &raquo;</li>
+        
+      <li>fei_middlewares.generate_token</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>fei_middlewares.generate_token 源代码</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;为当前系统中已有的用户创建token</span>
+
+<span class="sd">    仅作为一个middleware的示例</span>
+<span class="sd">    实际上为已有用户创建token可以直接在django shell里进行一次操作</span>
+<span class="sd">    </span>
+<span class="sd">.. code-block:</span>
+<span class="sd">    users = User.objects.all()</span>
+<span class="sd">    for user in users:</span>
+<span class="sd">        if getattr(user, &#39;auth_token&#39;, True):</span>
+<span class="sd">            token = Token(user=user)</span>
+<span class="sd">            token.save()</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">django.core.exceptions</span> <span class="kn">import</span> <span class="n">ObjectDoesNotExist</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">rest_framework.authtoken.models</span> <span class="kn">import</span> <span class="n">Token</span>
+
+<div class="viewcode-block" id="generate_token_if_not_exist"><a class="viewcode-back" href="../../api/fei_middlewares.html#fei_middlewares.generate_token.generate_token_if_not_exist">[文档]</a><span class="k">def</span> <span class="nf">generate_token_if_not_exist</span><span class="p">(</span><span class="n">get_response</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;为用户生成一个token</span>
+
+<span class="sd">        用户token在app_models/models.py里已经有一个生成功能，为每个新注册的用户生成token</span>
+<span class="sd">        不过对于系统中已有的用户，就不起作用</span>
+<span class="sd">        此middleware在每个用户访问的时候，会检查该用户是否已经有token，没有的话即为用户生成并入库</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">middleware</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">auth_token</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--- MIDDLEWARE [generate_token_if_not_exist] ===&gt; token already existed: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+            <span class="c1"># 对应： from django.core.exceptions import ObjectDoesNotExist</span>
+            <span class="c1"># except ObjectDoesNotExist as e:</span>
+
+            <span class="c1"># 对应： from django.contrib.auth.models import User</span>
+            <span class="k">except</span> <span class="n">User</span><span class="o">.</span><span class="n">auth_token</span><span class="o">.</span><span class="n">RelatedObjectDoesNotExist</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+            <span class="c1"># 对应： from rest_framework.authtoken.models import Token</span>
+            <span class="c1"># except Token.DoesNotExist as e:</span>
+
+                <span class="n">token</span> <span class="o">=</span> <span class="n">Token</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+                <span class="n">token</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;--- MIDDLEWARE [generate_token_if_not_exist] ---&gt; created token for user: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="c1"># print(traceback.format_exc())</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">get_response</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span>
+    <span class="k">return</span> <span class="n">middleware</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Fei
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

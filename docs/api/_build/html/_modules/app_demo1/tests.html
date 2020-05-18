@@ -160,13 +160,33 @@
 <span class="c1">#     a = 13</span>
 <span class="c1">#     b = 14</span>
 <span class="c1">#     return a + b</span>
-<span class="n">var</span> <span class="o">=</span> <span class="s1">&#39;dalfjdals;fjldsafjldasjfldsa;fjldsajfldsaj dklasjf dsalj lda;sfj askl;j  kldsafjd&#39;</span>
+<span class="c1"># var = &#39;dalfjdals;fjldsafjldasjfldsa;fjldsajfldsaj dklasjf dsalj lda;sfj askl;j  kldsafjd&#39;</span>
 
-<div class="viewcode-block" id="demo_test"><a class="viewcode-back" href="../../api/app_demo1.html#app_demo1.tests.demo_test">[文档]</a><span class="k">def</span> <span class="nf">demo_test</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="n">var</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;demo_test(v=&#39;kkkkk&#39;)</span>
-<span class="sd">    这里是自已随便写的东西</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+<span class="c1"># class T1(TestCase):</span>
+<span class="c1">#     @staticmethod</span>
+<span class="c1">#     def demo_test():</span>
+<span class="c1">#         &quot;&quot;&quot;demo_test(v=&#39;kkkkk&#39;)</span>
+<span class="c1">#         这里是自已随便写的东西</span>
+<span class="c1">#         &quot;&quot;&quot;</span>
+<span class="c1">#         print(f&#39;app_demo1---&gt;tests.py&#39;)</span>
+<span class="c1">#         return True</span>
+
+<span class="c1">#     @staticmethod</span>
+<span class="c1">#     def req():</span>
+<span class="c1">#         from django.test import Client</span>
+<span class="c1">#         c = Client()</span>
+<span class="c1">#         r = c.get(&#39;/demo1/&#39;)</span>
+<span class="c1">#         print(r)</span>
+<span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">Client</span>
+
+<div class="viewcode-block" id="MyTest"><a class="viewcode-back" href="../../api/app_demo1.html#app_demo1.tests.MyTest">[文档]</a><span class="k">class</span> <span class="nc">MyTest</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="MyTest.setUp"><a class="viewcode-back" href="../../api/app_demo1.html#app_demo1.tests.MyTest.setUp">[文档]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="MyTest.test_demo1"><a class="viewcode-back" href="../../api/app_demo1.html#app_demo1.tests.MyTest.test_demo1">[文档]</a>    <span class="k">def</span> <span class="nf">test_demo1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/demo1/&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span></div></div>
+        <span class="c1"># self.assertEqual(r.content, b&#39;xyz&#39;)</span>
 </pre></div>
 
            </div>
