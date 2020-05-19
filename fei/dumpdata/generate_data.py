@@ -34,6 +34,7 @@ class ProductData(object):
     """
     def __init__(self):
         # self.category = Category.objects.values("id").order_by("?")[0]
+        self._count = row_count
         self._rand_str = str(random.randint(1, 999999))
 
         self.p = Product()
@@ -44,18 +45,20 @@ class ProductData(object):
         self.p.product_price = random.uniform(0.01, 100000.00)
         self.p.product_stock = random.randint(0, 9999)
 
-    def prod_name(self):
-        return "测试产品_" + str(random.randint(1, 9999999))
-
-    def prod_description(self):
-        return "产品描述是随机的_" + str(random.randint(1, 9999999))
 
 # p = ProductData()
 # print(p.category)
 if __name__ == '__main__':
+    row_count = 0
+    try:
+        row_count = int(sys.argv[1])
+        print(row_count)
+    except:
+        print("参数需要是一个正整数") 
+
     product = ProductData()
     print(product.p.__dict__)
-    for i in range(30):
+    for i in range(row_count):
         product = ProductData()
         product.p.save()
-        print(f'处理记录数量： {i}')
+        print(f'处理记录数量： {i+1}')
