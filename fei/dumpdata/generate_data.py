@@ -49,6 +49,8 @@ class ProductData(object):
 # p = ProductData()
 # print(p.category)
 if __name__ == '__main__':
+
+    print(f'Current Product count BEFORE: {Product.objects.count()}')
     row_count = 0
     try:
         row_count = int(sys.argv[1])
@@ -62,3 +64,5 @@ if __name__ == '__main__':
         product = ProductData()
         product.p.save()
         print(f'处理记录数量： {i+1}')
+
+    print(f'Current Product count AFTER: {Product.objects.count()}')
