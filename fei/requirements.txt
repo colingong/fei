@@ -6,6 +6,7 @@ certifi==2019.11.28
 chardet==3.0.4
 commonmark==0.9.1
 Django==2.2.11
+django-redis==4.11.0
 djangorestframework==3.11.0
 docutils==0.16
 html2text==2020.1.16
@@ -29,6 +30,7 @@ pyparsing==2.4.6
 pytz==2019.3
 PyYAML==5.3.1
 recommonmark==0.6.0
+redis==3.5.2
 requests==2.23.0
 six==1.14.0
 snowballstemmer==2.0.0
