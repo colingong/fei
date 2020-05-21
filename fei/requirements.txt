@@ -9,6 +9,7 @@ Django==2.2.11
 django-redis==4.11.0
 djangorestframework==3.11.0
 docutils==0.16
+gunicorn==20.0.4
 html2text==2020.1.16
 idna==2.9
 imagesize==1.2.0
@@ -50,5 +51,6 @@ unify==0.5
 untokenize==0.1.1
 uritemplate==3.0.1
 urllib3==1.25.8
+uWSGI==2.0.18
 wrapt==1.11.2
 yapf==0.29.0
