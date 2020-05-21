@@ -6,3 +6,5 @@
 
 not_use/
 *.passwd
+
+*.local_log

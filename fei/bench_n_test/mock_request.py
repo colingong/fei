@@ -14,4 +14,5 @@ if __name__ == '__main__':
         url = f"http://127.0.0.1:8000/cache/cached/{id}/"
         func(url)
     end = int(time.time())
+    print(start, end)
     print(f'--- used time : {end - start} s ---\n')
