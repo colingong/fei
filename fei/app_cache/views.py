@@ -14,7 +14,7 @@ def cached_product(request, product_id):
         return JsonResponse({"Cache": "---> HIT", "object": p}, safe=False)
     else:
         p = list(Product.objects.filter(id=product_id).values())
-        cache.set(f'product_{product_id}', p, timeout=1800)
+        cache.set(f'product_{product_id}', p, timeout=3000)
         return JsonResponse({"Cache": "===XXX MISSED", "object": p}, safe=False)
 
 def not_cached_product(request, product_id):
