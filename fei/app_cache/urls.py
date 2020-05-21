@@ -7,4 +7,5 @@ urlpatterns = [
     path('alive/', views.alive, name='alive'),
     path('cached/<int:product_id>/', views.cached_product, name='cached-product'),
     path('nocached/<int:product_id>/', views.not_cached_product, name='no-cached-product'),
+    path('clear/', views.clear_cache, name='clear'),
 ]

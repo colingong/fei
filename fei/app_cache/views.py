@@ -20,3 +20,7 @@ def cached_product(request, product_id):
 def not_cached_product(request, product_id):
     p = list(Product.objects.filter(id=product_id).values())
     return JsonResponse({"NoCache": " No Cache!", "object": p}, safe=False)
+
+def clear_cache(request):
+    cache.clear()
+    return HttpResponse('ok')
