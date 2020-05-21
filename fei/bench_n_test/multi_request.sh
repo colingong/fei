@@ -11,12 +11,12 @@ req() {
     done
 }
 
-req &
-req &
-req &
-req &
-req &
-req &
-req &
-req &
+req 
+# req &
+# req &
+# req &
+# req &
+# req &
+# req &
+# req &
 
