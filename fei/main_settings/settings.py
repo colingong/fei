@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'app_img',
     'app_clientip',
     'app_comments',
+    'app_cache',
 ]
 
 MIDDLEWARE = [
@@ -194,16 +195,18 @@ REST_FRAMEWORK = {
     #     ]
 }
 
+from share.config_redis import REDIS_LOCATION
 # 启用redis作为django的cache backend
-# ACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": "redis://127.0.0.1:6379/1",
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-#         }
-#     }
-# }
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": REDIS_LOCATION,
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "CONNECTION_POOL_KWARGS": {"max_connections": 10},
+        }
+    }
+}
 
 # dummy cache
 # CACHES = {

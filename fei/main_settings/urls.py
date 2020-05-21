@@ -47,4 +47,6 @@ urlpatterns = [
 
     path('favicon.ico', views.favicon, name='favicon'),
     path('', views.site_root, name='site-root'),
+
+    path('cache/', include('app_cache.urls')),
     ]
