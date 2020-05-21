@@ -1,5 +1,6 @@
 import sys
 import urllib.request
+import time
 
 def func(url):
     response = urllib.request.urlopen(url).read()
@@ -8,6 +9,9 @@ def func(url):
 if __name__ == '__main__':
     range_start = int(sys.argv[1])
     range_end = int(sys.argv[2])
+    start = time.time()
     for id in range(range_start, range_end):
         url = f"http://127.0.0.1:8000/cache/cached/{id}/"
         func(url)
+    end = time.time()
+    print(f'--- used time : {end - start} s ---\n')
