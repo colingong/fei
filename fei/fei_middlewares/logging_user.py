@@ -47,12 +47,14 @@ def logging_user(get_response):
         if request.META.get('REMOTE_ADDR'):
             user_log.remote_addr = request.META.get('REMOTE_ADDR')
     
-        if request.user.userid:
+        if request.user.id:
             user_log.userid = request.user.id
 
         if request.user.username:
             user_log.username = request.user.username
-
+        
+        print(f'======> user_log')
+        print(user_log.__dict__)
         user_log.url = request.path_info
         user_log.method = request.method
         user_log.save()
