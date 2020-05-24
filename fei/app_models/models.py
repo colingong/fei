@@ -19,6 +19,7 @@ from .models_order import UserOrder, SubUserOrder, OrderDetail
 from .models_user_role import UserRole
 from .models_user_asset import UserAsset
 from .models_comments import AnonymousComments
+from .models_log import SiteLog
 
 # for drf authentication
 from django.db.models.signals import post_save
