@@ -80,6 +80,8 @@ MIDDLEWARE = [
 
     # custom middleware: current_user
     'fei_middlewares.logging_user.django_current_user',
+    'fei_middlewares.logging_user.logging_user',
+
     'fei_middlewares.data_initial.initial_user_extra',
     'fei_middlewares.data_initial.initial_user_asset',
     'fei_middlewares.generate_token.generate_token_if_not_exist',
