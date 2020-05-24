@@ -49,4 +49,5 @@ urlpatterns = [
     path('', views.site_root, name='site-root'),
 
     path('cache/', include('app_cache.urls')),
+    path('sysinfo/', include('app_sysinfo.urls')),
     ]
