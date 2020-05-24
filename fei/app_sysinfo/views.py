@@ -11,4 +11,5 @@ def uwsgi_reload_info(request):
     with open(file, 'r' ) as f:
         lines = f.readlines()
         print(lines)
-    return HttpResponse(str(lines[-1]) + '/' + str(time.ctime(mtime)))
+    dt = time.strftime("%D %H:%M", time.localtime(mtime))
+    return HttpResponse(str(lines[-1]) + 'Updated@' + str(dt))
