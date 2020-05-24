@@ -1,10 +1,9 @@
 from django.db import models
 
-class SiteLog(models.Model):
+class UserLog(models.Model):
     """日志记录
 
-    Arguments:
-        models {[type]} -- [description]
+    用户日志
     """
     ip = models.GenericIPAddressField(null=True)
     userid = models.IntegerField()
@@ -15,4 +14,16 @@ class SiteLog(models.Model):
     payload = models.CharField(max_length=1024)
 
     def __str__(self):
-        return f'LOG_{self.username}'
+        return f'UserLog_{self.username}'
+
+class SysLog(models.Model):
+    """系统日志
+
+    记录系统事件
+    """
+    datetime = models.DateTimeField(auto_now_add=True)
+    event = models.CharField(max_length=250)
+
+    def __str__(self):
+        return f'SysLog_' + str(self.datetime)
+        
