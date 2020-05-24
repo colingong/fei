@@ -37,12 +37,12 @@ def logging_user(get_response):
         if request.META.get('HTTP_X_FORWARDED_FOR'):
             user_log.x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
         else:
-            user_log.x_forwarded_for = request.headers.get('X_FORWARDED_FOR')
+            user_log.x_forwarded_for = request.headers.get('X_Forwarded_For')
 
         if request.META.get('HTTP_X_REAL_IP'):
             user_log.x_real_ip = request.META.get('HTTP_X_REAL_IP')
         else:
-            user_log.x_real_ip = request.headers.get('X_REAL_IP')
+            user_log.x_real_ip = request.headers.get('X_Real_Ip')
 
         if request.META.get('REMOTE_ADDR'):
             user_log.remote_addr = request.META.get('REMOTE_ADDR')
