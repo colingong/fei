@@ -52,6 +52,8 @@ def logging_user(get_response):
 
         if request.user.username:
             user_log.username = request.user.username
+        else:
+            user_log.username = '未登录'
         
         print(f'======> user_log')
         print(user_log.__dict__)
