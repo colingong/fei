@@ -20,29 +20,48 @@ def django_current_user(get_response):
 from app_models.models import UserLog
 
 def logging_user(get_response):
-    """
-    HTTP_X_FORWARDED_FOR
-    HTTP_X_REAL_IP
-    REMOTE_ADDR
+    """日志记录到日志表
+
+    'x_forwarded_for',
+    'x_real_ip',
+    'remote_addr',
+    'userid',
+    'username',
+    'datetime',
+    'url',
+    'method',
+    'payload',
     """
     def wrapper(request):
         user_log = UserLog()
-        print(f'USER:               {request.user.username}')
-        print(request.path_info)
         try:
-            print(f'REMOTE_ADDR:        {request.META.get("REMOTE_ADDR")}')
+            user_log.x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
         except:
             pass
 
         try:
-            print(f'X_REAL_IP:          {request.META.get("HTTP_X_REAL_IP")}')
+            user_log.x_real_ip = request.META.get('HTTP_X_REAL_IP')
         except:
             pass
 
         try:
-            print(f'X_FORWARDED_FOR:    {request.META.get("HTTP_X_FORWARDED_FOR")}')
+            user_log.remote_addr = request.META.get('REMOTE_ADDR')
         except:
             pass
+    
+        try:
+            user_log.userid = request.user.id
+        except:
+            pass
+
+        try:
+            user_log.username = request.user.username
+        except:
+            pass
+
+        user_log.url = request.path_info
+        user_log.method = request.method
+        user_log.save()
 
         result = get_response(request)
         return result

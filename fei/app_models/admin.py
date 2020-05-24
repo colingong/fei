@@ -10,6 +10,7 @@ from .models import UserExtra, Category, Product
 from .models import UserOrder, SubUserOrder, OrderDetail, Warehouse
 from .models import UserRole
 from .models import UserAsset
+from .models import UserLog
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -242,3 +243,27 @@ class AnonymousCommentsAdmin(admin.ModelAdmin):
 #     comments = models.CharField(max_length=200)
 #     create_time = models.DateTimeField(auto_now_add=True)
 # """
+@admin.register(UserLog)
+class UserLogAdmin(admin.ModelAdmin):
+    list_display = [
+        'x_forwarded_for',
+        'x_real_ip',
+        'remote_addr',
+        'userid',
+        'username',
+        'datetime',
+        'url',
+        'method',
+        'payload',
+        ]
+    fields = [
+        'x_forwarded_for',
+        'x_real_ip',
+        'remote_addr',
+        'userid',
+        'username',
+        'datetime',
+        'url',
+        'method',
+        'payload',
+        ]

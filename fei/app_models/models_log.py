@@ -4,10 +4,15 @@ class UserLog(models.Model):
     """日志记录
 
     用户日志
+        X_FORWARDED_FOR
+        X_REAL_IP
+        REMOTE_ADDR
     """
-    ip = models.GenericIPAddressField(null=True)
-    userid = models.IntegerField()
-    username = models.CharField(max_length=50)
+    x_forwarded_for = models.CharField(max_length=250, null=True)
+    x_real_ip = models.GenericIPAddressField(null=True)
+    remote_addr = models.GenericIPAddressField(null=True)
+    userid = models.IntegerField(null=True)
+    username = models.CharField(max_length=50, null=True)
     datetime = models.DateTimeField(auto_now_add=True)
     url = models.URLField(max_length=250)
     method = models.CharField(max_length=15)
