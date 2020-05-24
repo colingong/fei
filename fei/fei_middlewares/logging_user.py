@@ -34,30 +34,24 @@ def logging_user(get_response):
     """
     def wrapper(request):
         user_log = UserLog()
-        try:
+        if request.META.get('HTTP_X_FORWARDED_FOR'):
             user_log.x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-        except:
-            pass
+        else:
+            user_log.x_forwarded_for = request.headers.get('X_FORWARDED_FOR')
 
-        try:
+        if request.META.get('HTTP_X_REAL_IP'):
             user_log.x_real_ip = request.META.get('HTTP_X_REAL_IP')
-        except:
-            pass
+        else:
+            user_log.x_real_ip = request.headers.get('X_REAL_IP')
 
-        try:
+        if request.META.get('REMOTE_ADDR'):
             user_log.remote_addr = request.META.get('REMOTE_ADDR')
-        except:
-            pass
     
-        try:
+        if request.user.userid:
             user_log.userid = request.user.id
-        except:
-            pass
 
-        try:
+        if request.user.username:
             user_log.username = request.user.username
-        except:
-            pass
 
         user_log.url = request.path_info
         user_log.method = request.method
