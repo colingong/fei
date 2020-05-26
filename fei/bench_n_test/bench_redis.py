@@ -41,18 +41,18 @@ redis3 = redis.Redis(
     password=REDIS_PASSWORD_ALL)
 
 def bench_redis(redis_conf, repeat_count):
-    start = int(time.time())
+    start = float(time.time())
     r = redis_conf
     for i in range(repeat_count):
         r.set(str(i), str(i))
-    end = int(time.time())
+    end = float(time.time())
     print(f'Duration: {end - start}')
 
 if __name__ == '__main__':
     print('start bench redis1')
-    bench_redis(redis1, 300000)
+    bench_redis(redis1, 30)
     print('start bench redis2')
-    bench_redis(redis2, 300000)
+    bench_redis(redis2, 30)
     print('start bench redis3')
-    bench_redis(redis3, 300000)
+    bench_redis(redis3, 30)
     print('--- done ---')
