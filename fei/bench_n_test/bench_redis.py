@@ -50,9 +50,9 @@ def bench_redis(redis_conf, repeat_count):
 
 if __name__ == '__main__':
     print('start bench redis1')
-    bench_redis(redis1, 30)
+    bench_redis(redis1, 300000)
     print('start bench redis2')
-    bench_redis(redis2, 30)
+    bench_redis(redis2, 300000)
     print('start bench redis3')
-    bench_redis(redis3, 30)
+    bench_redis(redis3, 300000)
     print('--- done ---')
