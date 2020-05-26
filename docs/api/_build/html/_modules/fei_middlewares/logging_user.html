@@ -164,6 +164,54 @@
         <span class="n">result</span> <span class="o">=</span> <span class="n">get_response</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span>
     <span class="k">return</span> <span class="n">wrapper</span></div>
+
+<span class="kn">from</span> <span class="nn">app_models.models</span> <span class="kn">import</span> <span class="n">UserLog</span>
+
+<div class="viewcode-block" id="logging_user"><a class="viewcode-back" href="../../api/fei_middlewares.html#fei_middlewares.logging_user.logging_user">[文档]</a><span class="k">def</span> <span class="nf">logging_user</span><span class="p">(</span><span class="n">get_response</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;日志记录到日志表</span>
+
+<span class="sd">    &#39;x_forwarded_for&#39;,</span>
+<span class="sd">    &#39;x_real_ip&#39;,</span>
+<span class="sd">    &#39;remote_addr&#39;,</span>
+<span class="sd">    &#39;userid&#39;,</span>
+<span class="sd">    &#39;username&#39;,</span>
+<span class="sd">    &#39;datetime&#39;,</span>
+<span class="sd">    &#39;url&#39;,</span>
+<span class="sd">    &#39;method&#39;,</span>
+<span class="sd">    &#39;payload&#39;,</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+        <span class="n">user_log</span> <span class="o">=</span> <span class="n">UserLog</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">META</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;HTTP_X_FORWARDED_FOR&#39;</span><span class="p">):</span>
+            <span class="n">user_log</span><span class="o">.</span><span class="n">x_forwarded_for</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">META</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;HTTP_X_FORWARDED_FOR&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">user_log</span><span class="o">.</span><span class="n">x_forwarded_for</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;X_Forwarded_For&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">META</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;HTTP_X_REAL_IP&#39;</span><span class="p">):</span>
+            <span class="n">user_log</span><span class="o">.</span><span class="n">x_real_ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">META</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;HTTP_X_REAL_IP&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">user_log</span><span class="o">.</span><span class="n">x_real_ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;X_Real_Ip&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">META</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;REMOTE_ADDR&#39;</span><span class="p">):</span>
+            <span class="n">user_log</span><span class="o">.</span><span class="n">remote_addr</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">META</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;REMOTE_ADDR&#39;</span><span class="p">)</span>
+    
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+            <span class="n">user_log</span><span class="o">.</span><span class="n">userid</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">id</span>
+
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">:</span>
+            <span class="n">user_log</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">user_log</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;未登录&#39;</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;======&gt; user_log&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">user_log</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+        <span class="n">user_log</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">path_info</span>
+        <span class="n">user_log</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span>
+        <span class="n">user_log</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">get_response</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">wrapper</span></div>
 </pre></div>
 
            </div>

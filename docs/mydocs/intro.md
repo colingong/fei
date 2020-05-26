@@ -365,7 +365,57 @@ google云服务器上预装的docker，设定是自动更新，如果container�
 
 
 
-TODO: 
+## 腾讯云redis的一个简单测试
+
+三个redis
+
+```
+1. 1C1G ECS上，docker 里运行的redis实例（本机）		（成都一区内网一）
+2. 1C1G redis实例，腾讯云上的redis实例						（成都二区内网二）
+3. 4C8G ECS上，docker 里运行的redis实例						（成都一区内网一）
+即三个实例，其中1和3在同地同区同一内网，2在同地同区另一内网
+```
+**测试结果**
+实例 1
+
+```
+        # 本机
+        64 bytes from 10.0.0.13: icmp_seq=1 ttl=64 time=0.051 ms
+        64 bytes from 10.0.0.13: icmp_seq=2 ttl=64 time=0.047 ms
+        start bench redis1
+        Duration: 5.584269046783447
+```
+
+实例 2
+
+```
+        # 同地址域不同区的一个redis实例
+        # redis-cli --latency -h 10.0.2.4 -p 6379
+        # min: 1, max: 7, avg: 1.56 (343 samples)^C
+        # 这个延迟达到1.56，也是相当的高；不过和两台同子网内的延迟比起来，似乎又不算历害了
+        start bench redis2金
+        Duration: 52.816078186035156
+```
+
+实例 3
+
+```
+        # 同区（成都一区）内同子网的另一台主机
+        # 64 bytes from 10.0.0.22: icmp_seq=3 ttl=63 time=1.76 ms
+        # 64 bytes from 10.0.0.22: icmp_seq=4 ttl=63 time=1.72 ms
+        # 同子网内，这个延迟高的有点离谱
+        start bench redis3
+        Duration: 57.26516246795654
+```
+
+有点出乎意料的结果：
+
+```
+    仅从set来看，这个内网延迟很有点高；这么高的延迟，get都不用测了
+    对于redis，连接池看来还是很有必要的，随便延迟高一点的话，完全发挥不出来它的优势
+```
+
+
 
 
 

@@ -97,7 +97,17 @@
 <li class="toctree-l2"><a class="reference internal" href="#id3">一个表情包加文字的小功能</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ip">一个查询IP的小功能</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#webhook">webhook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#celery-rabbitmq-redis">celery / rabbitmq /redis 等</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker">用docker来布署开发环境</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">要点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nginx">nginx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python3-django">python3/Django应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mysql">mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#redis">redis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rabbitmq">rabbitmq</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#git-server">自建git server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">腾讯云redis的一个简单测试</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api/modules.html">fei</a></li>
@@ -317,9 +327,226 @@ CREATE TABLE `app_models_customuser_user_permissions` (
 </pre></div>
 </div>
 </div>
-<div class="section" id="celery-rabbitmq-redis">
-<h2>celery / rabbitmq /redis 等<a class="headerlink" href="#celery-rabbitmq-redis" title="永久链接至标题">¶</a></h2>
-<p>TODO:</p>
+<div class="section" id="docker">
+<h2>用docker来布署开发环境<a class="headerlink" href="#docker" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 腾讯云 ecs: 1CPU/1GB Ram/40GB HDD</span>
+<span class="c1"># 本机布署以下应用/组件</span>
+
+<span class="n">python</span><span class="p">:</span><span class="mf">3.6</span><span class="n">ays</span>           <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">8001</span><span class="o">-&gt;</span><span class="mi">8000</span><span class="o">/</span><span class="n">tcp</span>                               <span class="mi">8001</span><span class="n">dj_webhook</span>
+<span class="n">python</span><span class="p">:</span><span class="mf">3.6</span><span class="n">inutes</span>        <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">5553</span><span class="o">-&gt;</span><span class="mi">5556</span><span class="o">/</span><span class="n">tcp</span><span class="p">,</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">83</span><span class="o">-&gt;</span><span class="mi">8000</span><span class="o">/</span><span class="n">tcp</span>         <span class="mi">83</span><span class="n">dj_fei</span>
+<span class="n">python</span><span class="p">:</span><span class="mf">3.6</span><span class="n">eeks</span>          <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">5557</span><span class="o">-&gt;</span><span class="mi">5556</span><span class="o">/</span><span class="n">tcp</span><span class="p">,</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">81</span><span class="o">-&gt;</span><span class="mi">8000</span><span class="o">/</span><span class="n">tcp</span>         <span class="mi">81</span><span class="n">dj_weixin</span>
+<span class="n">python</span><span class="p">:</span><span class="mf">3.6</span><span class="n">eeks</span>          <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">5556</span><span class="o">-&gt;</span><span class="mi">5556</span><span class="o">/</span><span class="n">tcp</span><span class="p">,</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">82</span><span class="o">-&gt;</span><span class="mi">8000</span><span class="o">/</span><span class="n">tcp</span>         <span class="mi">82</span><span class="n">dj_educa</span>
+<span class="n">nginx</span><span class="p">:</span><span class="mf">1.14</span><span class="n">days</span>          <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">80</span><span class="o">-&gt;</span><span class="mi">80</span><span class="o">/</span><span class="n">tcp</span><span class="p">,</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">443</span><span class="o">-&gt;</span><span class="mi">443</span><span class="o">/</span><span class="n">tcp</span>             <span class="n">web</span><span class="o">-</span><span class="n">nginx</span><span class="o">-</span><span class="mi">80</span>
+<span class="n">mongo</span><span class="p">:</span><span class="mf">4.0</span><span class="o">.</span><span class="n">onths</span>         <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">27017</span><span class="o">-&gt;</span><span class="mi">27017</span><span class="o">/</span><span class="n">tcp</span>                             <span class="n">mongo4</span><span class="o">-</span><span class="mi">27017</span>
+<span class="n">redis</span><span class="p">:</span><span class="mi">4</span><span class="o">-</span><span class="n">alonths</span>         <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">6379</span><span class="o">-&gt;</span><span class="mi">6379</span><span class="o">/</span><span class="n">tcp</span>                               <span class="n">redis</span><span class="o">-</span><span class="mi">6379</span>
+<span class="n">jkarlos</span><span class="o">/</span><span class="n">gionths</span>         <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">2222</span><span class="o">-&gt;</span><span class="mi">22</span><span class="o">/</span><span class="n">tcp</span>                     <span class="n">git</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">source</span><span class="o">-</span><span class="n">code</span><span class="o">-</span><span class="n">repos</span>
+<span class="n">mysql</span><span class="p">:</span><span class="mf">5.7</span> <span class="n">eeks</span>          <span class="mi">33060</span><span class="o">/</span><span class="n">tcp</span><span class="p">,</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">5004</span><span class="o">-&gt;</span><span class="mi">3306</span><span class="o">/</span><span class="n">tcp</span>                    <span class="n">mysql57</span><span class="o">-</span><span class="mi">5004</span>
+
+<span class="n">rabbitmq</span><span class="p">:</span><span class="mi">3</span><span class="n">onths</span>         <span class="mi">4369</span><span class="o">/</span><span class="n">tcp</span><span class="p">,</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">5672</span><span class="o">-&gt;</span><span class="mi">5672</span><span class="o">/</span><span class="n">tcp</span><span class="p">,</span> <span class="mi">5671</span><span class="o">/</span><span class="n">tcp</span><span class="p">,</span> <span class="mi">25672</span><span class="o">/</span><span class="n">tcp</span><span class="p">,</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">15672</span><span class="o">-&gt;</span><span class="mi">15672</span><span class="o">/</span><span class="n">tcp</span>   <span class="n">rabbit5672</span>
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h3>要点<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. 在内存不够的情况下，需要开启swap
+2. django app映射到不同的本机外部端口，可以是80, 81等，也可以是8000, 8001等
+3. nginx解析域名，指向不同的端口
+4. redis，mongo，mysql，等都可以开多个实例，映射到不同端口即可
+5. 线上生产系统不要把redis/mysql等端口开放到公网ip，应该仅限于内网访问
+</pre></div>
+</div>
+</div>
+<div class="section" id="nginx">
+<h3>nginx<a class="headerlink" href="#nginx" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>确定服务端口，通常情况下监听80和443端口即可，支持http和https
+nginx官方镜像的文件目录是/usr/share/nginx/html，将自已的文件目录mount到该目录即可
+nginx官方镜像的配置文件目录是/etc/nginx/conf.d，将自已的配置文件目录mount到该目录
+对于个人开发测试等用途，没有镜像分发需求，直接docker run起container即可
+
+docker run                                                                      \
+        --name web-nginx-80                                                     \
+        -v /root/docker-op/nginx-test/content:/usr/share/nginx/html             \
+        -v /root/docker-op/nginx-test/conf:/etc/nginx/conf.d                    \
+        -d                                                                      \
+        -p 0.0.0.0:80:80                                                        \
+        -p 0.0.0.0:443:443                                                      \
+        nginx:1.14.2-alpine
+</pre></div>
+</div>
+<p>支持多站点的配置</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>在前面提到的nginx配置文件夹中，针对每个site写一个配置文件，每增加一个site，简单增加一个配置文件即可
+例如有以下5个配置文件，每个配置文件都支持了一个域名/子域名的web服务
+当你要取消某个站点的服务时，简单的将名字改掉或删掉对应的配置文件即可
+web-82.conf							# 一个应用跑在本机的82端口上，nginx转发相应的请求到该端口
+webhook-8001.conf  			# 另一个叫做webhook的应用配置跑在本机的 8001端口，ningx将对应的请求转发到该端口
+wx-web-81.conf					# 一个跑在 81端口上的微信公众号服务
+not_use_web-84      		# 一个不再使用的配置文件
+</pre></div>
+</div>
+<p>配置文件示例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># this is a testing config for site: http://demo.hhxx.me
+# copy this config to container:/etc/nginx/conf.d
+
+  server {
+    client_max_body_size 20M;
+    listen       80;
+    server_name  83.hhxx.me demo.hhxx.me;
+    charset utf-8,gbk;
+    access_log  /var/log/nginx/access.log  main;
+
+    # pass requests for dynamic content to rails/turbogears/zope, et al
+    location / {
+#       return 200 &#39;web-83&#39;;
+#       default_type &quot;text/html; charset=UTF-8&quot;;
+      proxy_pass      http://10.0.0.13:83/;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For &quot;$http_x_forwarded_for, $realip_remote_addr&quot;;
+      proxy_set_header Host $host;
+
+    }
+  }
+
+# 注意这个配置是将请求转发到本机的83端口，因为一个docker封装的python/django应用被映射到83端口
+# 其中 return 200 &#39;web-83&#39; 和 default_type，可用于测试nginx是否正确提供了期望的服务
+</pre></div>
+</div>
+</div>
+<div class="section" id="python3-django">
+<h3>python3/Django应用<a class="headerlink" href="#python3-django" title="永久链接至标题">¶</a></h3>
+<p>对于python/django应用，官方镜像默认源文件位于/usr/src/app目录</p>
+<p>将自已的程序源文件目录mount到该目录即可</p>
+<p>这里的PIP_CONF是为了解决python包下载速度太慢，配置了国内的镜像源</p>
+<p>按照自已的喜好，可选阿里云或腾讯云的镜像源都可以。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># create a docker container named : pydev_
+
+SOURCE_CODE_DIR=/root/docker-op/py_dev/code_repos/github_fei/fei
+ENV_FILE_FILE=/root/docker-op/py_dev/code_repos/github_fei_env/env_fei
+PIP_CONF=/root/docker-op/py_dev/pip-conf
+
+docker run                                                                      \
+        --name  83dj_fei                                                        \
+        --env-file ${ENV_FILE_FILE}                                             \
+        -v ${SOURCE_CODE_DIR}:/usr/src/app                                      \
+        -v ${PIP_CONF}:/root/.pip                                               \
+        -dit                                                                    \
+        -p 0.0.0.0:83:8000                                                      \
+        -p 0.0.0.0:5553:5556                                                    \
+        python:3.6-stretch                                                      \
+        sh -c &quot;cd /usr/src/app &amp;&amp;  pip install --no-cache-dir --default-timeout=150 -r  requirements.txt &amp;&amp;  python manage.py runserver 0.0.0.0:8000 --insecure &quot;
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="mysql">
+<h3>mysql<a class="headerlink" href="#mysql" title="永久链接至标题">¶</a></h3>
+<p>对于mysql官方镜像源，默认的data dir是 /var/lib/mysql，默认的配置目录是 /etc/mysql/conf.d</p>
+<p>将自已的数据目录和配置目录写好就可以了</p>
+<p>mysql的端口如果开放公网访问的话（个人测试或开发一般会这么干），考虑把端口号改成 3306以外的端口，减少被扫描爆破的风险。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>MYSQL_DATA_DIR=&quot;/root/docker-op/mysql57/data_mysql57_5004&quot;
+MYSQL_CONF_DIR=&quot;/root/docker-op/mysql57/conf.d&quot;
+docker run --name mysql57-5004                                                          \
+                -e MYSQL_ROOT_PASSWORD=Vpassword123456789 -d                            \
+                -v $MYSQL_DATA_DIR:/var/lib/mysql                                       \
+                -v $MYSQL_CONF_DIR:/etc/mysql/conf.d                     								\
+                -p 0.0.0.0:3456:3306                                                    \
+                mysql:5.7
+</pre></div>
+</div>
+</div>
+<div class="section" id="redis">
+<h3>redis<a class="headerlink" href="#redis" title="永久链接至标题">¶</a></h3>
+<p>redis的配置和上面差不多，都是了解下配置文件目录，然后就可以写好相应的脚本了。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CONTAINER_NAME=&quot;redis-6379&quot;
+
+docker run                                                                              \
+        -v ${REDIS_CONF_FILE}:/usr/local/etc/redis/redis.conf                           \
+        -d                                                                              \
+        -p 0.0.0.0:6379:6379                                                            \
+        --name ${CONTAINER_NAME}                                                        \
+        redis:4-alpine                                                                  \
+        redis-server /usr/local/etc/redis/redis.conf
+</pre></div>
+</div>
+</div>
+<div class="section" id="rabbitmq">
+<h3>rabbitmq<a class="headerlink" href="#rabbitmq" title="永久链接至标题">¶</a></h3>
+<p>rabbitmq也一样，就是注意开放管理端口的话，需要再映射多一个管理端口</p>
+<p>这里也是可以把默认端口改成其它端口。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This will start a RabbitMQ container listening on the default port of 5672.</span>
+
+<span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">--</span><span class="n">hostname</span> <span class="n">my</span><span class="o">-</span><span class="n">rabbit</span>                      \
+        <span class="o">-</span><span class="n">p</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">5672</span><span class="p">:</span><span class="mi">5672</span>                            \
+        <span class="o">-</span><span class="n">p</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">15672</span><span class="p">:</span><span class="mi">15672</span>                          \
+        <span class="o">--</span><span class="n">name</span> <span class="n">rabbit5672</span> <span class="n">rabbitmq</span><span class="p">:</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="git-server">
+<h2>自建git server<a class="headerlink" href="#git-server" title="永久链接至标题">¶</a></h2>
+<p>git server官方没有镜像，可以找其它人制作的镜像，也可以自已自制一个。</p>
+<p>git server本身没啥特别的，一般碰到麻烦的无非就是配ssh/sshd的时候出状况。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># 这里我用了一个别人自制的镜像 jkarlos/git-server-docker
+HOST_REPO_DIR=&quot;/home/data/source-code-repos&quot;
+CONTAINER_DIR=&quot;/home/git/source_code&quot;
+
+SSH_KEYS_DIR=&quot;/root/docker-op/git-server/ssh_keys&quot;
+CONTAINER_SSH_KEYS_DIR=&quot;/home/git/.ssh&quot;
+
+docker run -d                                                                   \
+        --name git-server-source-code-repos                                     \
+        -p 2222:22                                                              \
+        -v ${HOST_REPO_DIR}:${CONTAINER_DIR}                                    \
+        -v ${SSH_KEYS_DIR}:${CONTAINER_SSH_KEYS_DIR}                            \
+        jkarlos/git-server-docker
+</pre></div>
+</div>
+<p><strong>docker很方便，也需要注意一些地方：</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>可以为container设定--restart=always
+google云服务器上预装的docker，设定是自动更新，如果container没有自动 restart，那么每次docker更新之后你就会奇怪为什么container都挂掉了！
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>腾讯云redis的一个简单测试<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>三个redis</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. 1C1G ECS上，docker 里运行的redis实例（本机）		（成都一区内网一）
+2. 1C1G redis实例，腾讯云上的redis实例						（成都二区内网二）
+3. 4C8G ECS上，docker 里运行的redis实例						（成都一区内网一）
+即三个实例，其中1和3在同地同区同一内网，2在同地同区另一内网
+</pre></div>
+</div>
+<p><strong>测试结果</strong>
+实例 1</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># 本机</span>
+        <span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">0.13</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">1</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">64</span> <span class="n">time</span><span class="o">=</span><span class="mf">0.051</span> <span class="n">ms</span>
+        <span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">0.13</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">2</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">64</span> <span class="n">time</span><span class="o">=</span><span class="mf">0.047</span> <span class="n">ms</span>
+        <span class="n">start</span> <span class="n">bench</span> <span class="n">redis1</span>
+        <span class="n">Duration</span><span class="p">:</span> <span class="mf">5.584269046783447</span>
+</pre></div>
+</div>
+<p>实例 2</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># 同地址域不同区的一个redis实例</span>
+        <span class="c1"># redis-cli --latency -h 10.0.2.4 -p 6379</span>
+        <span class="c1"># min: 1, max: 7, avg: 1.56 (343 samples)^C</span>
+        <span class="c1"># 这个延迟达到1.56，也是相当的高；不过和两台同子网内的延迟比起来，似乎又不算历害了</span>
+        <span class="n">start</span> <span class="n">bench</span> <span class="n">redis2金</span>
+        <span class="n">Duration</span><span class="p">:</span> <span class="mf">52.816078186035156</span>
+</pre></div>
+</div>
+<p>实例 3</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="c1"># 同区（成都一区）内同子网的另一台主机</span>
+        <span class="c1"># 64 bytes from 10.0.0.22: icmp_seq=3 ttl=63 time=1.76 ms</span>
+        <span class="c1"># 64 bytes from 10.0.0.22: icmp_seq=4 ttl=63 time=1.72 ms</span>
+        <span class="c1"># 同子网内，这个延迟高的有点离谱</span>
+        <span class="n">start</span> <span class="n">bench</span> <span class="n">redis3</span>
+        <span class="n">Duration</span><span class="p">:</span> <span class="mf">57.26516246795654</span>
+</pre></div>
+</div>
+<p>有点出乎意料的结果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    仅从set来看，这个内网延迟很有点高；这么高的延迟，get都不用测了
+    对于redis，连接池看来还是很有必要的，随便延迟高一点的话，完全发挥不出来它的优势
+</pre></div>
+</div>
 </div>
 </div>
 

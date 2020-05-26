@@ -146,7 +146,8 @@
            <div itemprop="articleBody">
             
   <h1>app_demo1.views 源代码</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">HttpResponse</span>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">HttpResponse</span>
 
 <span class="c1"># Create your views here.</span>
 <div class="viewcode-block" id="alive"><a class="viewcode-back" href="../../api/app_demo1.html#app_demo1.views.alive">[文档]</a><span class="k">def</span> <span class="nf">alive</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
@@ -154,6 +155,12 @@
 
 <div class="viewcode-block" id="test"><a class="viewcode-back" href="../../api/app_demo1.html#app_demo1.views.test">[文档]</a><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;/demo1/test/&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="echo_env"><a class="viewcode-back" href="../../api/app_demo1.html#app_demo1.views.echo_env">[文档]</a><span class="k">def</span> <span class="nf">echo_env</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">var_name</span><span class="p">):</span>
+    <span class="c1"># os_env_var = os.getenv(var_name, f&#39;no var named: {var_name}&#39;)</span>
+    <span class="c1"># return HttpResponse(os_env_var)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;&lt;h2&gt;功能被禁止！&lt;/h2&gt;&#39;</span><span class="p">)</span></div>
 </pre></div>
 
            </div>
