@@ -10,5 +10,6 @@ def test(request):
 
 
 def echo_env(request, var_name):
-    redis2 = os.getenv(var_name, f'no var named: {var_name}')
-    return HttpResponse(redis2)
+    # os_env_var = os.getenv(var_name, f'no var named: {var_name}')
+    # return HttpResponse(os_env_var)
+    return HttpResponse('<h2>功能被禁止！</h2>')
