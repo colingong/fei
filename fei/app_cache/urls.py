@@ -10,4 +10,5 @@ urlpatterns = [
     path('nocached/<int:product_id>/', views.not_cached_product, name='no-cached-product'),
     path('clear/', views.clear_cache, name='clear'),
     path('bf/init/<str:model_name>/', views_bloom_filter.init_bloom_filter, name='init-bloom-filter'),
+    path('bf/list/', views_bloom_filter.list_bf, name='list-bloomfilter'),
 ]

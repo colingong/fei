@@ -20,6 +20,7 @@ from .models_user_role import UserRole
 from .models_user_asset import UserAsset
 from .models_comments import AnonymousComments
 from .models_log import UserLog, SysLog
+from django.contrib.auth.models import User
 
 # for drf authentication
 from django.db.models.signals import post_save

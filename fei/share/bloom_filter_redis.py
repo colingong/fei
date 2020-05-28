@@ -9,11 +9,9 @@ except:
 from hashlib import sha1
 import datetime
 
-print('----', REDIS_DB)
-print('----', REDIS_HOST)
 redis_conn = redis.Redis(
     host=REDIS_HOST,
-    db=REDIS_DB,
+    db=4,
     port=REDIS_PORT,
     password=REDIS_PASSWORD_ALL
 )
@@ -33,6 +31,10 @@ def bloomfilter_flushdb_then_init(redis=redis_conn, bit_length=BLOOM_FILTER_SIZE
     except:
         print('Bloom Filter init failed!')
         return False
+
+def list_bloom_filter(redis_conn=redis_conn):
+    redis = redis_conn
+    return redis.keys(pattern="*")
 
 class BloomFilterRedis(object):
     def __init__(self, redis=redis_conn, bit_length=BLOOM_FILTER_SIZE, hash_count=5, key=BLOOM_FILTER_KEY):
