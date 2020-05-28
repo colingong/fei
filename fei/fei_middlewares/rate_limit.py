@@ -16,6 +16,7 @@ def ratelimit(get_response):
             return HttpResponse('Busy, try later!"\n" ')
         
         result = get_response(request)
+        print(result.headers)
         redis_rate_limit.lpush(KEY, 1)
         return result
     return wrapper
