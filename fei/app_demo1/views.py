@@ -18,6 +18,6 @@ def echo_env(request, var_name):
 
 def echo_datetime(request):
     x = random.random()
-    time.sleep(1000)
+    time.sleep(3)
     current = time.strftime('%m-%d %H:%M:%S')
     return HttpResponse(f'{current} <br>"\n" ')
