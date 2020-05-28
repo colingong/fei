@@ -46,5 +46,6 @@ def response_headers(get_response):
         for k, v in result._headers.items():
             print(f'{str(k)} : {str(v)}', end='|')
         # print('---------- END   [response_header] ---')
+        print()
         return result
     return wrapper

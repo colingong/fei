@@ -11,6 +11,7 @@ def init_bloom_filter(request, model_name):
         model = apps.get_model('app_models', model_name)
     except:
         return HttpResponse('不支持的模型操作，或者模型名称错误！')
+        
     bloomfilter_flushdb_then_init(key=model_name)
     all_instance = model.objects.all()
 
