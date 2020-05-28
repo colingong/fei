@@ -4,7 +4,7 @@
    这些敏感信息也不能放到repo中，即使是私有的repo也不建议放
 """
 import os
-
+import redis
 
 REDIS_LOCATION = os.getenv("env_redis_location")
 
@@ -13,3 +13,11 @@ REDIS_HOST = os.getenv("redis_host")
 REDIS_PORT = int(os.environ.get("redis_port"))
 REDIS_DB = int(os.environ.get("redis_db"))
 REDIS_PASSWORD_ALL = os.getenv("redis_password")
+
+# redis for rate_limit
+redis_rate_limit = redis.Redis(
+   host=REDIS_HOST,
+   db=5,
+   port=REDIS_PORT,
+   password=REDIS_PASSWORD_ALL
+)

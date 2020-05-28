@@ -6,4 +6,5 @@ urlpatterns = [
     path('test/', views.test, name='test'),
 
     path('echo_env/<str:var_name>/', views.echo_env, name='echo_env'),
+    path('datetime/', views.echo_datetime, name='datetime'),
 ]
