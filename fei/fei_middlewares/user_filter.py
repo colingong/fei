@@ -13,7 +13,8 @@ def disable_user_change_pass(get_response):
     """
     def wrapper(request):
         if request.user.username == 'user' and 'admin/password_change' in request.path:
-                print(f'--- 测试用户试图修改密码！---')
+                print(f'-- disable_user_change_pass --'.ljust(30))
+                print(f'测试用户试图修改密码!')
                 return HttpResponse('<h2>测试用户不允许修改密码！</h2>')
         result = get_response(request)
         return result

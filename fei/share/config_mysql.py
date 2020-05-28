@@ -7,14 +7,21 @@ import os
 
 from os import getenv
 
+# refactory for easy testing
+MYSQL_HOST = os.getenv('env_db_host')
+MYSQL_NAME = os.getenv('env_db_database')
+MYSQL_USER = os.getenv('env_db_user')
+MYSQL_PASSWORD = os.getenv('env_db_password')
+MYSQL_PORT = os.getenv('env_db_port')
+
 DATABASES_MYSQL = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': os.getenv('env_db_host'),
-        'NAME': os.getenv('env_db_database'),
-        'USER': os.getenv('env_db_user'),
-        'PASSWORD': os.getenv('env_db_password'),
-        'PORT': os.getenv('env_db_port'),
+        'HOST': MYSQL_HOST,
+        'NAME': MYSQL_NAME,
+        'USER': MYSQL_USER,
+        'PASSWORD': MYSQL_PASSWORD,
+        'PORT': MYSQL_PORT,
         'CONN_MAX_AGE': 27800,
         'OPTIONS': {
             'autocommit': True,

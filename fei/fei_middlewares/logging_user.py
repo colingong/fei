@@ -8,7 +8,7 @@ def django_current_user(get_response):
         django用户，非drf用户
     """
     def wrapper(request):
-        print('--- MIDDLEWARE [django_current_user] ----------------------')
+        print('-- django_current_user --'.ljust(30))
         print(f'        session ---> {request.session._SessionBase__session_key}')
         print(f'        path_info ---> {request.path_info}')
         print(f'        current USER/ID ---> {request.user}/{request.user.id}')
@@ -55,7 +55,7 @@ def logging_user(get_response):
         else:
             user_log.username = '未登录'
         
-        print(f'======> user_log')
+        print(f'-- logging_user -- '.ljust(30))
         print(user_log.__dict__)
         user_log.url = request.path_info
         user_log.method = request.method

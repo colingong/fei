@@ -22,7 +22,7 @@ def initial_user_asset(get_response):
             try:
                 request.user.userasset
             except ObjectDoesNotExist:
-                print(f'--- MIDDLEWARE [initial_user_asset] ---> 用户的 资产记录不存在')
+                print(f'-- initial_user_asset --'.ljust(30), f' ---> 用户的 资产记录不存在')
                 asset = UserAsset(user=request.user)
                 asset.balance = 0
                 asset.save()
@@ -47,7 +47,7 @@ def initial_user_extra(get_response):
             try:
                 request.user.userextra
             except ObjectDoesNotExist:
-                print(f'---MIDDLEWARE [initial_user_extra] ---> 用户{request.user.username}的 userextra 不存在')
+                print(f'-- initial_user_extra --'.ljust(30), f'---> 用户{request.user.username}的 userextra 不存在')
                 userextra = UserExtra(user=request.user)
                 userextra.save()
 

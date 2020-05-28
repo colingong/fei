@@ -9,4 +9,7 @@ import os
 REDIS_LOCATION = os.getenv("env_redis_location")
 
 # 测试用的redis，使用统一的password
+REDIS_HOST = os.getenv("redis_host")
+REDIS_PORT = int(os.environ.get("redis_port"))
+REDIS_DB = int(os.environ.get("redis_db"))
 REDIS_PASSWORD_ALL = os.getenv("redis_password")

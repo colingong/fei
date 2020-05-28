@@ -25,7 +25,7 @@ def request_headers(get_response):
     def wrapper(request):
         headers_not_log = ["Content-Length", "Referer", "Connection", "Host", "Upgrade-Insecure-Requests", ]
         headers = getattr(request, 'headers', 'request目前还没有 *headers* ')
-        print('--- MIDDLEWARE [request_headers] ----------------')
+        print('-- request_headers --'.ljust(30))
         for k, v in headers.items():
             if k not in headers_not_log:
                 print(f'        {k.ljust(30)} ---> {v.ljust(80)}')
@@ -42,9 +42,9 @@ def response_headers(get_response):
     def wrapper(request):
         result = get_response(request)
         # after
-        print('--- MIDDLEWARE [response_header] ----------')
+        print('-- response_header --'.ljust(30), end='')
         for k, v in result._headers.items():
-            print(f'        {str(k).ljust(30)} ---> {str(v).ljust(80)}')
+            print(f'{str(k)} : {str(v)}', end='|')
         # print('---------- END   [response_header] ---')
         return result
     return wrapper

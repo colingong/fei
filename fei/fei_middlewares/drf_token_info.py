@@ -16,9 +16,9 @@ def drf_user_info(get_response):
         result = get_response(request)
         try:
             user, token = authentication.TokenAuthentication().authenticate(request)
-            print(f'--- MIDDLEWARE [drf_user_info] : ID /User / Token] ---> {user.id} / {user} / {token}')
+            print(f'-- drf_user_info --'.ljust(30), f' : ID /User / Token] ---> {user.id} / {user} / {token}')
         except:
-            print(f'--- MIDDLEWARE [drf_user_info] AUTH FAILED!')
+            print(f'-- drf_user_info --'.ljust(30), f'AUTH FAILED!')
 
         return result
     return wrapper
