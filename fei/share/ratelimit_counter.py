@@ -4,6 +4,7 @@ KEY = 'ratelimit_counter'
 RATE_LIMIT = 3
 
 # redis_rate_limit.set(KEY, RATE_LIMIT)
+redis_rate_limit.delete(KEY)
 for i in range(RATE_LIMIT):
     redis_rate_limit.lpush(KEY, 1)
 

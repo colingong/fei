@@ -101,6 +101,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # 自定义context processors
+                'fei_contextprocessors.page_header.context_fei',
             ],
         },
     },

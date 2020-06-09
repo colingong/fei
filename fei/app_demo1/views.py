@@ -1,3 +1,5 @@
+# from fei_contextprocessors.page_header import context_header
+# from fei_contextprocessors.page_header import context_header
 import os
 from django.shortcuts import render, HttpResponse
 import time
@@ -21,3 +23,6 @@ def echo_datetime(request):
     time.sleep(3)
     current = time.strftime('%m-%d %H:%M:%S')
     return HttpResponse(f'{current} <br>"\n" ')
+
+def context_demo(request):
+    return render(request, 'app_demo1/test_context_processer.html')
