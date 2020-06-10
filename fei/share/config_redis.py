@@ -9,9 +9,10 @@ import redis
 REDIS_LOCATION = os.getenv("env_redis_location")
 
 # 测试用的redis，使用统一的password
+# redis port & db: set default to 0 
 REDIS_HOST = os.environ.get("redis_host")
-REDIS_PORT = int(os.environ.get("redis_port"))
-REDIS_DB = int(os.environ.get("redis_db"))
+REDIS_PORT = int(os.environ.get("redis_port", 0))
+REDIS_DB = int(os.environ.get("redis_db", 0))
 REDIS_PASSWORD_ALL = os.environ.get("redis_password")
 
 # redis for rate_limit
