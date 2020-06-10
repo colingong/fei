@@ -9,11 +9,10 @@ import redis
 REDIS_LOCATION = os.getenv("env_redis_location")
 
 # 测试用的redis，使用统一的password
-# 默认值是因为 sphinx build 时不能为None
-REDIS_HOST = os.environ.get("redis_host", "sphinx_need_it")
-REDIS_PORT = int(os.environ.get("redis_port", "sphinx_need_it"))
-REDIS_DB = int(os.environ.get("redis_db", "sphinx_need_it"))
-REDIS_PASSWORD_ALL = os.environ.get("redis_password", "sphinx_need_it")
+REDIS_HOST = os.environ.get("redis_host")
+REDIS_PORT = int(os.environ.get("redis_port"))
+REDIS_DB = int(os.environ.get("redis_db"))
+REDIS_PASSWORD_ALL = os.environ.get("redis_password")
 
 # redis for rate_limit
 redis_rate_limit = redis.Redis(
