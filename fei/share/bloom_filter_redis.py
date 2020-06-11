@@ -4,7 +4,7 @@ try:
     from .config_redis import REDIS_PORT, REDIS_PASSWORD_ALL, REDIS_DB, REDIS_HOST    
 except:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    from config_redis import REDIS_PORT, REDIS_PASSWORD_ALL, REDIS_DB, REDIS_HOST    
+    from .config_redis import REDIS_PORT, REDIS_PASSWORD_ALL, REDIS_DB, REDIS_HOST    
 
 from hashlib import sha1
 import datetime

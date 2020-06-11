@@ -121,8 +121,16 @@ WSGI_APPLICATION = 'main_settings.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+DATABASES = {
+    'default': DATABASES_MYSQL
+}
 
-DATABASES = DATABASES_MYSQL
+import sys
+if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing and django-coverage
+    # DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+    DATABASES['default'] = {'ENGINE': 'django.db.backends.sqlite3'}
+
+# DATABASES = DATABASES_MYSQL
 
 # 不使用AbstractUser来扩展用户模型
 # AUTH_USER_MODEL = 'app_models.CustomUser'

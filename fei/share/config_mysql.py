@@ -15,7 +15,6 @@ MYSQL_PASSWORD = os.getenv('env_db_password')
 MYSQL_PORT = os.getenv('env_db_port')
 
 DATABASES_MYSQL = {
-    'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': MYSQL_HOST,
         'NAME': MYSQL_NAME,
@@ -26,8 +25,4 @@ DATABASES_MYSQL = {
         'OPTIONS': {
             'autocommit': True,
         },
-    },
-    'OPTIONS': {
-        'timeout': 26000,
     }
-}
