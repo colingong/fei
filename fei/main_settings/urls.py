@@ -50,4 +50,5 @@ urlpatterns = [
 
     path('cache/', include('app_cache.urls')),
     path('sysinfo/', include('app_sysinfo.urls')),
+    path('account/', include('app_account.urls')),
     ]

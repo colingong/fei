@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from share.config_redis import REDIS_LOCATION
+import sys
 from share.config_mysql import DATABASES_MYSQL
 import os
 
@@ -57,13 +59,14 @@ INSTALLED_APPS = [
     'app_comments',
     'app_cache',
     'app_sysinfo',
+    'app_account',
 ]
 
 MIDDLEWARE = [
     # 自定义middleware，检查response headers
     'fei_middlewares.headers_info.response_headers',
     'fei_middlewares.drf_token_info.drf_user_info',
-    
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -74,7 +77,7 @@ MIDDLEWARE = [
     'fei_middlewares.headers_info.request_headers',
     # 过滤一下测试用户，不让它改密码
     'fei_middlewares.user_filter.disable_user_change_pass',
-    
+
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
@@ -122,11 +125,13 @@ WSGI_APPLICATION = 'main_settings.wsgi.application'
 #     }
 # }
 DATABASES = {
-    'default': DATABASES_MYSQL
+    'default': DATABASES_MYSQL,
+    'OPTIONS': {
+        'connect_timeout': 84400,
+    }
 }
 
-import sys
-if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing and django-coverage
+if 'test' in sys.argv or 'test_coverage' in sys.argv:  # Covers regular testing and django-coverage
     # DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
     DATABASES['default'] = {'ENGINE': 'django.db.backends.sqlite3'}
 
@@ -180,10 +185,10 @@ STATICFILES_DIRS = ['collect_serve', ]
 
 # django 认证
 AUTHENTICATION_BACKENDS = [
-     'django.contrib.auth.backends.ModelBackend', 
-     'fei_backends.fei_auth.FeiAuth',
+    'django.contrib.auth.backends.ModelBackend',
+    'fei_backends.fei_auth.FeiAuth',
     #  'fei_backend.my_auth_backend_1.MyBackend1',
-    ]
+]
 
 # for app_drf
 REST_FRAMEWORK = {
@@ -201,7 +206,7 @@ REST_FRAMEWORK = {
     ),
     # 'UNICODE_JSON': True,
     # 'COMPACT_JSON': True,
-    
+
     # 'DEFAULT_RENDERER_CLASSES': [
     #     'rest_framework.renderers.JSONRenderer',
     #     ],
@@ -210,7 +215,6 @@ REST_FRAMEWORK = {
     #     ]
 }
 
-from share.config_redis import REDIS_LOCATION
 # 启用redis作为django的cache backend
 CACHES = {
     "default": {
