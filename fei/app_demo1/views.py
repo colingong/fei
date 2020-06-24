@@ -26,3 +26,9 @@ def echo_datetime(request):
 
 def context_demo(request):
     return render(request, 'app_demo1/test_context_processer.html')
+
+from .tasks import celery_task_console_log_num
+def celery_jobs(request):
+    for i in range(3):
+        celery_task_console_log_num.delay(i)
+    return HttpResponse('celery jobs run')
