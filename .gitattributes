@@ -1,5 +1,10 @@
 docs/* linguist-documentation
 
+fei/collect_to/* linguist-vendored
+fei/collect_serve/* linguist-vendored
+fei/static/* linguist-vendored
+
+
 *.py linguist-detectable=true
 # *.js linguist-detectable=false
 # *.html linguist-detectable=false
