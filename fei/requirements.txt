@@ -33,7 +33,7 @@ packaging==20.3
 Pillow==7.1.2
 pycodestyle==2.5.0
 pydash==4.7.6
-Pygments==2.6.1
+Pygments==2.7.4
 pylint==2.4.4
 pyparsing==2.4.6
 pytz==2019.3
