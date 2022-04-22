@@ -10,7 +10,7 @@ celery==4.4.5
 certifi==2019.11.28
 chardet==3.0.4
 commonmark==0.9.1
-Django==2.2.13
+Django==2.2.28
 django-redis==4.11.0
 djangorestframework==3.11.0
 docutils==0.16
